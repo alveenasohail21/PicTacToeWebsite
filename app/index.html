@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-cloak>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title ng-bind="$root.pageTitle"></title>
+    <!-- build:css styles/libs.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/css/main.css"/>
+    <!-- endbuild -->
+</head>
+
+<body class="">
+
+<!-- Main Header -->
+<ng-include src="'src/layouts/mainHeader.html'"></ng-include>
+
+<!-- Sub Header -->
+<ng-include src="'src/layouts/subHeader.html'"></ng-include>
+
+<!-- User Header -->
+<ng-include src="'src/layouts/userHeader.html'"></ng-include>
+
+<!-- Page Content -->
+<div ui-view></div>
+
+<!-- Footer -->
+<ng-include src="'src/layouts/footer.html'"></ng-include>
+
+<!-- Modals - Login -->
+<ng-include src="'src/layouts/modals/login.html'"></ng-include>
+
+<!-- Modals - Signup -->
+<ng-include src="'src/layouts/modals/signup.html'"></ng-include>
+
+</body>
+
+<!-- build:js scripts/libs.js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/satellizer/dist/satellizer.min.js"></script>
+<script src="bower_components/ngstorage/ngStorage.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/libs2.js -->
+<script src="scripts/eventChannel.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/app.js -->
+<!-- Modules -->
+<script src="src/core/core.module.js"></script>
+<script src="src/common/common.module.js"></script>
+<script src="src/layouts/layouts.module.js"></script>
+<script src="src/components/components.module.js"></script>
+<script src="src/app.module.js"></script>
+<!-- Configs, Runs, Constants -->
+<script src="src/core/restangular.config.js"></script>
+<script src="src/core/router.config.js"></script>
+<script src="src/core/httpStatus.constant.js"></script>
+<script src="src/core/core.contants.js"></script>
+<script src="src/common/assets/assets.run.js"></script>
+<script src="src/common/events/angularEvents.run.js"></script>
+<script src="src/common/events/customEvents.run.js"></script>
+<!-- Factories -->
+<script src="src/common/alert.factory.js"></script>
+<script src="src/common/user.factory.js"></script>
+<script src="src/common/rest.factory.js"></script>
+<script src="src/common/content.factory.js"></script>
+<script src="src/common/orders.factory.js"></script>
+<script src="src/common/projects.factory.js"></script>
+<script src="src/common/albums.factory.js"></script>
+<!-- Directives -->
+<script src="src/components/album/album.directive.js"></script>
+<script src="src/components/photo/photo.directive.js"></script>
+<script src="src/components/project/project.directive.js"></script>
+<script src="src/components/compareTo.directive.js"></script>
+<!-- Controllers -->
+<script src="src/layouts/layouts.controller.js"></script>
+<!-- endbuild -->
+
+</html>

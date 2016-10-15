@@ -1,0 +1,64 @@
+
+<!--SIGNUP MODAL-->
+<div class="modal modal-custom fade" id="signupModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header logo-center">
+                <button type="button" class="close button-cross" data-dismiss="modal">&times;</button>
+                <img src="img/pictaktoe_logo.png" alt="">
+            </div>
+
+            <div class="modal-body">
+                <form class="font-opensans-light" name="signupForm">
+                    <div class="form-group" ng-class="{ 'has-error': signupForm.first_name.$touched && signupForm.first_name.$invalid }">
+                        <label  for="form-first-name">First name</label>
+                        <input type="text" name="first_name" ng-model="vm.user.first_name" class="form-first-name form-control" id="form-first-name" required>
+                        <div ng-messages="signupForm.first_name.$error" ng-if="signupForm.first_name.$touched" class="text-danger">
+                            <p ng-message="required" ng-if="signupForm.first_name.$error.required">First name is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': signupForm.last_name.$touched && signupForm.last_name.$invalid }">
+                        <label for="form-last-name">Last name</label>
+                        <input type="text" name="last_name"  ng-model="vm.user.last_name" class="form-last-name form-control" id="form-last-name" required>
+                        <div ng-messages="signupForm.last_name.$error" ng-if="signupForm.last_name.$touched" class="text-danger">
+                            <p ng-message="required" ng-if="signupForm.last_name.$error.required">Last name is required </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': signupForm.email.$touched && signupForm.email.$invalid }">
+                        <label for="form-email-address">Email</label>
+                        <input type="email" name="email"  ng-model="vm.user.email" class="form-email form-control" id="form-email-address" required>
+                        <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched" class="text-danger">
+                            <p ng-message="required" ng-if="signupForm.email.$error.required">Email is required </p>
+                            <p ng-message="email" ng-if="signupForm.email.$error.email">Invalid email</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': signupForm.password.$touched && signupForm.password.$invalid }">
+                        <label for="form-pw">Password</label>
+                        <input type="password" name="password"  ng-model="vm.user.password" class="form-password form-control" id="form-pw" required>
+                        <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched" class="text-danger">
+                            <p ng-message="required" ng-if="signupForm.password.$error.required">Password is required </p>
+                        </div>
+                    </div>
+                    <input class="button-login font-myriad-bold" type="submit" ng-click="vm.signup(vm.user)" ng-disabled="signupForm.$invalid" value="SIGN UP">
+                </form>
+                <p class="terms-of-services font-opensans-regular">By clicking on the sign up button, you agree to pictaktoe <a href="">Terms of Service.</a> </p>
+            </div>
+
+            <div class="modal-footer social-buttons">
+                <button type="button" ng-click="vm.socialAuthenticate('facebook')" class="btn btn-default fb-btn font-myriad-bold">
+                    <i class="fa fa-facebook"  aria-hidden="true"></i>FACEBOOK
+                </button>
+                <button type="button" ng-click="vm.socialAuthenticate('google')" class="btn btn-default g-btn font-myriad-bold">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>GOOGLE
+                </button>
+                <p class="modal-text">Already a User?
+                    <a href="" data-dismiss="modal" data-toggle="modal" data-target="#signupModal">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

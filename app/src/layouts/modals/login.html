@@ -1,0 +1,50 @@
+
+<!-- LOGIN MODAL -->
+<div class="modal modal-custom fade" id="loginModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header logo-center">
+                <button type="button" class="close button-cross" data-dismiss="modal">&times;</button>
+                <img src="img/pictaktoe_logo.png" alt="">
+            </div>
+
+            <div class="modal-body">
+                <form class="font-opensans-light" name="loginForm">
+                    <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+                        <label for="form-email">Email</label>
+                        <input type="email" name="email" ng-model="vm.user.email" class="form-email form-control" id="form-email" required>
+                        <div class="text-danger" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
+                            <p ng-message="email">Email is invalid</p>
+                            <p ng-message="required">Email is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+                        <label for="form-password">Password</label>
+                        <input type="password" name="password" ng-model="vm.user.password" class="form-password form-control" id="form-password" required>
+                        <div class="text-danger" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+                            <p ng-message="required">Password is required</p>
+                        </div>
+                    </div>
+                    <input class="button-login font-myriad-bold" ng-click="vm.login(vm.user)" data-dismiss="modal" ng-disabled="loginForm.$invalid" type="submit" value="LOGIN">
+                </form>
+                <p class="font-opensans-regular modal-text" >New to Pictaktoe?
+                    <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+                </p>
+            </div>
+
+            <div class="modal-footer social-buttons">
+                <button type="button" class="btn btn-default fb-btn font-myriad-bold" data-dismiss="modal" ng-click="vm.socialAuthenticate('facebook')">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>FACEBOOK
+                </button>
+                <button type="button" class="btn btn-default g-btn font-myriad-bold" data-dismiss="modal"  ng-click="vm.socialAuthenticate('google')">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>GOOGLE
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

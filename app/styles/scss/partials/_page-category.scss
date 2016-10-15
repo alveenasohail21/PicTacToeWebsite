@@ -1,0 +1,119 @@
+.page-category{
+  position: relative;
+  margin: 0 11.5vw;
+
+  /* Hero Div */
+  .hero-div{
+    margin: 0 -11.5vw;
+    @include aspect-ratio(66, 25);
+    background-size: cover;
+    background-position: center;
+
+    .overlay{
+      position: absolute;
+      top:0;
+      left:0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    h2{
+      font-size: 67px;
+      color:white;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top:47%;
+      left:50%;
+      text-transform: uppercase;
+    }
+    .desc {
+      color:white;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top:62%;
+      left:50%;
+      text-align: center;
+    }
+    .btn{
+      text-transform: uppercase;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top:74%;
+      left:50%;
+      font-size: 26px;
+      color: #5fdfe4;
+      background-color: white;
+      padding: 10px 15px;
+      transition: all ease 0.5s;
+      &:hover{
+        color: white;
+        background-color: #5fdfe4;
+        border: 0;
+        opacity: 1;
+      }
+    }
+  }
+
+  /* Sections */
+  .sections{
+    display: flex;
+    div.section {
+      width: 20%;
+      text-align: center;
+      position: relative;
+      padding: 22px 54px;
+      line-height: 1;
+      &:after{
+        content: '';
+        color: #9a9a9a;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        border-right: 1px solid #9a9a9a;
+        height: 100px;
+      }
+      &:last-child{
+        &:after {
+          content: '';
+          border-right: 0;
+        }
+      }
+      i{
+        color: #9a9a9a;
+        font-size: 90px;
+      }
+      p{
+        color: #9a9a9a;
+        margin-top: 12px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  /* Section Details */
+  .section-details {
+    text-align: center;
+    margin: 84px 16vw 214px;
+    h2{
+      color: #4d4d4d;
+      font-family: Font_Open_Sans_Regular;
+      margin: 20px 0;
+      font-size: 38px;
+      text-transform: capitalize;
+    }
+    div.desc{
+      color: #012121;
+      font-size: 18px;
+      margin: 44px 0;
+    }
+    div.img{
+      margin: 96px -16vw;
+      img{
+        width: 100%;
+      }
+    }
+  }
+
+
+}

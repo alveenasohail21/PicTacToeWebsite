@@ -1,0 +1,20 @@
+{
+  "name": "pictaktoewebsite",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.3.15",
+    "angular-sanitize": "~1.3.15",
+    "angular-animate": "~1.3.15",
+    "angular-ui-router": "~0.2.14",
+    "jquery": "~2.1.1",
+    "restangular": "~1.4.0",
+    "font-awesome": "~4.6.3",
+    "ngstorage": "~0.3.11",
+    "bootstrap": "~3.3.7",
+    "angular-messages": "~1.5.8",
+    "satellizer": "~0.15.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.15"
+  }
+}

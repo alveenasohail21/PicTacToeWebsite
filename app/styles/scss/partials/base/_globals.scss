@@ -1,0 +1,184 @@
+/*
+Globals
+*/
+
+/*
+Theme Colors
+*/
+$action-icon-bkg-color: #ffffff;
+$sidebar-bkg-color: #ffffff;
+$filmstrip-bkg-color: #ffffff;
+$navbar-bkg-color: #ffffff;
+$btn-bkg-color: #65e0e4;
+$progress-bar-color: #65e0e4;
+$progress-bar-bkg-color: #ffffff;
+$thumbnail-border-color: #65e0e4;
+$body-bkg-color: #f4f7f9;
+$theme-light-blue: #65e0e4;
+$fb-btn: #578ee8;
+$g-btn: #e14928;
+
+$black: black;
+$white: white;
+
+$body-bkg-color-1: #f4f7f9;
+$body-bkg-color-2: #969ba0;
+$body-bkg-color-3: #353b42;
+
+$theme-bkg-color-2: #969BA0;
+$theme-bkg-color-3: #353B42;
+
+$theme-btn-color-1: #ffffff;
+$theme-btn-color-2: #747B82;
+$theme-btn-color-3: #242931;
+
+$theme-text-color-1: #616A74;
+$theme-text-color-2: #ECEDEE;
+$theme-text-color-3: #E4E5E6;
+
+$theme-slider-high-1: #ffffff;
+$theme-slider-high-2: #C6C9CC;
+$theme-slider-high-3: #909397;
+
+$theme-slider-low-1: #D8DADF;
+$theme-slider-low-2: #868C91;
+$theme-slider-low-3: #2D3239;
+
+$theme-sizebox-1: #D8DBDF;
+$theme-sizebox-2: #8F9398;
+$theme-sizebox-3: #909397;
+
+$border-color: #e7ecf1;
+$theme-color-4: #969ba0;
+$theme-color-5: #353b42;
+$theme-color-6: #9ee9ec;
+$body-text-color: #59626a;
+$slider-up-bkg-color: #d8dce0;
+$slider-down-bkg-color: #ffffff;
+$slider-handler-bkg-color: #ffffff;
+$slider-handler-color: #9a9fa4;
+$view-history-color: #7a8188;
+$image-stack-text-color: #9d9d9d;
+$scrollbar-color: #f0f2f2;
+$sidmenu-text-color: #59626a;
+$header-current-step-color: #65e0e4;
+$header-hr-color: rgb(101, 224, 228);
+$fb-blue-color: #3c5698;
+$instagram-blue-color: #2E5E86;
+$google-red-color: #EC4235;
+$flickr-pink-color: #0063DB;
+$anchor-dark-hover: #59626a;
+$form-input-text-color: #c2c2c2;
+
+/*
+Font Families
+*/
+@font-face {
+  font-family: Font_Myriad_Pro_Regular;
+  src: url(/fonts/Myriad_Pro/MYRIADPRO-REGULAR.OTF);
+}
+.font-myriad-regular {
+  font-family: Font_Myriad_Pro_Regular;
+}
+@font-face {
+  font-family: Font_Myriad_Pro_Bold;
+  src: url(/fonts/Myriad_Pro/MYRIADPRO-BOLD.OTF);
+}
+.font-myriad-bold {
+  font-family: Font_Myriad_Pro_Bold;
+}
+@font-face {
+  font-family: Font_Open_Sans_Semibold;
+  src: url(/fonts/Open_Sans/OpenSans-Semibold.ttf);
+}
+.font-opensans-semibold {
+  font-family: Font_Open_Sans_Semibold;
+}
+@font-face {
+  font-family: Font_Open_Sans_Regular;
+  src: url(/fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+.font-opensans-regular {
+  font-family: Font_Open_Sans_Regular;
+}
+@font-face {
+  font-family: Font_Open_Sans_Bold;
+  src: url(/fonts/Open_Sans/OpenSans-Bold.ttf);
+}
+@font-face {
+  font-family: Font_Open_Sans_Light;
+  src: url(/fonts/Open_Sans/OpenSans-Light.ttf);
+}
+.font-opensans-bold {
+  font-family: Font_Open_Sans_Bold;
+}
+.font-opensans-light {
+  font-family: Font_Open_Sans_Light;
+}
+
+
+html{
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  //background-color: lightblue;
+  overflow-x: hidden;
+}
+body{
+  //width: 1624px;
+}
+
+/*
+Scrollbar
+*/
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 10px 10px 10px rgba(255,255,255,0.8);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-color;
+  border-radius: 10px;
+  //outline: 1px solid slategrey;
+}
+
+/*ALERTS*/
+
+.alert-dismissible{
+  position:fixed;
+  top:10px; right:10px;
+  z-index: 99999999;
+  opacity: 0;
+  transition: opacity 0.4s
+}
+.alert-warning{
+  border-top: 5px solid #8a6d3b;
+}
+.alert-danger{
+  border-top: 5px solid #a94442;
+}
+.alert-success{
+  border-top: 5px solid #3c763d;
+}
+
+/* MIXINS */
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
