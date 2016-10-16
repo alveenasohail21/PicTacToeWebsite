@@ -60,11 +60,21 @@
                 }
             )
             .state('Magnets', {
-                    url:'/magnets',
-                    title: 'MAGNETS',
+                url:'/magnets',
+                title: 'MAGNETS',
+                views: {
+                    '@':{
+                        templateUrl:'src/pages/category.html'
+                    }
+                }
+            }
+            )
+            .state('projectmanagement', {
+                    url:'/projectManagement',
+                    title: 'PROJECT MANAGMENT',
                     views: {
                         '@':{
-                            templateUrl:'src/pages/category.html'
+                            templateUrl:'src/pages/projectManagement.html'
                         }
                     }
                 }

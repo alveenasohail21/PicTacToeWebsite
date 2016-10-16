@@ -1,1 +1,27 @@
 /* Sub Header */
+.sub-header{
+  background-color: #f3f6f8;
+  height: 58px;
+  .categories{
+    display: flex;
+    height:100%;
+    .category{
+      font-size: 22px;
+      width: 20%;
+      text-align: center;
+      position: relative;
+      padding: 16px 0px;
+      line-height: 1.6;
+      color: #585859;
+      height:100%;
+    }
+  }
+  @media all and (max-width: 1140px) {
+    .category {
+      font-size: 16px !important;
+    }
+  }
+
+}
+
+

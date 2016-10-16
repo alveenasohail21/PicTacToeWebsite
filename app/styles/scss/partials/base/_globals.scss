@@ -129,6 +129,12 @@ body{
   //width: 1624px;
 }
 
+/*general margin*/
+
+.margin-general{
+  margin: 0 13.7vw;
+}
+
 /*
 Scrollbar
 */
@@ -181,4 +187,10 @@ Scrollbar
     right: 0;
     bottom: 0;
   }
+}
+@media all and (max-width: 900px){
+  .margin-general{
+    margin: 0 0;
+  }
+
 }
