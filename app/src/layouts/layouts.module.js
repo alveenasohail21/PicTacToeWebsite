@@ -79,6 +79,16 @@
                     }
                 }
             )
+            .state('albummanagement', {
+                    url:'/albumManagement',
+                    title: 'ALBUM MANAGMENT',
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/albumManagement.html'
+                        }
+                    }
+                }
+            )
             .state('Photobooks', {
                     url:'/photobooks',
                     title: 'PHOTOBOOKS',

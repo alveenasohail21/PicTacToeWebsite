@@ -1,0 +1,59 @@
+.album-management{
+  margin: 0px calc(13.7vw - 61px )!important;
+  padding-top: 40px;
+  .album-main{
+    padding: 36px 0 16px;
+    h3{
+      font-size: 37px;
+      margin: 0;
+    }
+    .albums{
+      margin: 50px 0 0;
+      .album{
+        background-size: cover;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        height:287px;
+        width:287px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0,0.18);
+        background-color: rgba(249, 249, 249, 0.18);
+        margin: 16px;
+        .album-details{
+          position: absolute;
+          bottom: 0;
+          text-align: center;
+          width: 100%;
+          background-color: transparent;
+          height:55px;
+          color: white;
+          font-family: Font_Open_Sans_Bold;
+          //line-height: 2.6;
+          font-size: 18px;
+          margin: 0;
+          .album-date{
+            margin: 0;
+          }
+          .album-number{
+            font-size: 8px;
+            font-family: Font_Open_Sans_Bold;
+            color:white;
+          }
+        }
+
+        .new-album{
+          img{
+            top: 44%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+
