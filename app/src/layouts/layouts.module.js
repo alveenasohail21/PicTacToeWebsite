@@ -69,7 +69,7 @@
                 }
             }
             )
-            .state('projectmanagement', {
+            .state('Projectmanagement', {
                     url:'/projectManagement',
                     title: 'PROJECT MANAGMENT',
                     views: {
@@ -79,12 +79,22 @@
                     }
                 }
             )
-            .state('albummanagement', {
+            .state('Albummanagement', {
                     url:'/albumManagement',
                     title: 'ALBUM MANAGMENT',
                     views: {
                         '@':{
                             templateUrl:'src/pages/albumManagement.html'
+                        }
+                    }
+                }
+            )
+            .state('Photomanagement', {
+                    url:'/photoManagement',
+                    title: 'PHOTO MANAGEMENT',
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/photoManagement.html'
                         }
                     }
                 }
