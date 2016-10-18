@@ -1,0 +1,42 @@
+.home{
+
+  .section{
+    padding: 96px 0 0;
+
+    h3{
+      margin: 0;
+      font-family: Font_Open_Sans_Bold;
+      font-size: 44px;
+    }
+
+    .reasons{
+      padding: 94px 78px 0;
+      .love-ptt{
+        margin:35px 0;
+        padding-left: 55px;
+        background-image: url(/img/point.png);
+        background-size: 40px;
+        background-repeat: no-repeat;
+
+        h6{
+          color: #65e0e4;
+          font-size: 15px;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        p{
+          font-size: 18px;
+          padding-top: 10px;
+          margin: 0;
+        }
+      }
+      .love-ptt:nth-of-type(even){
+
+        background-position: 35px 0;
+        padding-left: 95px;
+      }
+    }
+
+  }
+
+}
