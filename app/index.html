@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-cloak>
+<html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
     <!-- endbuild -->
 </head>
 
-<body class="">
+<body class="" ng-cloak>
 
 <!-- Main Header -->
 <ng-include src="'src/layouts/mainHeader.html'"></ng-include>
@@ -23,6 +23,11 @@
 
 <!-- User Header -->
 <!--<ng-include src="'src/layouts/userHeader.html'"></ng-include>-->
+
+<!-- Global Loader -->
+<div class="global-loader" style="z-index: 99999999; display: none;">
+    <img src="svg/ptt-loader.svg" alt="Loading...">
+</div>
 
 <!-- Page Content -->
 <div ui-view></div>
@@ -61,6 +66,7 @@
 
 <!-- build:js scripts/libs2.js -->
 <script src="scripts/eventChannel.js"></script>
+<script src="scripts/loader.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/app.js -->
@@ -105,6 +111,7 @@
 <script src="src/account/project.controller.js"></script>
 <script src="src/account/album.controller.js"></script>
 <script src="src/account/photo.controller.js"></script>
+
 
 <!-- endbuild -->
 

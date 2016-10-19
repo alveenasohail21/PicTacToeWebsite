@@ -30,25 +30,22 @@
     function init(){
       //
     }
-
-
     function logout(){
+      window.globalLoader.show();
       authFactory.logout();
     }
     function login(user){
-      //
-
+      window.globalLoader.show();
       authFactory.login(user);
     }
 
     function signup(user){
-      //
-
+      window.globalLoader.show();
       authFactory.signup(user);
     }
 
     function socialAuthenticate(provider){
-      //
+      window.globalLoader.show();
       authFactory.socialAuthenticate(provider);
     }
 
@@ -73,6 +70,12 @@
       // }
     }
 
+    // $(document).keyup(function(e) {
+    //   if (e.keyCode === 27){
+    //     $("#loginModal").modal().hide();
+    //     $("#signupModal").modal().hide();
+    //   }
+    // });
   }
 
 }());

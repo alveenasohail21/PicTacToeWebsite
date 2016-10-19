@@ -30,49 +30,29 @@
                     <img class="logo-text" src="/svg/logo-text.svg" alt="">
                 </div>
                 <ul class="navbar-nav navbar-right">
-                    <li ng-if="user" class="dropdown user-options">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img src="/img/user-pic.png" alt="">
-
-                            <!--{{user.first_name + ' ' + user.last_name}}<span class="caret"></span>-->
-                        </a>
+                    <li class="text" ng-if="!$root.user">
+                        <a data-toggle="modal" data-keyboard="true" data-target="#loginModal">Sign In</a>
+                        <span>&nbsp;/</span>
+                        <a data-toggle="modal" data-keyboard="true" data-target="#signupModal">Join</a>
+                    </li>
+                    <li ng-if="user" class="dropdown user-pic">
+                        <img src="/img/user-pic.png" alt="" class="dropdown-toggle" data-toggle="dropdown">
                         <ul class="dropdown-menu">
-
-                            <li><a href="#">My Account</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a ng-click="vm.logout()">Log out</a>
+                            <li ui-sref="Account.Projects">
+                                My Account
+                            </li>
+                            <li ng-click="vm.logout()">
+                                Log out
                             </li>
                         </ul>
                     </li>
                     <li class="help-custom">
                         <img src="/svg/help.svg" alt="">
                     </li>
-                    <li ng-if="user" class="cart">
+                    <li ng-if="$root.user" class="cart">
                         <img src="/svg/cart.svg" alt="">
                     </li>
                 </ul>
-                <ul ng-if="!user" class="nav navbar-nav navbar-right not-user-options">
-                    <li><a data-toggle="modal" data-target="#loginModal">Sign In<span>/</span></a></li>
-
-                    <li><a data-toggle="modal" data-target="#signupModal">Join</a></li>
-                </ul>
-                <!--<ul ng-if="user" class="nav navbar-nav navbar-right user-options">-->
-                    <!--<li class="dropdown">-->
-                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-                            <!--<img src="/img/user-pic.png" alt="">-->
-
-                            <!--&lt;!&ndash;{{user.first_name + ' ' + user.last_name}}<span class="caret"></span>&ndash;&gt;-->
-                        <!--</a>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--<li><a href="#">Profile</a></li>-->
-                            <!--<li><a href="#">My Saved Items</a></li>-->
-                            <!--<li><a href="#">My Orders</a></li>-->
-                            <!--<li role="separator" class="divider"></li>-->
-                            <!--<li><a ng-click="vm.logout()">Log out</a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</li>-->
-                <!--</ul>-->
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

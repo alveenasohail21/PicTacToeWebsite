@@ -38,16 +38,20 @@
             userFactory.createUserInLocal(resp.data.data);
             alertFactory.success(null, resp.data.message);
             $timeout(function(){
+              window.globalLoader.hide();
+
               // $state.go('Layout');
             },1500);
           }
           else{
             alertFactory.error(null, resp.data.message);
+            window.globalLoader.hide();
           }
           defer.resolve(resp);
         }, function(err){
           alertFactory.error(null,err.data.message);
           defer.reject(err);
+          window.globalLoader.hide();
         });
       return defer.promise;
     }
@@ -66,16 +70,19 @@
             userFactory.createUserInLocal(resp.data.data);
             alertFactory.success(null,resp.data.message);
             $timeout(function(){
+              window.globalLoader.hide();
               // $state.go('Layout');
             },1500);
           }
           else{
             alertFactory.error(null,resp.data.message);
+            window.globalLoader.hide();
           }
           defer.resolve(resp);
         }, function(err){
           alertFactory.error(null,err.data.message);
           defer.reject(err);
+          window.globalLoader.hide();
         });
       return defer.promise;
     }
@@ -101,6 +108,8 @@
               console.log("SAVING TOKEN TO LOCAL STORAGE");
               $localStorage.token = resp.data.token;
               $localStorage.savier = 'xyz';
+              window.globalLoader.hide();
+
             }, 2000);
             //$localStorage.$reset();
             // user signup through social provider
@@ -111,6 +120,8 @@
               userFactory.createUserInLocal(resp.data.data);
               $timeout(function(){
                 // $state.go('Layout');
+                window.globalLoader.hide();
+
               },2500);
             }
             // user linked social platform
@@ -124,21 +135,24 @@
               // event with social data
               console.log(resp.data.data);
               $rootScope.$emit('socialAuthenticate', resp.data.data);
+              window.globalLoader.hide();
+
             }
           }
           else{
             alertFactory.error(null, resp.data.message);
+            window.globalLoader.hide();
           }
           defer.resolve(resp);
           $('#loader-social').css("display", "none");
           $('.login-div').css("display", "inline");
-
+          window.globalLoader.hide();
         }, function(err){
           alertFactory.error(null,err.data.message);
           defer.reject(err);
           $('#loader-social').css("display", "none");
           $('.login-div').css("display", "inline");
-
+          window.globalLoader.hide();
         });
       return defer.promise;
     }
@@ -146,6 +160,7 @@
     function logout(){
       $auth.removeToken();
       $rootScope.$emit('logout');
+      window.globalLoader.hide();
       // $state.go('Login',{}, {reload: true});
     }
 
@@ -181,6 +196,7 @@
           alertFactory.success(null,resp.message);
         }
         deferred.resolve(resp);
+        window.globalLoader.hide();
       });
       return deferred.promise;
     }
