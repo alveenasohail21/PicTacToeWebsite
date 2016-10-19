@@ -15,7 +15,7 @@
   /* @ngInject */
   function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state){
 
-    var publicStates = ['Landing'];
+    var publicStates = ['Landing', 'Photobooks'];
 
     //on routing error
     $rootScope.$on('$stateNotFound',   function(event, unfoundState, fromState, fromParams){
@@ -34,12 +34,29 @@
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       // Check if User is Auth
       if($auth.isAuthenticated()){
+        //if the user is authenticated.
         Restangular.setDefaultHeaders({'token': 'Bearer {'+$auth.getToken()+'}'});
         //Check if the data exists of user on rootScope
         if(!userFactory.getUserFromLocal()){
           // if not present, get from token in localStorage through $auth factory
-          var user = $auth.getPayload();
-          userFactory.createUserInLocal(user);
+          userFactory.getUserDetails().then(function (response) {
+            userFactory.createUserInLocal(response);
+          });
+          // var user = $auth.getPayload();
+        }
+      }
+      else{
+        // if the user is not authenticated
+        if(publicStates.indexOf(toState.name)>=0){
+          //Allow public state access
+          // console.log("Router: going to "+toState.name+" not authenticated and going to a public state, Valid");
+        }
+        else{
+          //Deny private state access
+          console.log("going to "+toState.name+" not authenticated and going to a private state, invalid");
+          event.preventDefault();
+          alertFactory.error('Not authorized: ', 'Please login first');
+          $state.go('Landing');
         }
       }
     });

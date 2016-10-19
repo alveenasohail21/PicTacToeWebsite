@@ -40,6 +40,31 @@
             margin-top: 20px;
           }
         }
+        .user-options{
+          img{
+            height: 40px;
+            width: 40px;
+          }
+          a:focus{
+            background: none;
+          }
+          margin-top: 20px;
+        }
+        .not-user-options{
+          margin: 16px 16px 0 0; !important;
+          color: $black-font-color;
+          li{
+            margin-left:0px !important;
+            margin-right:0px !important;
+          }
+          a{
+            padding-left: 0;
+            padding-right: 0;
+            span{
+              margin: 0 2px;
+            }
+          }
+        }
         .navbar-right {
           height: 100%;
           margin-right: 0;

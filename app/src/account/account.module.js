@@ -25,19 +25,19 @@
           "@": {
             templateUrl:'src/account/main.html'
           },
-          "header@Account": {
-            templateUrl:'src/layout/appHeader.html',
-            controller: 'authCtrl as vm'
-          },
+          // "header@Account": {
+          //   templateUrl:'src/layout/appHeader.html',
+          //   controller: 'authCtrl as vm'
+          // },
           "content@Account": {
             templateUrl:'src/account/account.html'
           },
-          "footer@Account": {
-            templateUrl:'src/layout/footer.html'
-          },
-          "account-header@Account": {
-            templateUrl:'src/account/account-header.html'
-          },
+          // "footer@Account": {
+          //   templateUrl:'src/layout/footer.html'
+          // },
+          // "account-header@Account": {
+          //   templateUrl:'src/account/account-header.html'
+          // },
           "account-content@Account": {
             templateUrl:'src/account/projects.html'
           }
@@ -79,19 +79,19 @@
             templateUrl:'src/account/account.html',
             controller: 'ProjectCtrl as vm'
           },
-          "header@Account.Projects": {
-            templateUrl:'src/layout/appHeader.html',
-            controller: 'authCtrl as vm'
-          },
+          // "header@Account.Projects": {
+          //   templateUrl:'src/layout/appHeader.html',
+          //   controller: 'authCtrl as vm'
+          // },
           "content@Account.Projects": {
             templateUrl:'src/account/account.html'
           },
-          "footer@Account.Projects": {
-            templateUrl:'src/layout/footer.html'
-          },
-          "account-header@Account.Projects": {
-            templateUrl:'src/account/account-header.html'
-          },
+          // "footer@Account.Projects": {
+          //   templateUrl:'src/layout/footer.html'
+          // },
+          // "account-header@Account.Projects": {
+          //   templateUrl:'src/account/account-header.html'
+          // },
           "account-content@Account.Projects": {
             templateUrl:'src/account/projects.html'
           }
@@ -107,19 +107,19 @@
             templateUrl:'src/account/account.html',
             controller: 'PhotoCtrl as vm'
           },
-          "header@Account.PhotoManagement": {
-            templateUrl:'src/layout/appHeader.html',
-            controller: 'authCtrl as vm'
-          },
+          // "header@Account.PhotoManagement": {
+          //   templateUrl:'src/layout/appHeader.html',
+          //   controller: 'authCtrl as vm'
+          // },
           "content@Account.PhotoManagement": {
             templateUrl:'src/account/photo-management.html'
           },
-          "footer@Account.PhotoManagement": {
-            templateUrl:'src/layout/footer.html'
-          },
-          "account-header@Account.PhotoManagement": {
-            templateUrl:'src/account/account-header.html'
-          },
+          // "footer@Account.PhotoManagement": {
+          //   templateUrl:'src/layout/footer.html'
+          // },
+          // "account-header@Account.PhotoManagement": {
+          //   templateUrl:'src/account/account-header.html'
+          // },
           "account-content@Account.PhotoManagement": {
             templateUrl:'src/account/photo-management.html'
           }
@@ -160,19 +160,19 @@
             templateUrl:'src/account/account.html',
             controller: 'AlbumCtrl as vm'
           },
-          "header@Account.AlbumManagement": {
-            templateUrl:'src/layout/appHeader.html',
-            controller: 'authCtrl as vm'
-          },
+          // "header@Account.AlbumManagement": {
+          //   templateUrl:'src/layout/appHeader.html',
+          //   controller: 'authCtrl as vm'
+          // },
           "content@Account.AlbumManagement": {
             templateUrl:'src/account/album-management.html',
           },
-          "footer@Account.AlbumManagement": {
-            templateUrl:'src/layout/footer.html'
-          },
-          "account-header@Account.AlbumManagement": {
-            templateUrl:'src/account/account-header.html'
-          },
+          // "footer@Account.AlbumManagement": {
+          //   templateUrl:'src/layout/footer.html'
+          // },
+          // "account-header@Account.AlbumManagement": {
+          //   templateUrl:'src/account/account-header.html'
+          // },
           "account-content@Account.AlbumManagement": {
             templateUrl:'src/account/album-management.html'
           }
@@ -187,19 +187,19 @@
           "@": {
             templateUrl:'src/account/account.html'
           },
-          "header@Account.History": {
-            templateUrl:'src/layout/appHeader.html',
-            controller: 'authCtrl as vm'
-          },
+          // "header@Account.History": {
+          //   templateUrl:'src/layout/appHeader.html',
+          //   controller: 'authCtrl as vm'
+          // },
           "content@Account.History": {
             templateUrl:'src/account/history.html'
           },
-          "footer@Account.History": {
-            templateUrl:'src/layout/footer.html'
-          },
-          "account-header@Account.History": {
-            templateUrl:'src/account/account-header.html'
-          },
+          // "footer@Account.History": {
+          //   templateUrl:'src/layout/footer.html'
+          // },
+          // "account-header@Account.History": {
+          //   templateUrl:'src/account/account-header.html'
+          // },
           "account-content@Account.History": {
             templateUrl:'src/account/history.html'
           }
@@ -214,21 +214,21 @@
           "@": {
             templateUrl:'src/account/account.html'
           },
-          "header@Account.Settings": {
-            templateUrl:'src/layout/appHeader.html',
-            controller: 'authCtrl as vm'
-          },
+          // "header@Account.Settings": {
+          //   templateUrl:'src/layout/appHeader.html',
+          //   controller: 'authCtrl as vm'
+          // },
           "content@Account.Settings": {
             templateUrl:'src/account/settings.html',
             controller: 'SettingsCtrl as vm'
           },
-          "footer@Account.Settings": {
-            templateUrl:'src/layout/footer.html'
-          },
-          "account-header@Account.Settings": {
-            templateUrl:'src/account/account-header.html',
-            controller: 'SettingsCtrl as vm'
-          },
+          // "footer@Account.Settings": {
+          //   templateUrl:'src/layout/footer.html'
+          // },
+          // "account-header@Account.Settings": {
+          //   templateUrl:'src/account/account-header.html',
+          //   controller: 'SettingsCtrl as vm'
+          // },
           "account-content@Account.Settings": {
             templateUrl:'src/account/settings.html',
             controller: 'SettingsCtrl as vm'

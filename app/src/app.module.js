@@ -14,7 +14,9 @@
   /**
     * Application modules
   **/
-    'app.layouts'
+    'app.layouts',
+    'app.auth',
+    'app.account'
   ]);
 
 }());

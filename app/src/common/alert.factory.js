@@ -34,6 +34,7 @@
 
     /* Define Fuctions */
     function success(title, message, leaveOpen) {
+      console.log("here i a");
       // if already opened remove immediately
       if($rootScope.alert.show){
         removeAlert(0, true);

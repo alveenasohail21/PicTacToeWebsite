@@ -36,7 +36,14 @@
 <!-- Modals - Signup -->
 <ng-include src="'src/layouts/modals/signup.html'"></ng-include>
 
+<div class="alert alert-dismissible" ng-class="$root.alert.class" role="alert" ng-if="$root.alert.show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>{{$root.alert.title}}</strong> {{$root.alert.message}}
+</div>
+
+
 </body>
+
 
 <!-- build:js scripts/libs.js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -59,13 +66,18 @@
 <!-- build:js scripts/app.js -->
 <!-- Modules -->
 <script src="src/core/core.module.js"></script>
+<script src="src/core/satellizer.config.js"></script>
 <script src="src/common/common.module.js"></script>
 <script src="src/layouts/layouts.module.js"></script>
+<script src="src/auth/auth.module.js"></script>
+<script src="src/account/account.module.js"></script>
 <script src="src/components/components.module.js"></script>
 <script src="src/app.module.js"></script>
+
 <!-- Configs, Runs, Constants -->
 <script src="src/core/restangular.config.js"></script>
 <script src="src/core/router.config.js"></script>
+<script src="src/core/localStorage.config.js"></script>
 <script src="src/core/httpStatus.constant.js"></script>
 <script src="src/core/core.contants.js"></script>
 <script src="src/common/assets/assets.run.js"></script>
@@ -79,6 +91,7 @@
 <script src="src/common/orders.factory.js"></script>
 <script src="src/common/projects.factory.js"></script>
 <script src="src/common/albums.factory.js"></script>
+<script src="src/auth/auth.factory.js"></script>
 <!-- Directives -->
 <script src="src/components/album/album.directive.js"></script>
 <script src="src/components/photo/photo.directive.js"></script>
@@ -86,6 +99,13 @@
 <script src="src/components/compareTo.directive.js"></script>
 <!-- Controllers -->
 <script src="src/layouts/layouts.controller.js"></script>
+<script src="src/auth/auth.controller.js"></script>
+<script src="src/account/account.controller.js"></script>
+<script src="src/account/settings.controller.js"></script>
+<script src="src/account/project.controller.js"></script>
+<script src="src/account/album.controller.js"></script>
+<script src="src/account/photo.controller.js"></script>
+
 <!-- endbuild -->
 
 </html>
