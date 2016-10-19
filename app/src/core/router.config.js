@@ -15,7 +15,7 @@
   /* @ngInject */
   function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state){
 
-    var publicStates = ['Landing', 'Photobooks'];
+    var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames', 'Prints'];
 
     //on routing error
     $rootScope.$on('$stateNotFound',   function(event, unfoundState, fromState, fromParams){
@@ -24,6 +24,7 @@
 
     //on routing success
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+      window.globalLoader.hide(); //hide loader state change complete
       //do some title setting
       $rootScope.stateUrl = toState.url;
       $rootScope.appTitle = "Pictaktoe";
@@ -32,6 +33,7 @@
 
     //on routing start
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      window.globalLoader.show(); //show loader state change
       // Check if User is Auth
       if($auth.isAuthenticated()){
         //if the user is authenticated.
