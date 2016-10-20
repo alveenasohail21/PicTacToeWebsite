@@ -14,29 +14,6 @@
 
   /* @ngInject */
   function albumsFactory(restFactory, $q){
-    // var albums=[{
-    //   id: 1,
-    //   src: 'http://placehold.it/200x200',
-    //   name: 'test album 1',
-    //   date: 'test date 1'
-    // },{
-    //   id: 2,
-    //   src: 'http://placehold.it/200x200',
-    //   name: 'test album 2',
-    //   date: 'test date 2'
-    // },{
-    //   id: 3,
-    //   src: 'http://placehold.it/200x200',
-    //   name: 'test album 3',
-    //   date: 'test date 3'
-    // },{
-    //   id: 4,
-    //   src: 'http://placehold.it/200x200',
-    //   name: 'test album 4',
-    //   date: 'test date 4'
-    // }];
-
-
     var _data = {
       albums: []
     };
@@ -78,19 +55,22 @@
 
     function deleteAlbum(id){
       //delete an album
-
+      globalLoader.show();
       var deffered = $q.defer();
       restFactory.album.deleteAlbum(id).then(function(resp){
         if(resp.success){
           _data.albums.splice(findIndexById(id), 1);
+          globalLoader.hide();
           deffered.resolve(resp.data);
         }
         else{
           // TODO
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
@@ -98,18 +78,22 @@
 
     function getAlbumsList(withPhotos){
       // get album list
+      globalLoader.show();
       var deffered = $q.defer();
       restFactory.album.getAlbumsList(withPhotos).then(function(resp){
         if(resp.success){
           _data.albums = resp.data;
+          globalLoader.hide();
           deffered.resolve(resp.data);
         }
         else{
           // TODO
           alertFactory.error(null, resp.message);
+          globalLoader.hide();
           deffered.reject(resp);
         }
       }, function(err){
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
@@ -147,18 +131,24 @@
 
     function getSpecificAlbum(id){
       //get specific album
-      // GET - /albums/:id
+
+      globalLoader.show();
+
       var deffered = $q.defer();
+
       restFactory.album.getAlbum(id).then(function(resp){
         if(resp.success){
+          globalLoader.hide();
           deffered.resolve(resp.data);
         }
         else{
           // TODO
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
@@ -166,17 +156,21 @@
 
     function uploadPicture(data){
       //upload picture
+      globalLoader.hide();
       var deffered = $q.defer();
       restFactory.album.uploadPicture(data).then(function(resp){
         if(resp.success){
+          globalLoader.hide();
           deffered.resolve(resp.data);
         }
         else{
           // TODO
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
