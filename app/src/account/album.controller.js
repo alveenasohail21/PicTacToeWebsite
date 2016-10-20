@@ -13,11 +13,11 @@
 		.controller('AlbumCtrl', AlbumCtrl);
 
 	/* @ngInject */
-	function AlbumCtrl(albums, albumsFactory){
+	function AlbumCtrl(albumsFactory){
 		var vm = this;
 		//variable assignment
 		vm.albums = albumsFactory._data.albums;
-		console.log(vm.albums);
+
 		//method assignment
 
 		/////////////////////

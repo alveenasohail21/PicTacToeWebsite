@@ -96,27 +96,12 @@
         },
         views: {
           "@": {
-            templateUrl:'src/account/account.html',
-            controller: 'AlbumCtrl as vm'
-          },
-          // "header@Account.AlbumManagement": {
-          //   templateUrl:'src/layout/appHeader.html',
-          //   controller: 'authCtrl as vm'
-          // },
-          "content@Account.AlbumManagement": {
             templateUrl:'src/account/album-management.html',
-          },
-          // "footer@Account.AlbumManagement": {
-          //   templateUrl:'src/layout/footer.html'
-          // },
-          // "account-header@Account.AlbumManagement": {
-          //   templateUrl:'src/account/account-header.html'
-          // },
-          "account-content@Account.AlbumManagement": {
-            templateUrl:'src/account/album-management.html'
+            controller: 'AlbumCtrl as vm'
           }
         }
       })
+
       .state('Account.History', {
         url:'/history',
         header: true,

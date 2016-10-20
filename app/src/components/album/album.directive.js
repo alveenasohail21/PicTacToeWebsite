@@ -20,6 +20,10 @@
   /* @ngInject */
   function albumDirective(albumsFactory){
 
+    const DefaultUrl="svg/logo-icon.svg";
+    const DefaultDimension = "260x260";
+
+
     return {
       link: link,
       restrict: 'E',
@@ -37,22 +41,37 @@
       scope.deletePhoto=deletePhoto;
       scope.getSpecificAlbum=getSpecificAlbum;
       scope.uploadPicture=uploadPicture;
-      function init() {
 
+      function init() {
+        setCoverPhoto();
       }
+
       function deleteAlbum(id){
+        //delete album by id
         albumsFactory.deleteAlbum(id);
       }
+
       function deletePhoto(id){
+        //delete photo by id
         albumsFactory.deletePhoto(id);
       }
+
       function getSpecificAlbum(id){
+        //get album by id
         albumsFactory.getSpecificAlbum(id);
       }
+
       function uploadPicture(){
+        //upload photo
         albumsFactory.uploadPicture();
       }
 
+      function setCoverPhoto(){
+        //set cover photo for the albums
+        if('photos' in scope.album && scope.album.photos.length>0){
+          scope.coverPhoto = scope.album.photos[0].url + '-' + DefaultDimension + '.' + scope.album.photos[0].extension;
+        }
+      }
       init();
     }
   }
