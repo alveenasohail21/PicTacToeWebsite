@@ -15,7 +15,7 @@
   /* @ngInject */
   function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state){
 
-    var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames', 'Prints', 'Account.Orders','Accountedit'];
+    var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames', 'Prints', 'Account.Orders','Accountedit','Accountinformation'];
 
 
     //on routing error

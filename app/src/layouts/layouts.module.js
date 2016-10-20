@@ -109,6 +109,16 @@
                     }
                 }
             )
+            .state('Accountinformation', {
+                    url:'/account-info',
+                    title: 'ACCOUNT INFORMATION',
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/accountInformation.html'
+                        }
+                    }
+                }
+            )
             .state('Photobooks', {
                     url:'/photobooks',
                     title: 'PHOTOBOOKS',
