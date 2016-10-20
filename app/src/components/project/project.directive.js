@@ -38,14 +38,26 @@
     function link(scope, elem, attrs){
 
       scope.defaultCover = DefaultUrl;
-
       scope.deleteProjects=deleteProjects;
-
       scope.updateProject=updateProject;
 
       function init(){
-        console.log(scope.project);
+        setCoverPhoto();
+      }
 
+
+      function deleteProjects(id) {
+        //delete a project
+        projectsFactory.deleteProjects(id);
+      }
+
+      function updateProject(id) {
+        //update a project
+        projectsFactory.updateProject(id);
+      }
+
+      function setCoverPhoto(){
+        //set cover photo for the project
         if('photos' in scope.project && scope.project.photos.length>0){
           scope.coverPhoto = scope.project.photos[0].url + '-' + DefaultDimension + '.' + scope.project.photos[0].extension;
         }
@@ -53,24 +65,11 @@
           // no change
           scope.coverPhoto = scope.project.photos[0].url;
         }
-
-      }
-
-
-      function deleteProjects(id) {
-        projectsFactory.deleteProjects(id);
-      }
-
-      function updateProject(id) {
-        projectsFactory.updateProject(id).then(function (response) {
-
-        });
       }
 
       init();
 
     }
-
   }
 
 }());
