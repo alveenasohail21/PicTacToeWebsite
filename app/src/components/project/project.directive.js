@@ -40,7 +40,7 @@
       scope.defaultCover = DefaultUrl;
 
       scope.deleteProjects=deleteProjects;
-      scope.createProject=createProject;
+
       scope.updateProject=updateProject;
 
       function init(){
@@ -56,11 +56,6 @@
 
       }
 
-      function createProject() {
-        projectsFactory.createProject(id).then(function (response) {
-
-        });
-      }
 
       function deleteProjects(id) {
         projectsFactory.deleteProjects(id);

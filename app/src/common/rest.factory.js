@@ -184,7 +184,7 @@
     }
 
     function createProject(data) {
-      return Project.one('create').post(null, {project: data});
+      return Project.post(null, data);
     }
 
     function updateProject(project) {

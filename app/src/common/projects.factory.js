@@ -76,6 +76,7 @@
             var deffered = $q.defer();
             restFactory.project.createProject(data).then(function(resp){
                 if(resp.success){
+                    _data.projects.push(resp.data);
                     deffered.resolve(resp.data);
                 }
                 else{
