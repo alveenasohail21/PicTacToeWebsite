@@ -163,8 +163,8 @@
       return element.put();
     }
 
-    function deletePhoto(id) {
-      return Restangular.one('photos', id).remove();
+    function deletePhoto(photo_id, album_id) {
+      return Album.one(album_id).one('photo', photo_id).remove();
     }
 
     function deleteAlbum(id) {

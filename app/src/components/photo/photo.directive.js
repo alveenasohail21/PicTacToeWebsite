@@ -26,28 +26,24 @@
             templateUrl: 'src/components/photo/photo.html',
             replace: true,
             scope:{
-                photo: '=photo'
+                photo: '=photo',
+                albumId: '=albumId'
             }
         };
 
         /////////////////////
 
         function link(scope, elem, attrs){
+
             scope.deletePhoto=deletePhoto;
-            scope.uploadPicture=uploadPicture;
 
             function init(){
-                console.log(scope.photo);
+
             }
 
             function deletePhoto(id){
                 //delete photo by id
-                albumsFactory.deletePhoto(id);
-            }
-
-            function uploadPicture(data){
-                //upload photo
-                albumsFactory.uploadPicture(data);
+                albumsFactory.deletePhoto(id, scope.albumId);
             }
 
             init();

@@ -6,8 +6,7 @@
     <!--projects-->
     <div class="photos">
       <!--photo-->
-      <photo-directive ng-repeat="photo in album.photos" photo="photo"></photo-directive>
-
+      <photo-directive ng-repeat="photo in album.photos" photo="photo" album-id="album['_id']"></photo-directive>
     </div>
   </div>
 
