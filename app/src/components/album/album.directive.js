@@ -38,10 +38,8 @@
       scope.getSpecificAlbum=getSpecificAlbum;
       scope.uploadPicture=uploadPicture;
       function init() {
-        
+
       }
-
-
       function deleteAlbum(id){
         albumsFactory.deleteAlbum(id);
       }

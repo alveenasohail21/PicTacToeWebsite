@@ -78,30 +78,22 @@
 
     function deleteAlbum(id){
       //delete an album
-      // DELETE - /albums/:id
-      // var deffered = $q.defer();
-      // restFactory.album.deleteAlbum(id).then(function(resp){
-      //   if(resp.success){
-      //     deffered.resolve(resp.data);
-      //   }
-      //   else{
-      //     // TODO
-      //     alertFactory.error(null, resp.message);
-      //     deffered.reject(resp);
-      //   }
-      // }, function(err){
-      //   deffered.reject(err);
-      // });
-      // return deffered.promise;
 
-
-
-      $.each(albums, function( index, value ) {
-        if(value.id===id){
-          albums.splice(index, 1);
+      var deffered = $q.defer();
+      restFactory.album.deleteAlbum(id).then(function(resp){
+        if(resp.success){
+          _data.albums.splice(findIndexById(id), 1);
+          deffered.resolve(resp.data);
         }
+        else{
+          // TODO
+          alertFactory.error(null, resp.message);
+          deffered.reject(resp);
+        }
+      }, function(err){
+        deffered.reject(err);
       });
-      return albums;
+      return deffered.promise;
     }
 
     function getAlbumsList(withPhotos){
@@ -188,6 +180,13 @@
         deffered.reject(err);
       });
       return deffered.promise;
+    }
+
+    function findIndexById(id){
+      //find a project by id -returns index.
+      $.each(_data.albums, function( index, value ) {
+        if(value.id==id) return index;
+      });
     }
   }
 }());

@@ -1,7 +1,9 @@
 <div class="album" style="background-image: url('img/large.jpg');">
     <div class="album-details">
-        <p class="album-date">{{album.name}}</p>
-        <p class="album-number">{{album.photos.length}}</p>
-        <p class="album-number">{{album.created_at}}</p>
+        <p class="album-date">{{album.name}} {{album.created_at}}</p>
+        <p class="album-number">{{album.photos.length}} photos</p>
+
+        <img ng-click="deleteAlbum(album._id)" class="album-delete" src="svg/gray-delete.svg" alt="">
     </div>
+
 </div>

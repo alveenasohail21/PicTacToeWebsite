@@ -36,6 +36,12 @@
           .album-date{
             margin: 0;
           }
+          .album-delete{
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            background: white;
+          }
           .album-number{
             font-size: 8px;
             font-family: Font_Open_Sans_Bold;

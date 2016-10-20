@@ -161,7 +161,7 @@
       $auth.removeToken();
       $rootScope.$emit('logout');
       window.globalLoader.hide();
-      // $state.go('Login',{}, {reload: true});
+      $state.go('Landing',{}, {reload: true});
     }
 
     function forgotEmailSend(email){
