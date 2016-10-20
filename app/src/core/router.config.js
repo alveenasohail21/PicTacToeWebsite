@@ -15,7 +15,8 @@
   /* @ngInject */
   function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state){
 
-    var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames', 'Prints', 'Account.Orders'];
+    var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames', 'Prints', 'Account.Orders','Accountedit'];
+
 
     //on routing error
     $rootScope.$on('$stateNotFound',   function(event, unfoundState, fromState, fromParams){

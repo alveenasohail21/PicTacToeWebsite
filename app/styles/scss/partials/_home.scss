@@ -10,8 +10,8 @@
     .reasons{
       padding: 94px 78px 0;
       .love-ptt{
-        margin:35px 0;
-        padding-left: 55px;
+        margin: 35px 0;
+        padding-left: 50px;
         background-image: url(/img/point.png);
         background-size: 40px;
         background-repeat: no-repeat;
@@ -198,11 +198,11 @@
     .reasons{
       .love-ptt:nth-of-type(even){
         background-position: 35px 0;
-        padding-left: 95px;
+        padding-left: 87px;
       }
       .love-ptt:nth-of-type(odd){
         //background-position: 35px 0;
-        padding-right: calc(95px - 35px);
+        padding-right: calc(87px - 35px);
       }
     }
   }

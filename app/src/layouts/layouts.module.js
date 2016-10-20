@@ -99,6 +99,16 @@
                     }
                 }
             )
+            .state('Accountedit', {
+                    url:'/account-edit',
+                    title: 'ACCOUNT',
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/account.html'
+                        }
+                    }
+                }
+            )
             .state('Photobooks', {
                     url:'/photobooks',
                     title: 'PHOTOBOOKS',
