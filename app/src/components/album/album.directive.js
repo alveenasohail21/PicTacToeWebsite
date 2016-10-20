@@ -24,7 +24,10 @@
       link: link,
       restrict: 'E',
       replace: true,
-      templateUrl: 'src/components/album/album.html'
+      templateUrl: 'src/components/album/album.html',
+      scope:{
+        album: '=album'
+      }
     };
 
     /////////////////////
@@ -34,35 +37,24 @@
       scope.deletePhoto=deletePhoto;
       scope.getSpecificAlbum=getSpecificAlbum;
       scope.uploadPicture=uploadPicture;
+      function init() {
+        
+      }
 
 
       function deleteAlbum(id){
-        albumsFactory.deleteAlbum(id)
-        //   .then(function (response) {
-        //
-        // })
-        ;
+        albumsFactory.deleteAlbum(id);
       }
       function deletePhoto(id){
-        albumsFactory.deletePhoto(id).then(function (response) {
-
-        });
+        albumsFactory.deletePhoto(id);
       }
       function getSpecificAlbum(id){
-        console.log("get specific album: ", id);
-        albumsFactory.getSpecificAlbum(id).then(function (response) {
-
-        });
+        albumsFactory.getSpecificAlbum(id);
       }
       function uploadPicture(){
-        albumsFactory.uploadPicture().then(function (response) {
-
-        });
+        albumsFactory.uploadPicture();
       }
 
-      function init() {
-
-      }
       init();
     }
   }

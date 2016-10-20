@@ -1,6 +1,7 @@
-<div class="col col-sm-3">
-    <img src="{{album.src}}" ng-click="getSpecificAlbum(album.id)">
-    <p>{{album.name}}</p>
-    <p>{{album.date}}</p>
-    <a href="" ng-click="deleteAlbum(album.id)">Delete Album</a>
+<div class="album" style="background-image: url('img/large.jpg');">
+    <div class="album-details">
+        <p class="album-date">{{album.name}}</p>
+        <p class="album-number">{{album.photos.length}}</p>
+        <p class="album-number">{{album.created_at}}</p>
+    </div>
 </div>

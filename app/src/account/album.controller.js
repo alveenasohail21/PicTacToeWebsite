@@ -6,22 +6,21 @@
 
 (function(){
 
-  'use strict';
+	'use strict';
 
 	angular
 		.module('app.account')
 		.controller('AlbumCtrl', AlbumCtrl);
 
-  /* @ngInject */
+	/* @ngInject */
 	function AlbumCtrl(albums, albumsFactory){
 		var vm = this;
-    //variable assignment
-    vm.albums = albumsFactory.albums;
+		//variable assignment
+		vm.albums = albumsFactory._data.albums;
+		console.log(vm.albums);
+		//method assignment
 
-    //method assignment
-
-
-    /////////////////////
+		/////////////////////
 
 
 	}

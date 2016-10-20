@@ -13,28 +13,34 @@
     .factory('albumsFactory', albumsFactory);
 
   /* @ngInject */
-  function albumsFactory(restFactory){
-    var albums=[{
-      id: 1,
-      src: 'http://placehold.it/200x200',
-      name: 'test album 1',
-      date: 'test date 1'
-    },{
-      id: 2,
-      src: 'http://placehold.it/200x200',
-      name: 'test album 2',
-      date: 'test date 2'
-    },{
-      id: 3,
-      src: 'http://placehold.it/200x200',
-      name: 'test album 3',
-      date: 'test date 3'
-    },{
-      id: 4,
-      src: 'http://placehold.it/200x200',
-      name: 'test album 4',
-      date: 'test date 4'
-    }];
+  function albumsFactory(restFactory, $q){
+    // var albums=[{
+    //   id: 1,
+    //   src: 'http://placehold.it/200x200',
+    //   name: 'test album 1',
+    //   date: 'test date 1'
+    // },{
+    //   id: 2,
+    //   src: 'http://placehold.it/200x200',
+    //   name: 'test album 2',
+    //   date: 'test date 2'
+    // },{
+    //   id: 3,
+    //   src: 'http://placehold.it/200x200',
+    //   name: 'test album 3',
+    //   date: 'test date 3'
+    // },{
+    //   id: 4,
+    //   src: 'http://placehold.it/200x200',
+    //   name: 'test album 4',
+    //   date: 'test date 4'
+    // }];
+
+
+    var _data = {
+      albums: []
+    };
+
 
     var photos=[{
       id: 1,
@@ -59,7 +65,7 @@
     }];
 
     return {
-      albums: albums,
+      _data: _data,
       photos: photos,
       deleteAlbum: deleteAlbum,
       getAlbumsList: getAlbumsList,
@@ -99,25 +105,22 @@
     }
 
     function getAlbumsList(withPhotos){
-      //get album list
-      // GET - /albums?photos=true|false
-
-      // var deffered = $q.defer();
-      //
-      // restFactory.album.getAlbumsList(withPhotos).then(function(resp){
-      //   if(resp.success){
-      //     deffered.resolve(resp.data);
-      //   }
-      //   else{
-      //     // TODO
-      //     alertFactory.error(null, resp.message);
-      //     deffered.reject(resp);
-      //   }
-      // }, function(err){
-      //   deffered.reject(err);
-      // });
-      // return deffered.promise;
-      return albums;
+      // get album list
+      var deffered = $q.defer();
+      restFactory.album.getAlbumsList(withPhotos).then(function(resp){
+        if(resp.success){
+          _data.albums = resp.data;
+          deffered.resolve(resp.data);
+        }
+        else{
+          // TODO
+          alertFactory.error(null, resp.message);
+          deffered.reject(resp);
+        }
+      }, function(err){
+        deffered.reject(err);
+      });
+      return deffered.promise;
     }
 
     function deletePhoto(id){

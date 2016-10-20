@@ -91,28 +91,7 @@
         footer: true,
         resolve: {
           albums: function (albumsFactory) {
-            var albumList;
-            // albumsFactory.getAlbumsList(withPhoto).then(function (response) {
-            //   albumList=response;
-            // });
-            albumList=[{
-              src: 'http://placehold.it/200x200',
-              name: 'test album 1',
-              date: 'test date 1'
-            },{
-              src: 'http://placehold.it/200x200',
-              name: 'test album 2',
-              date: 'test date 2'
-            },{
-              src: 'http://placehold.it/200x200',
-              name: 'test album 3',
-              date: 'test date 3'
-            },{
-              src: 'http://placehold.it/200x200',
-              name: 'test album 4',
-              date: 'test date 4'
-            }];
-            return albumList;
+            return albumsFactory.getAlbumsList();
           }
         },
         views: {

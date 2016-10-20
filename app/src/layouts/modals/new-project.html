@@ -14,11 +14,7 @@
                             <p ng-message="required">Project name is required</p>
                         </div>
                     </div>
-
-
-
                     <div class="form-group" ng-class="{ 'has-error': newProject.type.$touched && newProject.type.$invalid }">
-
                         <label for="type">Type</label>
                         <select name="type" ng-model="vm.newProject.type" class="type form-control" id="type" required>
                             <option value="Prints">Prints</option>
