@@ -23,6 +23,12 @@
           margin-left: -3px;
         }
       }
+      .text-danger{
+        p{
+          color: #a94442;
+          font-weight: bold;
+        }
+      }
       .modal-header {
         text-align: center;
         min-height: 0;
@@ -48,11 +54,18 @@
             width: 220.5px;
           }
         }
+        h3.modal-heading{
+          color: #585859;
+          font-size: 32px;
+          font-family: Font_Myriad_Pro_Regular;
+          margin: 0 0 30px;
+        }
       }
 
       .modal-body {
         text-align: center;
         padding:0 6.5vw;
+
         a {
           color: #012121;
           text-decoration: underline;
@@ -137,6 +150,25 @@
       .modal-text{
         margin-top: 21px;
         margin-bottom: 0;
+      }
+    }
+  }
+  &#newProject{
+    .modal-content{
+      padding: 47px 0;
+      .modal-body{
+        .form-group{
+          select{
+            width: 100%;
+            margin-bottom: 10px;
+            border-width: 1.035px;
+            border-color: #cccccc;
+            border-style: solid;
+            border-radius: 5px;
+            background-color: white;
+            height: 45px;
+          }
+        }
       }
     }
   }
