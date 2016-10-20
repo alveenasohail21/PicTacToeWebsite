@@ -11,48 +11,48 @@
 
 (function(){
 
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app.components')
-    .directive('photoDirective', photoDirective);
+    angular
+        .module('app.components')
+        .directive('photoDirective', photoDirective);
 
-  /* @ngInject */
-  function photoDirective(albumsFactory){
+    /* @ngInject */
+    function photoDirective(albumsFactory){
 
-    return {
-      link: link,
-      restrict: 'E',
-      templateUrl: 'src/components/photo/photo.html',
-      replace: true
-    };
+        return {
+            link: link,
+            restrict: 'E',
+            templateUrl: 'src/components/photo/photo.html',
+            replace: true,
+            scope:{
+                photo: '=photo'
+            }
+        };
 
-    /////////////////////
+        /////////////////////
 
-    function link(scope, elem, attrs){
-      scope.deletePhoto=deletePhoto;
-      scope.uploadPicture=uploadPicture;
+        function link(scope, elem, attrs){
+            scope.deletePhoto=deletePhoto;
+            scope.uploadPicture=uploadPicture;
 
-      function deletePhoto(id){
-        albumsFactory.deletePhoto(id)
-        //   .then(function (response) {
-        //
-        // })
-;
-      }
-      function uploadPicture(data){
-        albumsFactory.uploadPicture(data)
-          .then(function (response) {
+            function init(){
+                console.log(scope.photo);
+            }
 
-        })
-        ;
-      }
-      function init(){
+            function deletePhoto(id){
+                //delete photo by id
+                albumsFactory.deletePhoto(id);
+            }
 
-      }
-      init();
+            function uploadPicture(data){
+                //upload photo
+                albumsFactory.uploadPicture(data);
+            }
 
+            init();
+
+        }
     }
-  }
 
 }());

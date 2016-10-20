@@ -1,9 +1,14 @@
-<div class="main-content-padding text-center container">
-  <h1>Photo Management</h1>
-  <div>
-    <h3>Pictures Upload</h3>
-    <div class="row">
-      <photo-directive ng-repeat="photo in vm.photos"></photo-directive>
+<div class="photo-management ">
+
+  <div class="photo-main" ng-repeat="album in vm.albums">
+    <!--<h3 class="text-center font-opensans-light  ">Monday | Aug 1<sup>st</sup>, 2016 | <span> 7 photos </span></h3>-->
+    <h3 class="text-center font-opensans-light  ">{{album.name}}</h3>
+    <!--projects-->
+    <div class="photos">
+      <!--photo-->
+      <photo-directive ng-repeat="photo in album.photos" photo="photo"></photo-directive>
+
     </div>
   </div>
+
 </div>

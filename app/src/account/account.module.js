@@ -61,27 +61,15 @@
         url:'/photo_management',
         header: true,
         footer: true,
-
+        resolve: {
+          albums: function (albumsFactory) {
+            return albumsFactory.getAlbumsList();
+          }
+        },
         views: {
           "@": {
-            templateUrl:'src/account/account.html',
+            templateUrl:'src/account/photo-management.html',
             controller: 'PhotoCtrl as vm'
-          },
-          // "header@Account.PhotoManagement": {
-          //   templateUrl:'src/layout/appHeader.html',
-          //   controller: 'authCtrl as vm'
-          // },
-          "content@Account.PhotoManagement": {
-            templateUrl:'src/account/photo-management.html'
-          },
-          // "footer@Account.PhotoManagement": {
-          //   templateUrl:'src/layout/footer.html'
-          // },
-          // "account-header@Account.PhotoManagement": {
-          //   templateUrl:'src/account/account-header.html'
-          // },
-          "account-content@Account.PhotoManagement": {
-            templateUrl:'src/account/photo-management.html'
           }
         }
       })
