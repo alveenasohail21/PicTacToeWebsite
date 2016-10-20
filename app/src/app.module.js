@@ -14,6 +14,7 @@
   /**
     * Application modules
   **/
+    'app.components',
     'app.layouts',
     'app.auth',
     'app.account'

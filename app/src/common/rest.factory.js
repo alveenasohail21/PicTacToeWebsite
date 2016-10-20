@@ -179,7 +179,7 @@
       return Restangular.one('projects').get();
     }
 
-    function deleteProjects() {
+    function deleteProjects(id) {
       return Restangular.one('projects', id).remove();
     }
 

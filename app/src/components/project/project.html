@@ -1,8 +1,27 @@
-<div class="col col-sm-3">
-    <img src="{{project.src}}">
-    <p>{{project.name}}</p>
-    <p>{{project.date}}</p>
-
-
-    <a href="" ng-click="deleteProjects(project.id)">Delete Project</a>
+<div class="project">
+    <div class="project-cover-image" ng-class="{'no-cover': !coverPhoto}">
+        <img ng-src="{{coverPhoto || defaultCover}}" alt="">
+    </div>
+    <div class="project-name">{{project.name}}</div>
+    <div class="project-overlay">
+        <div class="project-details">
+            <div class="project-type">
+                <img src="img/project-type.png" alt="">
+                <p>Project type</p>
+                <p>{{project.type}}</p>
+            </div>
+            <div class="project-modified">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <p>modified</p>
+                <p>{{project.updated_at}}</p>
+            </div>
+            <div class="project-delete">
+                <img ng-click="deleteProjects(project._id)" src="svg/gray-delete.svg" alt="">
+            </div>
+        </div>
+        <div class="project-name">
+            <p>{{project.name}}</p>
+            <p>{{project.created_at}}</p>
+        </div>
+    </div>
 </div>

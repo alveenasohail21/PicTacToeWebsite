@@ -45,55 +45,15 @@
       })
       .state('Account.Projects',{
         url:'/projects',
-        header: true,
-        footer: true,
-
         resolve: {
           projects: function (projectsFactory) {
-            var projectList;
-            // projectsFactory.getProjects().then(function (response) {
-            //   projectList=response;
-            // });
-            projectList=[{
-              src: 'http://placehold.it/200x200',
-              name: 'test project 1',
-              date: 'test date 1'
-            },{
-              src: 'http://placehold.it/200x200',
-              name: 'test project 2',
-              date: 'test date 2'
-            },{
-              src: 'http://placehold.it/200x200',
-              name: 'test project 3',
-              date: 'test date 3'
-            },{
-              src: 'http://placehold.it/200x200',
-              name: 'test project 4',
-              date: 'test date 4'
-            }];
-            return projectList;
+            return projectsFactory.getProjects();
           }
         },
         views: {
           "@": {
-            templateUrl:'src/account/account.html',
+            templateUrl:'src/account/projects.html',
             controller: 'ProjectCtrl as vm'
-          },
-          // "header@Account.Projects": {
-          //   templateUrl:'src/layout/appHeader.html',
-          //   controller: 'authCtrl as vm'
-          // },
-          "content@Account.Projects": {
-            templateUrl:'src/account/account.html'
-          },
-          // "footer@Account.Projects": {
-          //   templateUrl:'src/layout/footer.html'
-          // },
-          // "account-header@Account.Projects": {
-          //   templateUrl:'src/account/account-header.html'
-          // },
-          "account-content@Account.Projects": {
-            templateUrl:'src/account/projects.html'
           }
         }
       })
