@@ -67,7 +67,8 @@ gulp.task('browserSync', function(){
     server: {
       // root of the dev files
       baseDir: config.clientApp
-    }
+    },
+    ghostMode: false
   });
 });
 // serve|default - serve development files
