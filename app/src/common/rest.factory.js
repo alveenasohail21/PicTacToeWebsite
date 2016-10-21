@@ -194,8 +194,8 @@
       // return Project.one('create').one(id).post(null, {project: project});
     }
 
-    function getOrders() {
-      return Restangular.one('orders').get();
+    function getOrders(from, size) {
+      return Restangular.one('orders').one(from).(size).get();
     }
 
     function getTermsAndConditions() {

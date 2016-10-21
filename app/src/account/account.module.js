@@ -67,10 +67,12 @@
         url:'/history',
         views: {
           "@": {
-            templateUrl:'src/account/history.html'
+            templateUrl:'src/account/history.html',
+            controller: 'HistoryCtrl as vm'
           }
         }
       })
+
       .state('Account.Settings', {
         url:'/settings',
         views: {

@@ -20,10 +20,10 @@
 
     ////////////////////
 
-    function getOrders(){
+    function getOrders(from, size){
       //get all orders
       var deffered = $q.defer();
-      restFactory.orders.getOrders().then(function(resp){
+      restFactory.orders.getOrders(from, size).then(function(resp){
         if(resp.success){
           deffered.resolve(resp.data);
         }
