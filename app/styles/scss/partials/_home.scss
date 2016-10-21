@@ -1,5 +1,111 @@
 .home{
 
+  /* Hero Divs */
+
+  .hero-divs{
+    margin: 0;
+    .col-md-12{
+      padding: 0;
+    }
+    .col-md-4{
+      padding: 0;
+      position: relative;
+      border-top: 6px solid white;
+      border-right: 6px solid white;
+      &:last-child{
+        border-right: 0;
+      }
+    }
+  }
+
+  .hero-div{
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    &.top-hero{
+      @include aspect-ratio(3408, 1000);
+    }
+
+    &.bottom-left-hero{
+      margin: 0 0;
+      @include aspect-ratio(192, 100);
+    }
+
+    &.bottom-center-hero{
+      margin: 0 0;
+      @include aspect-ratio(192, 100);
+    }
+
+    &.bottom-right-hero{
+      margin: 0 0;
+      @include aspect-ratio(192, 100);
+    }
+
+    .overlay{
+      position: absolute;
+      top:0;
+      left:0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    h2, h3{
+      color:white;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top:47%;
+      left:50%;
+      margin: 0;
+    }
+    h2{
+      font-family: Font_Open_Sans_Regular;
+      font-size: 56px;
+    }
+    h3{
+      font-family: Font_Myriad_Pro_Bold;
+      font-size: 28px;
+      text-align: center;
+      transition: all ease 0.8s;
+    }
+    .button-background{
+      position: absolute;
+      height: 75px;
+      left: 0;
+      width: 100%;
+      bottom: -75px;
+      background-color: rgba(101, 224, 228, 0.75);
+      transition: all ease 0.8s;
+      text-align: center;
+      padding-top: 12px;
+    }
+    .btn{
+      text-transform: uppercase;
+      font-size: 20px;
+      color: #5fdfe4;
+      background-color: white;
+      padding: 10px 14px;
+      &:hover{
+        color: white;
+        background-color: #5fdfe4;
+        border: 0;
+        opacity: 1;
+      }
+    }
+
+    &:hover .button-background{
+      bottom: 0;
+    }
+
+    &:hover h3{
+      top: calc(47% - 75px);
+    }
+
+  }
+
   .section{
     padding: 96px 0 0;
     h3{
@@ -82,7 +188,7 @@
   }
   .banner{
 
-    background-image: url('/img/banner-dc.jpg');
+    background-image: url('/img/home-bottom-banner.jpg');
     background-size: cover;
     height: 309px;
     background-repeat: no-repeat;
@@ -188,6 +294,18 @@
   }
 
   @media all and (max-width: 991px){
+    .hero-divs{
+      .hero-div{
+        &.top-hero{
+          margin: 0 0;
+          @include aspect-ratio(192, 100);
+          font-size: 28px;
+        }
+      }
+      .col-md-4{
+        border-right: 0;
+      }
+    }
     .newsletter-text{
       p{
         text-align: center !important;
