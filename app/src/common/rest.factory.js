@@ -144,15 +144,10 @@
     }
 
     function putUserShippingDetails(updates){
-      var element=Users.one('shipping');
-      element.updates=updates;
-      return element.put();
+      Users.one('shipping').customPUT(updates);
     }
-
     function putUserBillingDetails(updates){
-      var element=Users.one('billing');
-      element.updates=updates;
-      return element.put();
+      Users.one('billing').customPUT(updates);
     }
 
     function changePassword(newPassword, currentPassword, confirmPassword){

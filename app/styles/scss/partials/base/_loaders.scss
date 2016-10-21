@@ -69,12 +69,3 @@ Key Frmaes
     transform: translate3d(4px, 4px, 0);
   }
 }
-// LOADER
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}

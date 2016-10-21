@@ -196,3 +196,28 @@ Scrollbar
   }
 
 }
+
+//bobbing animation
+@keyframes bobbing {
+  0%{
+    transform: rotate(0deg) translateY(0);
+  }
+  100%{
+    transform: rotate(0.1deg) translateY(5px);
+  }
+}
+//background animation
+@keyframes backdrop_animation{
+  from { right: 0; }
+  to { right: 1000px; }
+}
+
+// loader animation
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

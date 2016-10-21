@@ -226,7 +226,7 @@
       };
       restFactory.auth.putUserDetails(updatedData).then(function(resp){
         if(resp.success){
-
+          alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
@@ -252,6 +252,7 @@
       var deffered = $q.defer();
       restFactory.users.putUserShippingDetails(shippingData).then(function(resp){
         if(resp.success){
+          alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
@@ -280,6 +281,7 @@
       var deffered = $q.defer();
       restFactory.users.putUserBillingDetails(billingData).then(function(resp){
           if(resp.success){
+            alertFactory.success(null, resp.message);
             deffered.resolve(resp.data);
           }
           else{
@@ -298,6 +300,7 @@
       restFactory.users.changePassword(password.newPassword, password.currentPassword, password.confirmPassword)
         .then(function(resp){
           if(resp.success){
+            alertFactory.success(null, resp.message);
             deffered.resolve(resp.data);
           }
           else{
