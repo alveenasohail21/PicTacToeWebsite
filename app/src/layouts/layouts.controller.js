@@ -13,10 +13,13 @@
 		.controller('LayoutsCtrl', LayoutsCtrl);
 
 	/* @ngInject */
-	function LayoutsCtrl($rootScope){
+	function LayoutsCtrl($rootScope, $location, $scope, $anchorScroll){
 		var vm = this;
-
-        // fire custom test event
+		vm.scrollTo = function(id) {
+			$location.hash(id);
+			$anchorScroll();
+		};
+		// fire custom test event
         eventChannel.fire('test');
         // fire angular test event
         $rootScope.$broadcast('test');

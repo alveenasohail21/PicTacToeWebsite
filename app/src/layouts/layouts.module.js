@@ -34,7 +34,8 @@
                     title: 'PRINTS',
                     views: {
                         '@':{
-                            templateUrl:'src/pages/category.html'
+                            templateUrl:'src/pages/category.html',
+                            controller: 'LayoutsCtrl as vm'
                         }
                     }
                 }
@@ -44,7 +45,9 @@
                     title: 'FRAMES',
                     views: {
                         '@':{
-                            templateUrl:'src/pages/category.html'
+                            templateUrl:'src/pages/category.html',
+                            controller: 'LayoutsCtrl as vm'
+
                         }
                     }
                 }
@@ -54,7 +57,10 @@
                     title: 'CANVAS',
                     views: {
                         '@':{
-                            templateUrl:'src/pages/category.html'
+                            templateUrl:'src/pages/category.html',
+                            controller: 'LayoutsCtrl as vm'
+
+
                         }
                     }
                 }
@@ -64,7 +70,8 @@
                 title: 'MAGNETS',
                 views: {
                     '@':{
-                        templateUrl:'src/pages/category.html'
+                        templateUrl:'src/pages/category.html',
+                        controller: 'LayoutsCtrl as vm'
                     }
                 }
             }
@@ -124,7 +131,8 @@
                     title: 'PHOTOBOOKS',
                     views: {
                         '@':{
-                            templateUrl:'src/pages/category.html'
+                            templateUrl:'src/pages/category.html',
+                            controller: 'LayoutsCtrl as vm'
                         }
                     }
                 }
