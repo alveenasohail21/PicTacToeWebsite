@@ -16,6 +16,9 @@
       color: white;
       height:100%;
       cursor: pointer;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
       &.active{
         background-color: $white;
         color: $theme-light-blue;
@@ -37,6 +40,7 @@
     .category {
       font-size: 11px !important;
       line-height: 2.3 !important;
+      padding: 12px 5px !important;
     }
   }
 }

@@ -25,7 +25,7 @@
 <ng-include src="'src/layouts/subHeader.html'"></ng-include>
 
 <!-- User Header -->
-<ng-include src="'src/layouts/userHeader.html'"></ng-include>
+<ng-include src="'src/layouts/userHeader.html'" ng-if="$root.user"></ng-include>
 
 <!-- Global Loader -->
 <div class="global-loader" style="z-index: 99999999; display: none;">
@@ -36,7 +36,7 @@
 <div ui-view></div>
 
 <!-- Footer -->
-<ng-include src="'src/layouts/footer.html'"></ng-include>
+<ng-include src="'src/layouts/footer.html'" ng-if="$root.footer"></ng-include>
 
 <!-- Modals - Login -->
 <ng-include src="'src/layouts/modals/login.html'"></ng-include>
@@ -46,8 +46,7 @@
 
 <ng-include src="'src/layouts/modals/confirm-cancel-order.html'"></ng-include>
 
-<!--<ng-include src="'src/layouts/modals/new-project.html'"></ng-include>-->
-
+<!-- Alerts -->
 <div class="alert alert-dismissible" ng-class="$root.alert.class" role="alert" ng-if="$root.alert.show">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong>{{$root.alert.title}}</strong> {{$root.alert.message}}
