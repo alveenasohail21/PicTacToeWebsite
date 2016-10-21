@@ -15,6 +15,9 @@
       color: #585859;
       height:100%;
       cursor: pointer;
+      &.active{
+        border-bottom: 2px solid $header-hr-color;
+      }
     }
   }
   @media all and (max-width: 1140px) {

@@ -1,9 +1,9 @@
 <div class="user-header">
-    <div class="categories margin-general">
-        <div class="category font-myriad-bold">PROJECTS</div>
-        <div class="category font-myriad-bold" >PHOTO MANAGEMENT</div>
-        <div class="category font-myriad-bold">ALBUM MANAGEMENT</div>
-        <div class="category font-myriad-bold">ORDER HISTORY</div>
-        <div class="category font-myriad-bold">PROFILE SETTINGS </div>
-    </div>
+<div class="categories margin-general">
+    <div class="category font-myriad-bold" ng-class="{'active' : $root.currentState=='Account.Projects'}" ui-sref="Account.Projects" >PROJECTS</div>
+    <div class="category font-myriad-bold" ng-class="{'active' : $root.currentState=='Account.PhotoManagement'}" ui-sref="Account.PhotoManagement">PHOTO MANAGEMENT</div>
+    <div class="category font-myriad-bold" ng-class="{'active' : $root.currentState=='Account.AlbumManagement'}" ui-sref="Account.AlbumManagement">ALBUM MANAGEMENT</div>
+    <div class="category font-myriad-bold" ng-class="{'active' : $root.currentState=='Account.Orders'}" ui-sref="Account.Orders">ORDER HISTORY</div>
+    <div class="category font-myriad-bold" ng-class="{'active' : $root.currentState=='Account.Settings'}" ui-sref="Account.Settings">PROFILE SETTINGS </div>
+</div>
 </div>

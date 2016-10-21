@@ -1,7 +1,7 @@
 /*USER HEADER*/
 /* Sub Header */
 .user-header{
-  background-color: #65e0e4;
+  background-color: $theme-light-blue;
   height: 47px;
   .categories{
     display: flex;
@@ -15,6 +15,11 @@
       line-height: 1.7;
       color: white;
       height:100%;
+      cursor: pointer;
+      &.active{
+        background-color: $white;
+        color: $theme-light-blue;
+      }
     }
   }
   @media all and (max-width: 1384px) {

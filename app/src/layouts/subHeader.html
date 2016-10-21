@@ -1,9 +1,10 @@
 <div class="sub-header">
     <div class="categories margin-general">
-        <div class="category font-opensans-regular" ui-sref="Prints">PRINTS</div>
-        <div class="category font-opensans-regular" ui-sref="Frames">FRAME PRINTS</div>
-        <div class="category font-opensans-regular" ui-sref="Canvas">CANVAS PRINTS</div>
-        <div class="category font-opensans-regular" ui-sref="Photobooks">PHOTOBOOKS</div>
-        <div class="category font-opensans-regular" ui-sref="Magnets">MAGNETS</div>
+        <div class="category font-opensans-regular" ng-class="{'active' : $root.currentState=='Prints'}" ui-sref="Prints">PRINTS</div>
+        <div class="category font-opensans-regular" ng-class="{'active' : $root.currentState=='Frames'}" ui-sref="Frames">FRAME PRINTS</div>
+        <div class="category font-opensans-regular" ng-class="{'active' : $root.currentState=='Canvas'}" ui-sref="Canvas">CANVAS PRINTS</div>
+        <div class="category font-opensans-regular" ng-class="{'active' : $root.currentState=='Photobooks'}" ui-sref="Photobooks">PHOTOBOOKS</div>
+        <div class="category font-opensans-regular" ng-class="{'active' : $root.currentState=='Magnets'}" ui-sref="Magnets">MAGNETS</div>
     </div>
+
 </div>

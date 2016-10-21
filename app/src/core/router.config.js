@@ -29,6 +29,7 @@
       $rootScope.stateUrl = toState.url;
       $rootScope.appTitle = "Pictaktoe";
       $rootScope.pageTitle = toState.title || 'Pictaktoe';
+      $rootScope.currentState=toState.name;
     });
 
     //on routing start
