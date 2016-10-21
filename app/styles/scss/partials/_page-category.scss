@@ -1,3 +1,17 @@
+@keyframes bobbing {
+  0%{
+    transform: rotate(0deg) translateY(0);
+  }
+  100%{
+    transform: rotate(0.1deg) translateY(5px);
+  }
+}
+@keyframes backdrop_animation{
+  from { right: 0; }
+  to { right: 1000px; }
+}
+
+
 .page-category{
   position: relative;
   margin: 0 11.5vw;
@@ -115,6 +129,53 @@
       }
     }
   }
+  .delivery-animation{
+    position: relative;
+    .car-image{
+      width:200px;
+      animation: bobbing 0.5s infinite ease-in-out forwards alternate;
+      position: absolute;
+      top: 100px;
+      left: 300px;
+    }
+    .animation-wrapper{
+      width: 1000px;
+      height:200px;
+      margin:0 auto;
+      overflow: hidden;
+    }
+    #road-image{
+      position: relative;
+      background: url(/svg/road.svg) repeat-x;
+      width :3000px;
+      height:60px;
+      top: 20px;
+      animation: backdrop_animation linear 10s infinite;
+    }
+    #building-image{
+      position: relative;
+      background: url(/svg/buildings.svg) repeat-x;
+      width :3000px;
+      height: 200px;
+      animation: backdrop_animation linear 15s infinite;
+    }
+  }
+
+  //div.animation-wrapper{
+  //  width: 1000px;
+  //  height:200px;
+  //  margin:0 auto;
+  //  overflow: hidden;
+  //}
+  //
+  //
+  //#building-image{
+  //  position: relative;
+  //  background: url(svg/buildings.svg) repeat-x;
+  //  width :3000px;
+  //  height: 200px;
+  //  animation: backdrop_animation linear 15s infinite;
+  //}
 
 
 }
