@@ -195,7 +195,7 @@
     }
 
     function getOrders(from, size) {
-      return Restangular.one('orders').one(from).(size).get();
+      return Restangular.one('orders').one('from', from).one('size', size).get();
     }
 
     function getTermsAndConditions() {
