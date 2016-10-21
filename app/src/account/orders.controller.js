@@ -10,12 +10,12 @@
 
     angular
         .module('app.account')
-        .controller('HistoryCtrl', HistoryCtrl);
+        .controller('OrdersCtrl', OrdersCtrl);
 
     /* @ngInject */
-    function HistoryCtrl(r_orders){
+    function OrdersCtrl(){
         var vm = this;
-        vm.orders=r_orders;
+        // vm.orders=r_orders;
         DataTable.init("#order-history");
     }
 }());

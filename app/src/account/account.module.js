@@ -63,17 +63,17 @@
         }
       })
 
-      .state('Account.History', {
-        url:'/history',
-        resolve: {
-          r_orders: function (ordersFactory) {
-            return ordersFactory.getOrders();
-          }
-        },
+      .state('Account.Orders', {
+        url:'/orders',
+        // resolve: {
+        //   r_orders: function (ordersFactory) {
+        //     return ordersFactory.getOrders();
+        //   }
+        // },
         views: {
           "@": {
-            templateUrl:'src/account/history.html',
-            controller: 'HistoryCtrl as vm'
+            templateUrl:'src/account/orders.html',
+            controller: 'OrdersCtrl as vm'
           }
         }
       })
