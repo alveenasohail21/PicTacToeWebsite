@@ -22,10 +22,13 @@
         font-family: Font_Open_Sans_Bold;
       }
       .footer-social-connects{
-        i{
-          font-size: 30px;
-          color: #9a9a9a;
-          margin: 0 5px;
+        a {
+          text-decoration: none;
+          i {
+            font-size: 30px;
+            color: #9a9a9a;
+            margin: 0 5px;
+          }
         }
       }
     }
@@ -35,5 +38,8 @@
     padding: 43px 0 32px;
     color: #6c6c6c;
     font-family: Font_Open_Sans_Regular;
+  }
+  .cursor-pointer{
+    cursor: pointer;
   }
 }
