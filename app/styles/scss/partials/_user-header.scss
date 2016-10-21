@@ -12,7 +12,7 @@
       text-align: center;
       position: relative;
       padding: 12px 0px;
-      line-height: 1.7;
+      line-height: 1.5;
       color: white;
       height:100%;
       cursor: pointer;
@@ -30,6 +30,13 @@
   @media all and (max-width: 1140px) {
     .category {
       font-size: 12px !important;
+      line-height: 1.9!important;
+    }
+  }
+  @media all and (max-width: 620px) {
+    .category {
+      font-size: 11px !important;
+      line-height: 2.3 !important;
     }
   }
 }

@@ -1,1 +1,39 @@
-/* Sub Header */
+.footer{
+  background-color: white;
+  border-top: 1px solid #cccccc;
+  .row{
+    margin:0 calc(13.7vw - 67px);
+    text-align: left;
+    padding: 65px 0 70px;
+    .content-footer{
+      font-family: Font_Open_Sans_Bold;
+      h3{
+      color: #65e0e4;
+        font-size: 21px;
+        margin-top: 12px;
+      }
+      p{
+        font-family: Font_Open_Sans_Light;
+        margin: 0 0 -3px;
+        font-size: 19px;
+        word-break: break-all;
+      }
+      .footer-email{
+        font-family: Font_Open_Sans_Bold;
+      }
+      .footer-social-connects{
+        i{
+          font-size: 30px;
+          color: #9a9a9a;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+  .footer-blue{
+    background-color: #65e0e4;
+    padding: 43px 0 32px;
+    color: #6c6c6c;
+    font-family: Font_Open_Sans_Regular;
+  }
+}
