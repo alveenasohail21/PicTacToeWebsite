@@ -15,6 +15,6 @@
     /* @ngInject */
     function HistoryCtrl(){
         var vm = this;
+        DataTable.init("#order-history");
     }
-
 }());

@@ -8,7 +8,8 @@
     @include aspect-ratio(66, 25);
     background-size: cover;
     background-position: center;
-
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     .overlay{
       position: absolute;
       top:0;
