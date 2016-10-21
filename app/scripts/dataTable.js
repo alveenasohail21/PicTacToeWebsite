@@ -31,7 +31,7 @@ DataTable.prototype = {
                 "bLengthChange": false
             });
         });
-    },
+    }
 
 };
 

@@ -65,6 +65,11 @@
 
       .state('Account.History', {
         url:'/history',
+        resolve: {
+          r_orders: function (ordersFactory) {
+            return ordersFactory.getOrders();
+          }
+        },
         views: {
           "@": {
             templateUrl:'src/account/history.html',

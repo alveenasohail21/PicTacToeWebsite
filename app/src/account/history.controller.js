@@ -13,8 +13,9 @@
         .controller('HistoryCtrl', HistoryCtrl);
 
     /* @ngInject */
-    function HistoryCtrl(){
+    function HistoryCtrl(r_orders){
         var vm = this;
+        vm.orders=r_orders;
         DataTable.init("#order-history");
     }
 }());
