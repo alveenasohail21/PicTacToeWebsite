@@ -24,19 +24,26 @@
             link: link,
             restrict: 'E',
             templateUrl: 'src/components/newsletter/newsletter.html',
-            replace: true
+            replace: true,
+            scope:{
+                
+            }
 
         };
 
         /////////////////////
 
         function link(scope, elem, attrs){
+            scope.subscribe=subscribe;
             function init(){
-                console.log("news letter directive");
 
             }
-            init();
+            
+            function subscribe(email) {
+                console.log(email);
+            }
 
+            init();
         }
     }
 
