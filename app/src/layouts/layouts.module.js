@@ -138,6 +138,16 @@
                     }
                 }
             )
+            .state('TermAndConditions', {
+                    url:'/termsAndConditions',
+                    title: 'Terms And Conditions',
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/termsAndConditions.html'
+                        }
+                    }
+                }
+            )
 
         ;
     }
