@@ -32,7 +32,7 @@
       color:white;
       position: absolute;
       transform: translate(-50%, -50%);
-      top:62%;
+      top: calc(47% + 87px);
       left:50%;
       text-align: center;
     }
@@ -40,7 +40,7 @@
       text-transform: uppercase;
       position: absolute;
       transform: translate(-50%, -50%);
-      top:74%;
+      top: calc(47% + 157px);
       left:50%;
       font-size: 26px;
       color: #5fdfe4;
@@ -63,7 +63,7 @@
       width: 20%;
       text-align: center;
       position: relative;
-      padding: 22px 54px;
+      padding: 22px 3.5vw;
       line-height: 1;
       cursor: pointer;
       &:after{
@@ -84,7 +84,7 @@
       }
       i{
         color: #9a9a9a;
-        font-size: 90px;
+        font-size: 6vw;
       }
       p{
         color: #9a9a9a;

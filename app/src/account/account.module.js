@@ -22,6 +22,7 @@
 
       .state('Account.Projects',{
         url:'/projects',
+        footer: true,
         resolve: {
           projects: function (projectsFactory) {
             return projectsFactory.getProjects();
@@ -36,6 +37,7 @@
       })
       .state('Account.PhotoManagement', {
         url:'/photo_management',
+        footer: true,
         resolve: {
           albums: function (albumsFactory) {
             return albumsFactory.getAlbumsList();
@@ -50,6 +52,7 @@
       })
       .state('Account.AlbumManagement', {
         url:'/album_management',
+        footer: true,
         resolve: {
           albums: function (albumsFactory) {
             return albumsFactory.getAlbumsList();
@@ -65,6 +68,7 @@
 
       .state('Account.Orders', {
         url:'/orders',
+        footer: true,
         resolve: {
           r_orders: function (ordersFactory){
             return ordersFactory.getOrders()
@@ -80,6 +84,7 @@
 
       .state('Account.Settings', {
         url:'/settings',
+        footer: true,
         views: {
           "@": {
             templateUrl:'src/account/settings.html',

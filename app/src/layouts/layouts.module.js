@@ -33,6 +33,7 @@
             .state('Prints', {
                     url:'/prints',
                     title: 'PRINTS',
+                    footer: true,
                     views: {
                         '@':{
                             templateUrl:'src/pages/category.html',
@@ -44,6 +45,7 @@
             .state('Frames', {
                     url:'/frames',
                     title: 'FRAMES',
+                    footer: true,
                     views: {
                         '@':{
                             templateUrl:'src/pages/category.html',
@@ -56,6 +58,7 @@
             .state('Canvas', {
                     url:'/canvas',
                     title: 'CANVAS',
+                    footer: true,
                     views: {
                         '@':{
                             templateUrl:'src/pages/category.html',
@@ -67,16 +70,41 @@
                 }
             )
             .state('Magnets', {
-                url:'/magnets',
-                title: 'MAGNETS',
-                views: {
-                    '@':{
-                        templateUrl:'src/pages/category.html',
-                        controller: 'LayoutsCtrl as vm'
+                    url:'/magnets',
+                    title: 'MAGNETS',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/category.html',
+                            controller: 'LayoutsCtrl as vm'
+                        }
                     }
                 }
-            }
             )
+            .state('Photobooks', {
+                    url:'/photobooks',
+                    title: 'PHOTOBOOKS',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/category.html',
+                            controller: 'LayoutsCtrl as vm'
+                        }
+                    }
+                }
+            )
+            .state('TermAndConditions', {
+                    url:'/termsAndConditions',
+                    title: 'Terms And Conditions',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/termsAndConditions.html'
+                        }
+                    }
+                }
+            )
+
             .state('Projectmanagement', {
                     url:'/projectManagement',
                     title: 'PROJECT MANAGMENT',
@@ -127,27 +155,7 @@
                     }
                 }
             )
-            .state('Photobooks', {
-                    url:'/photobooks',
-                    title: 'PHOTOBOOKS',
-                    views: {
-                        '@':{
-                            templateUrl:'src/pages/category.html',
-                            controller: 'LayoutsCtrl as vm'
-                        }
-                    }
-                }
-            )
-            .state('TermAndConditions', {
-                    url:'/termsAndConditions',
-                    title: 'Terms And Conditions',
-                    views: {
-                        '@':{
-                            templateUrl:'src/pages/termsAndConditions.html'
-                        }
-                    }
-                }
-            )
+
 
         ;
     }
