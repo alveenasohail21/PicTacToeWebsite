@@ -19,6 +19,7 @@
         $stateProvider
             .state('Landing', {
                     url:'/',
+                    title: 'Pictaktoe',
                     views: {
                         '@':{
                             templateUrl:'src/layouts/home.html',
@@ -104,53 +105,46 @@
                     }
                 }
             )
-
-            .state('Projectmanagement', {
-                    url:'/projectManagement',
-                    title: 'PROJECT MANAGMENT',
+            .state('Faq', {
+                    url:'/faq',
+                    title: 'FAQ',
+                    footer: true,
                     views: {
                         '@':{
-                            templateUrl:'src/pages/projectManagement.html'
+                            templateUrl:'src/pages/faq.html'
                         }
                     }
                 }
             )
-            .state('Albummanagement', {
-                    url:'/albumManagement',
-                    title: 'ALBUM MANAGMENT',
+            .state('Contactus', {
+                    url:'/contactUs',
+                    title: 'Contact Us',
+                    footer: true,
                     views: {
                         '@':{
-                            templateUrl:'src/pages/albumManagement.html'
+                            templateUrl:'src/pages/contactUs.html'
                         }
                     }
                 }
             )
-            .state('Photomanagement', {
-                    url:'/photoManagement',
-                    title: 'PHOTO MANAGEMENT',
+            .state('Aboutus', {
+                    url:'/aboutUs',
+                    title: 'About Us',
+                    footer: true,
                     views: {
                         '@':{
-                            templateUrl:'src/pages/photoManagement.html'
+                            templateUrl:'src/pages/aboutUs.html'
                         }
                     }
                 }
             )
-            .state('Accountedit', {
-                    url:'/account-edit',
-                    title: 'ACCOUNT',
+            .state('Help', {
+                    url:'/help',
+                    title: 'Help',
+                    footer: true,
                     views: {
                         '@':{
-                            templateUrl:'src/pages/account.html'
-                        }
-                    }
-                }
-            )
-            .state('Accountinformation', {
-                    url:'/account-info',
-                    title: 'ACCOUNT INFORMATION',
-                    views: {
-                        '@':{
-                            templateUrl:'src/pages/accountInformation.html'
+                            templateUrl:'src/pages/help.html'
                         }
                     }
                 }

@@ -16,7 +16,7 @@
   function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state){
 
     var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames',
-      'Prints', 'Account.Orders','Accountedit','Accountinformation', 'TermAndConditions'];
+      'Prints', 'Account.Orders', 'TermAndConditions', 'Faq', 'Contactus', 'Aboutus', 'Help'];
 
 
     //on routing error

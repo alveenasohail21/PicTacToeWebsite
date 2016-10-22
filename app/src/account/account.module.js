@@ -22,6 +22,7 @@
 
       .state('Account.Projects',{
         url:'/projects',
+        title: 'Projects',
         footer: true,
         resolve: {
           projects: function (projectsFactory) {
@@ -37,6 +38,7 @@
       })
       .state('Account.PhotoManagement', {
         url:'/photo_management',
+        title: 'Photo Management',
         footer: true,
         resolve: {
           albums: function (albumsFactory) {
@@ -52,6 +54,7 @@
       })
       .state('Account.AlbumManagement', {
         url:'/album_management',
+        title: 'Album Management',
         footer: true,
         resolve: {
           albums: function (albumsFactory) {
@@ -68,6 +71,7 @@
 
       .state('Account.Orders', {
         url:'/orders',
+        title: 'Orders History',
         footer: true,
         resolve: {
           r_orders: function (ordersFactory){
@@ -84,6 +88,7 @@
 
       .state('Account.Settings', {
         url:'/settings',
+        title: 'Profile Settings',
         footer: true,
         views: {
           "@": {
