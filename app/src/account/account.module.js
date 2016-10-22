@@ -65,11 +65,11 @@
 
       .state('Account.Orders', {
         url:'/orders',
-        // resolve: {
-        //   r_orders: function (ordersFactory) {
-        //     return ordersFactory.getOrders();
-        //   }
-        // },
+        resolve: {
+          r_orders: function (ordersFactory){
+            return ordersFactory.getOrders()
+          }
+        },
         views: {
           "@": {
             templateUrl:'src/account/orders.html',

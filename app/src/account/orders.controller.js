@@ -13,9 +13,11 @@
         .controller('OrdersCtrl', OrdersCtrl);
 
     /* @ngInject */
-    function OrdersCtrl(){
+    function OrdersCtrl(r_orders, ordersFactory){
         var vm = this;
-        // vm.orders=r_orders;
+        // vm.getOrders=getOrders;
+        vm.orders = r_orders;
+        console.log(vm.orders);
         DataTable.init("#order-history");
     }
 }());

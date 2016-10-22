@@ -69,7 +69,8 @@
         getBlogSpecific: getBlogSpecific
       },
       orders:{
-        getOrders: getOrders
+        getOrders: getOrders,
+        cancelOrder: cancelOrder
       },
       oneUrl: oneUrl
     };
@@ -190,7 +191,10 @@
     }
 
     function getOrders(queryParams) {
-      return Restangular.one('orders').get();
+      return Users.one('orders').get(queryParams);
+    }
+    function cancelOrder(id) {
+      return Restangular.one('orders').one(id).remove();
     }
 
     function getTermsAndConditions() {
