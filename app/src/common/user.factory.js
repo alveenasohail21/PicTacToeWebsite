@@ -312,7 +312,7 @@
             if(resp.success){
               globalLoader.hide();
               alertFactory.success(null, resp.message);
-              deffered.resolve(resp.data);
+              deffered.resolve(resp);
             }
             else{
               globalLoader.hide();

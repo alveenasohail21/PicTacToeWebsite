@@ -5,12 +5,12 @@
             <i class="fa fa-pencil" aria-hidden="true"></i> Edit
         </span>
     </h3>
-    <form role="form" name="editInfoForm" class="row">
+    <form role="form row" name="editInfoForm" class="row">
       <div class="form-group col-md-6" ng-class="{ 'has-error': editInfoForm.username.$touched && editInfoForm.username.$invalid }">
-        <label for="username">Username</label>
-        <input type="text" ng-disabled="!vm.enableInfoEdit" name="username" placeholder="Username" ng-model="vm.userDetails.name" class="username form-control" id="username" required>
+        <label for="username">Name</label>
+        <input type="text" ng-disabled="!vm.enableInfoEdit" name="username" placeholder="Name" ng-model="vm.userDetails.name" class="username form-control" id="username" required>
         <div ng-messages="editInfoForm.username.$error" ng-if="editInfoForm.username.$touched" class="text-danger">
-          <p ng-message="required" ng-if="editInfoForm.username.$error.required">Username is required</p>
+          <p ng-message="required" ng-if="editInfoForm.username.$error.required">Name is required</p>
         </div>
       </div>
       <div class="form-group col-md-6" ng-class="{ 'has-error': editInfoForm.email.$touched && editInfoForm.email.$invalid }">
@@ -51,11 +51,51 @@
           <p ng-message="required" ng-if="editInfoForm.address.$error.required">Address is required </p>
         </div>
       </div>
-      <div class="btn-general text-center" ng-if="vm.enableInfoEdit">
+      <div class="btn-general text-center col-md-12" ng-if="vm.enableInfoEdit">
         <button class="btn btn-cancel" ng-click="vm.cancelEditInfo()">CANCEL</button>
-        <button class="btn btn-save"  ng-click="vm.saveUserInfo()">SAVE</button>
+        <button class="btn btn-save" ng-disabled="editInfoForm.$invalid" ng-click="vm.saveUserInfo()">SAVE</button>
       </div>
     </form>
+
+    <div class="password-form">
+      <div>
+        <h3 class="text-center">Change Password
+        <span ng-click="vm.enableChangePassword()">
+            <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+        </span>
+        </h3>
+      </div>
+      <form ng-if="vm.showPasswordForm" role="form" name="changePasswordForm" class="row">
+        <div class="form-group col-md-12" ng-class="{ 'has-error': changePasswordForm.currentPassword.$touched && changePasswordForm.currentPassword.$invalid }">
+          <label for="form-current-password">Current Password</label>
+          <input type="password" name="currentPassword" placeholder="Current Password" ng-model="vm.password.currentPassword" class="form-password form-control" id="form-current-password" required>
+          <div ng-messages="changePasswordForm.currentPassword.$error" ng-if="changePasswordForm.currentPassword.$touched" class="text-danger">
+            <p ng-message="required" ng-if="changePasswordForm.currentPassword.$error.required">Current Password is required </p>
+          </div>
+        </div>
+        <div class="form-group col-md-12" ng-class="{ 'has-error': changePasswordForm.newPassword.$touched && changePasswordForm.newPassword.$invalid }">
+          <label for="form-new-password">New Password</label>
+          <input type="password" name="newPassword" placeholder="New Password" ng-model="vm.password.newPassword" class="form-password form-control" id="form-new-password" required>
+          <div ng-messages="changePasswordForm.newPassword.$error" ng-if="changePasswordForm.newPassword.$touched" class="text-danger">
+            <p ng-message="required" ng-if="changePasswordForm.newPassword.$error.required">New Password is required </p>
+          </div>
+        </div>
+        <div class="form-group col-md-12"  ng-class="{ 'has-error': changePasswordForm.confirmPassword.$touched && changePasswordForm.confirmPassword.$invalid }">
+          <label for="form-confirm-password">Retype Password</label>
+          <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="vm.password.confirmPassword"
+                 class="form-password form-control" id="form-confirm-password" required compare-To="vm.password.newPassword">
+          <div ng-messages="changePasswordForm.confirmPassword.$error" ng-if="changePasswordForm.confirmPassword.$touched" class="text-danger">
+            <p ng-message="required" ng-if="changePasswordForm.confirmPassword.$error.required">Retype Password</p>
+            <p ng-message="compareTo" class="invalid-field">Password does not match</p>
+          </div>
+        </div>
+        <div class="btn-general text-center col-md-12">
+          <button class="btn btn-cancel" ng-click="vm.cancelPassword(changePasswordForm)">CANCEL</button>
+          <button class="btn btn-save" ng-disabled="changePasswordForm.$invalid" ng-click="vm.savePassword(changePasswordForm)" >SAVE</button>
+        </div>
+      </form>
+    </div>
+
     <div class="btn-social-connect">
       <span class="text-center">Connect your Account with:</span>
       <button class="btn btn-fb " ng-disabled="true">
@@ -75,44 +115,7 @@
     </div>
   </div>
 
-  <div class="password-form">
-    <div>
-      <h3 class="text-center">Change Password
-        <span ng-click="vm.enableChangePassword()">
-            <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-        </span>
-      </h3>
-    </div>
-    <form ng-if="vm.showPasswordForm" role="form" name="changePasswordForm" class="row">
-      <div class="form-group col-md-12" ng-class="{ 'has-error': changePasswordForm.currentPassword.$touched && changePasswordForm.currentPassword.$invalid }">
-        <label for="form-current-password">Current Password</label>
-        <input type="password" name="currentPassword" placeholder="Current Password" ng-model="vm.password.currentPassword" class="form-password form-control" id="form-current-password" required>
-        <div ng-messages="changePasswordForm.currentPassword.$error" ng-if="changePasswordForm.currentPassword.$touched" class="text-danger">
-          <p ng-message="required" ng-if="changePasswordForm.currentPassword.$error.required">Current Password is required </p>
-        </div>
-      </div>
-      <div class="form-group col-md-12" ng-class="{ 'has-error': changePasswordForm.newPassword.$touched && changePasswordForm.newPassword.$invalid }">
-        <label for="form-new-password">New Password</label>
-        <input type="password" name="newPassword" placeholder="New Password" ng-model="vm.password.newPassword" class="form-password form-control" id="form-new-password" required>
-        <div ng-messages="changePasswordForm.newPassword.$error" ng-if="changePasswordForm.newPassword.$touched" class="text-danger">
-          <p ng-message="required" ng-if="changePasswordForm.newPassword.$error.required">New Password is required </p>
-        </div>
-      </div>
-      <div class="form-group col-md-12"  ng-class="{ 'has-error': changePasswordForm.confirmPassword.$touched && changePasswordForm.confirmPassword.$invalid }">
-        <label for="form-confirm-password">Retype Password</label>
-        <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="vm.password.confirmPassword"
-               class="form-password form-control" id="form-confirm-password" required compare-To="vm.password.newPassword">
-        <div ng-messages="changePasswordForm.confirmPassword.$error" ng-if="changePasswordForm.confirmPassword.$touched" class="text-danger">
-          <p ng-message="required" ng-if="changePasswordForm.confirmPassword.$error.required">Retype Password</p>
-          <p ng-message="compareTo" class="invalid-field">Password does not match</p>
-        </div>
-      </div>
-      <div class="btn-general text-center">
-        <button class="btn btn-cancel" ng-click="vm.cancelPassword()">CANCEL</button>
-        <button class="btn btn-save" ng-click="vm.savePassword()" >SAVE</button>
-      </div>
-    </form>
-  </div>
+
 
 
   <div class="billing-shipping-form">
@@ -122,14 +125,56 @@
         </span>
     </h3>
 
+    <div class="row">
+      <div class="account-info">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <div ng-if="!vm.showBillingForm">
+              <h5>Billing Info</h5>
+              <div ng-if="vm.billingDetails">
+                <p>{{vm.billingDetails.username}}</p>
+                <p>{{vm.billingDetails.email}}</p>
+                <p>{{vm.billingDetails.full_address}}</p>
+                <p>{{vm.billingDetails.city}}</p>
+                <p>{{vm.billingDetails.postal_code}}</p>
+                <p>{{vm.billingDetails.area_code}}</p>
+                <p>{{vm.billingDetails.phone_number}}</p>
+              </div>
+              <div ng-if="!vm.billingDetails">
+                <p>You currently have no billing details</p>
+                <button class="btn btn-add-address" ng-click="vm.editBillingDetails()">Add New Address</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div ng-if="!vm.showShippingForm">
+              <h5>Shipping Info</h5>
+              <div ng-if="vm.shippingDetails">
+                <p>{{vm.shippingDetails.first_name}}</p>
+                <p>{{vm.shippingDetails.last_name}}</p>
+                <p>{{vm.shippingDetails.full_address}}</p>
+                <p>{{vm.shippingDetails.city}}</p>
+                <p>{{vm.shippingDetails.postal_code}}</p>
+              </div>
+              <div ng-if="!vm.shippingDetails">
+                <p>You currently have no shipping details</p>
+                <button class="btn btn-add-address" ng-click="vm.editShippingDetails()">Add New Address</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="billing-details" ng-if="vm.showBillingForm">
       <h4 class="text-center">Billing Details</h4>
       <form role="form" class="row" name="billingForm">
         <div class="form-group col-md-6" ng-class="{ 'has-error': billingForm.billing_username.$touched && billingForm.billing_username.$invalid }">
-          <label for="billing_username">Username</label>
-          <input type="text" name="billing_username" placeholder="Username" ng-model="vm.billingDetails.username" class="username form-control" id="billing_username" required>
+          <label for="billing_username">Name</label>
+          <input type="text" name="billing_username" placeholder="Name" ng-model="vm.billingDetails.username" class="username form-control" id="billing_username" required>
           <div ng-messages="billingForm.billing_username.$error" ng-if="billingForm.billing_username.$touched" class="text-danger">
-            <p ng-message="required" ng-if="billingForm.billing_username.$error.required">Username is required</p>
+            <p ng-message="required" ng-if="billingForm.billing_username.$error.required">Name is required</p>
           </div>
         </div>
         <div class="form-group col-md-6" ng-class="{ 'has-error': billingForm.billing_email.$touched && billingForm.billing_email.$invalid }">
@@ -156,18 +201,20 @@
         </div>
         <div class="form-group col-md-6" ng-class="{ 'has-error': billingForm.billing_postal.$touched && billingForm.billing_postal.$invalid }">
           <label for="billing_postal">Postal Code</label>
-          <input type="number" name="billing_postal" placeholder="Postal Code" ng-model="vm.billingDetails.postal_code" class="postal form-control" id="billing_postal" required>
+          <input type="text" ng-pattern="/^[0-9]{1,10}$/" name="billing_postal" placeholder="Postal Code" ng-model="vm.billingDetails.postal_code" class="postal form-control" id="billing_postal" required>
           <div ng-messages="billingForm.billing_postal.$error" ng-if="billingForm.billing_postal.$touched" class="text-danger">
             <p ng-message="required" ng-if="billingForm.billing_postal.$error.required">Postal Code is required</p>
             <p ng-message="number" ng-if="billingForm.billing_postal.$error.number">Invalid Postal Code</p>
+            <p ng-message="pattern" ng-if="billingForm.billing_postal.$error.pattern">Invalid Pattern</p>
           </div>
         </div>
         <div class="form-group col-md-6" ng-class="{ 'has-error': billingForm.billing_area.$touched && billingForm.billing_area.$invalid }">
           <label for="billing_area">Area Code</label>
-          <input type="number" name="billing_area" placeholder="Area Code" ng-model="vm.billingDetails.area_code" class="area form-control" id="billing_area" required>
+          <input type="text" ng-pattern="/^[0-9]{1,10}$/" name="billing_area" placeholder="Area Code" ng-model="vm.billingDetails.area_code" class="area form-control" id="billing_area" required>
           <div ng-messages="billingForm.billing_area.$error" ng-if="billingForm.billing_area.$touched" class="text-danger">
             <p ng-message="required" ng-if="billingForm.billing_area.$error.required">Area Code is required</p>
             <p ng-message="number" ng-if="billingForm.billing_area.$error.number">Invalid Area Code</p>
+            <p ng-message="pattern" ng-if="billingForm.billing_area.$error.pattern">Invalid Pattern</p>
           </div>
         </div>
         <div class="form-group col-md-6" ng-class="{ 'has-error': billingForm.billing_phone.$touched && billingForm.billing_phone.$invalid }">
@@ -179,9 +226,9 @@
           </div>
         </div>
 
-        <div class="btn-general text-center" ng-if="vm.showBillingForm">
-          <button class="btn btn-cancel" ng-click="vm.cancelBilling()">CANCEL</button>
-          <button class="btn btn-save" ng-click="vm.confirmBilling()">CONFIRM</button>
+        <div class="btn-general text-center col-md-12" ng-if="vm.showBillingForm">
+          <button class="btn btn-cancel" ng-click="vm.cancelBilling(billingForm)">CANCEL</button>
+          <button class="btn btn-save" ng-disabled="billingForm.$invalid" ng-click="vm.confirmBilling(billingForm)">CONFIRM</button>
         </div>
       </form>
     </div>
@@ -218,54 +265,18 @@
         </div>
         <div class="form-group col-md-6" ng-class="{ 'has-error': shippingForm.shipping_postal.$touched && shippingForm.shipping_postal.$invalid }">
           <label for="shipping_postal">Postal Code</label>
-          <input type="number" name="shipping_postal" placeholder="Postal Code" ng-model="vm.shippingDetails.postal_code" class="postal form-control" id="shipping_postal" required>
+          <input type="text" ng-pattern="/^[0-9]{1,10}$/" name="shipping_postal" placeholder="Postal Code" ng-model="vm.shippingDetails.postal_code" class="postal form-control" id="shipping_postal" required>
           <div ng-messages="shippingForm.shipping_postal.$error" ng-if="shippingForm.shipping_postal.$touched" class="text-danger">
             <p ng-message="required" ng-if="shippingForm.shipping_postal.$error.required">Postal Code is required</p>
             <p ng-message="number" ng-if="shippingForm.shipping_postal.$error.number">Invalid Postal Code</p>
+            <p ng-message="pattern" ng-if="billingForm.shipping_postal.$error.pattern">Invalid Pattern</p>
           </div>
         </div>
-        <div class="btn-general text-center" ng-if="vm.showShippingForm">
-          <button class="btn btn-cancel" ng-click="vm.cancelShipping()">CANCEL</button>
-          <button class="btn btn-save" ng-click="vm.confirmShipping()">CONFIRM</button>
+        <div class="btn-general text-center col-md-12" ng-if="vm.showShippingForm">
+          <button class="btn btn-cancel" ng-click="vm.cancelShipping(shippingForm)">CANCEL</button>
+          <button class="btn btn-save" ng-disabled="shippingForm.$invalid" ng-click="vm.confirmShipping(shippingForm)">CONFIRM</button>
         </div>
       </form>
-    </div>
-
-    <div class="row">
-      <div class="account-info">
-        <div class="row text-center">
-          <div class="col-md-6">
-            <h5>Billing Info</h5>
-            <div ng-if="vm.billingDetails">
-              <p>{{vm.billingDetails.username}}</p>
-              <p>{{vm.billingDetails.email}}</p>
-              <p>{{vm.billingDetails.full_address}}</p>
-              <p>{{vm.billingDetails.city}}</p>
-              <p>{{vm.billingDetails.postal_code}}</p>
-              <p>{{vm.billingDetails.area_code}}</p>
-              <p>{{vm.billingDetails.phone_number}}</p>
-            </div>
-            <div ng-if="!vm.billingDetails">
-              <p>You current have no billing details</p>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <h5>Shipping Info</h5>
-            <div ng-if="vm.shippingDetails">
-              <p>{{vm.shippingDetails.first_name}}</p>
-              <p>{{vm.shippingDetails.last_name}}</p>
-              <p>{{vm.shippingDetails.full_address}}</p>
-              <p>{{vm.shippingDetails.city}}</p>
-              <p>{{vm.shippingDetails.postal_code}}</p>
-            </div>
-            <div ng-if="!vm.shippingDetails">
-              <p>You current have no shipping details</p>
-              <button class="btn btn-add-address" ng-click="vm.editShippingDetails()">Add New Address</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   </div>

@@ -149,10 +149,10 @@
     }
 
     function putUserShippingDetails(updates){
-      Users.one('shipping').customPUT(updates);
+      return Users.one('shipping').customPUT(updates);
     }
     function putUserBillingDetails(updates){
-      Users.one('billing').customPUT(updates);
+      return Users.one('billing').customPUT(updates);
     }
 
     function changePassword(newPassword, currentPassword, confirmPassword){

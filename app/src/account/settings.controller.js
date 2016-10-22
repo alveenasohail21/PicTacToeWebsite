@@ -45,19 +45,16 @@
     function getUserDetails(){
       userFactory.getUserDetails().then(function (response) {
         vm.userDetails=response;
-        console.log(response);
       });
     }
     function getUserShippingDetails(){
       userFactory.getUserShippingDetails().then(function (response) {
         vm.shippingDetails=response;
-        console.log("shipping details: ", vm.shippingDetails);
       });
     }
     function getUserBillingDetails(){
       userFactory.getUserBillingDetails().then(function (response) {
         vm.billingDetails=response;
-        console.log("billing details: ", vm.billingDetails);
       });
     }
     function editBillingDetails(){
@@ -76,7 +73,9 @@
         vm.showShippingForm=false;
       });
     }
-    function cancelShipping(){
+    function cancelShipping(form){
+      // vm.shippingDetails = {};
+      // resetForm(form);
       vm.showShippingForm=false;
     }
     function confirmBilling(){
@@ -84,7 +83,9 @@
         vm.showBillingForm=false;
       });
     }
-    function cancelBilling(){
+    function cancelBilling(form){
+      // vm.billingDetails = {};
+      // resetForm(form);
       vm.showBillingForm=false;
     }
     function showInfoEdit(){
@@ -101,16 +102,33 @@
     function enableChangePassword() {
       vm.showPasswordForm=true;
     }
-    function cancelPassword() {
+    function cancelPassword(form) {
+      vm.password = {};
+      resetForm(form);
       vm.showPasswordForm=false;
     }
-    function savePassword() {
+    function savePassword(form) {
       userFactory.changePassword(vm.password).then(function (response) {
-        console.log(response);
+        if(response.success){
+          cancelPassword(form);
+        }
+        else{
+          vm.password = {};
+          resetForm(form);
+        }
+      }, function(err){
+        vm.password = {};
+        resetForm(form);
       });
-      vm.showPasswordForm=false;
     }
+
+    function resetForm(form){
+      form.$setPristine();
+      form.$setUntouched();
+    }
+
     init();
+
   }
 
 }());

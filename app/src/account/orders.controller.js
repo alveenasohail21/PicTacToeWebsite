@@ -18,8 +18,6 @@
         // vm.getOrders=getOrders;
         vm.orders = r_orders.orders;
 
-        console.log(vm.orders);
-
         $timeout(function(){
             DataTable.init("#order-history");
         });
