@@ -54,10 +54,12 @@
         // if the user is not authenticated
         if(publicStates.indexOf(toState.name)>=0){
           //Allow public state access
+          window.globalLoader.hide();
           // console.log("Router: going to "+toState.name+" not authenticated and going to a public state, Valid");
         }
         else{
           //Deny private state access
+          window.globalLoader.hide();
           console.log("going to "+toState.name+" not authenticated and going to a private state, invalid");
           event.preventDefault();
           alertFactory.error('Not authorized: ', 'Please login first');

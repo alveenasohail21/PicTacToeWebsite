@@ -123,6 +123,11 @@
             transform: translate(-50%,-50%);
           }
         }
+        &.new-project:hover{
+          border-width: 2px;
+          border-color: rgb(101, 224, 228);
+          border-style: solid;
+        }
       }
 
     }
