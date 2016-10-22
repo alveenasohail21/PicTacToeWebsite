@@ -26,14 +26,14 @@ ImageLazyLoad.prototype = {
 
     constructor: ImageLazyLoad,
 
-    backgroundImage: function(element) {
+    loadBackgroundImage: function(element) {
         $(document).ready(function() {
             $("div."+element).lazyload({
                 effect : "fadeIn"
             });
         });
     },
-    image: function(element) {
+    loadImage: function(element) {
         $(document).ready(function() {
             $("img."+element).lazyload({
                 effect : "fadeIn"

@@ -13,10 +13,7 @@
     .factory('ordersFactory', ordersFactory);
 
   /* @ngInject */
-  function ordersFactory(restFactory){
-
-
-
+  function ordersFactory(restFactory, alertFactory){
     const DefaultQueryParams = {
       from: 0,
       size: 9

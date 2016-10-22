@@ -19,12 +19,21 @@
 			$location.hash(id);
 			$anchorScroll();
 		};
+
+		function lazyLoadImages(){
+			ImageLazyLoad.loadBackgroundImage('hero-div');
+			ImageLazyLoad.loadBackgroundImage('banner');
+			ImageLazyLoad.loadImage('lazy');
+		}
+
+		function init(){
+			lazyLoadImages();
+		}
 		// fire custom test event
         eventChannel.fire('test');
         // fire angular test event
         $rootScope.$broadcast('test');
-		ImageLazyLoad.backgroundImage('hero-div');
-		ImageLazyLoad.backgroundImage('banner');
+		init();
 	}
 
 }());
