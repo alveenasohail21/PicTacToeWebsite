@@ -171,10 +171,14 @@
       padding-top: 3px;
     }
     .social-connect-icon{
-      i{
-        text-align: center;
-        font-size: 18px;
-        padding: 0 5px ;
+      a{
+        color: #9b9b9b;
+        text-decoration: none;
+        i{
+          text-align: center;
+          font-size: 18px;
+          padding: 0 5px ;
+        }
       }
     }
     p:nth-child(2){

@@ -194,7 +194,7 @@
       return Users.one('orders').get(queryParams);
     }
     function cancelOrder(id) {
-      return Restangular.one('orders').one(id).remove();
+      return Users.one('orders').one(id).remove();
     }
 
     function getTermsAndConditions() {

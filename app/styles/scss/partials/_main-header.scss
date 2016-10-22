@@ -19,10 +19,15 @@
             display: initial;
             margin-left: 3px;
             margin-right: 4px;
-            i{
-              font-size: 19px;
-              margin-top: 35px;
-              color: #9b9b9b;
+            a{
+              i{
+                font-size: 19px;
+                margin-top: 35px;
+                color: #9b9b9b;
+              }
+            }
+            a:hover{
+              text-decoration: none;
             }
           }
         }
