@@ -111,7 +111,8 @@
       margin: 44px 0;
     }
     div.img{
-      margin: 96px -16vw;
+      //margin: 96px -16vw;
+      margin: 96px calc(-16vw - 11.5vw);
       img{
         width: 100%;
       }
@@ -127,7 +128,7 @@
       left: 300px;
     }
     .animation-wrapper{
-      width: 1000px;
+      width: 2000px;
       height:200px;
       margin:0 auto;
       overflow: hidden;
