@@ -1,5 +1,6 @@
 .account{
   margin: 0 calc(13.7vw - 85px);
+  padding-bottom: 40px;
   h3{
     margin: 81px 0 40px;
     font-size: 48px;
@@ -67,9 +68,14 @@
 
   .btn-social-connect{
     margin: 69px 0 124px;
+    text-align: center;
+    span{
+      display: block;
+    }
+
     .btn {
+      margin: 20px 19px !important;
       padding: 8px 51px;
-      margin: 0 19px;
       position: relative;
       font-size: 18px;
       width: 211px;
@@ -146,6 +152,47 @@
 
 }
 
+.account-info{
+  margin: 0 calc(13.7vw - 85px);
+  h3{
+    margin: 81px 0 40px;
+    font-size: 48px;
+    font-family: Font_Open_Sans_Regular;
+    color: #4d4d4d;
+    span{
+      font-size: 21px;
+      color: #60dfe5;
+    }
+  }
+  .row{
+    .col-md-6{
+      h5{
+        color: #65e0e4;
+        font-family: Font_Open_Sans_Light;
+        font-size: 31px;
+        margin: 35px 22px;
+      }
+      p{
+        font-size: 26px;
+        color: #bac0c4;
+        font-family: Font_Open_Sans_Light;
+        font-size: 26px;
+        margin: 0;
+      }
+    }
+    .btn-add-address{
+      color: #65e0e4;
+      font-size: 17px;
+      background-color: #65e0e4;
+      color: white;
+      margin: 0 21px;
+      padding: 9px 37px;
+      margin-top: 20%;
+      border-radius: 5px;
+      font-family: Font_Myriad_Pro_Bold;
 
 
+    }
+  }
 
+}
