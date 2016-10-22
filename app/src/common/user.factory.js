@@ -7,8 +7,8 @@
 (function(){
   'use strict';
   angular
-    .module('app.common')
-    .factory('userFactory', userFactory);
+      .module('app.common')
+      .factory('userFactory', userFactory);
 
   function userFactory($rootScope, $q, restFactory, alertFactory){
 
@@ -46,18 +46,18 @@
       //
       var deffered = $q.defer();
       restFactory.auth.getAuthenticatedUser()
-        .then(function (resp){
-          // console.log("the response itself: ",resp);
-          if(resp.success){
-            deffered.resolve(resp);
-          }
-          else{
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+          .then(function (resp){
+            // console.log("the response itself: ",resp);
+            if(resp.success){
+              deffered.resolve(resp);
+            }
+            else{
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 
@@ -93,24 +93,24 @@
     function activeSocialProfilesFromServer(){
       var deffered = $q.defer();
       restFactory.users.activeSocialProfiles()
-        .then(function(resp){
-          // console.log(resp);
-          if(resp.success){
-            // if no social profile
-            if(!resp.data){
-              resp.data = [];
+          .then(function(resp){
+            // console.log(resp);
+            if(resp.success){
+              // if no social profile
+              if(!resp.data){
+                resp.data = [];
+              }
+              updateUserInLocal({activeSocialProfiles: resp.data});
+              deffered.resolve(resp.data);
             }
-            updateUserInLocal({activeSocialProfiles: resp.data});
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+            else{
+              // TODO
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 
@@ -138,18 +138,18 @@
     function socialDetails(){
       var deffered = $q.defer();
       restFactory.users.socialDetails()
-        .then(function(resp){
-          if(resp.success){
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+          .then(function(resp){
+            if(resp.success){
+              deffered.resolve(resp.data);
+            }
+            else{
+              // TODO
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 
@@ -157,18 +157,18 @@
     function getUserDetails(){
       var deffered = $q.defer();
       restFactory.auth.getUserDetails()
-        .then(function(resp){
-          if(resp.success){
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+          .then(function(resp){
+            if(resp.success){
+              deffered.resolve(resp.data);
+            }
+            else{
+              // TODO
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 
@@ -176,19 +176,19 @@
     function getUserShippingDetails(){
       var deffered = $q.defer();
       restFactory.users.getUserShippingDetails()
-        .then(function(resp){
-          if(resp.success){
-            // console.log("shipping: ", resp);
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+          .then(function(resp){
+            if(resp.success){
+              // console.log("shipping: ", resp);
+              deffered.resolve(resp.data);
+            }
+            else{
+              // TODO
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 
@@ -196,23 +196,24 @@
     function getUserBillingDetails(){
       var deffered = $q.defer();
       restFactory.users.getUserBillingDetails()
-        .then(function(resp){
-          if(resp.success){
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+          .then(function(resp){
+            if(resp.success){
+              deffered.resolve(resp.data);
+            }
+            else{
+              // TODO
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 
     //update user details
     function putUserDetails(userDetails){
+      globalLoader.show();
       var deffered = $q.defer();
       var updatedData={
         name: userDetails.first_name,
@@ -226,15 +227,17 @@
       };
       restFactory.auth.putUserDetails(updatedData).then(function(resp){
         if(resp.success){
+          globalLoader.hide();
           alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
-          // TODO
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
@@ -242,6 +245,7 @@
 
     //get shipping details
     function putUserShippingDetails(shippingDetails){
+      globalLoader.show();
       var shippingData={
         first_name: shippingDetails.first_name,
         city: shippingDetails.city,
@@ -252,15 +256,17 @@
       var deffered = $q.defer();
       restFactory.users.putUserShippingDetails(shippingData).then(function(resp){
         if(resp.success){
+          globalLoader.hide();
           alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
-          // TODO
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
@@ -268,6 +274,7 @@
 
     //get billing details
     function putUserBillingDetails(billingDetails){
+      globalLoader.show();
       var billingData={
         username: billingDetails.username,
         // last_name: billingDetails.last_name,
@@ -280,39 +287,44 @@
       };
       var deffered = $q.defer();
       restFactory.users.putUserBillingDetails(billingData).then(function(resp){
-          if(resp.success){
-            alertFactory.success(null, resp.message);
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+        if(resp.success){
+          globalLoader.hide();
+          alertFactory.success(null, resp.message);
+          deffered.resolve(resp.data);
+        }
+        else{
+          globalLoader.hide();
+          alertFactory.error(null, resp.message);
+          deffered.reject(resp);
+        }
+      }, function(err){
+        globalLoader.hide();
+        deffered.reject(err);
+      });
       return deffered.promise;
     }
 
     function changePassword(password){
+      globalLoader.show();
       var deffered = $q.defer();
       restFactory.users.changePassword(password.newPassword, password.currentPassword, password.confirmPassword)
-        .then(function(resp){
-          if(resp.success){
-            alertFactory.success(null, resp.message);
-            deffered.resolve(resp.data);
-          }
-          else{
-            // TODO
-            alertFactory.error(null, resp.message);
-            deffered.reject(resp);
-          }
-        }, function(err){
-          deffered.reject(err);
-        });
+          .then(function(resp){
+            if(resp.success){
+              globalLoader.hide();
+              alertFactory.success(null, resp.message);
+              deffered.resolve(resp.data);
+            }
+            else{
+              globalLoader.hide();
+              alertFactory.error(null, resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            globalLoader.hide();
+            alertFactory.error(null, "Incorrect current password");
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
   }
-
 }());
