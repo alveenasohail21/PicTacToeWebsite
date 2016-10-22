@@ -211,6 +211,15 @@
     }
   }
 
+  @media all and(max-width: 750px){
+    .testimonial{
+      width: calc(100% - 40px)!important;
+    }
+    .form-group{
+      width: 100% !important;
+    }
+  }
+
 }
 
 
