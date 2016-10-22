@@ -33,17 +33,17 @@
       var dataToAttachOnUrl = queryParams || DefaultQueryParams;
       restFactory.orders.getOrders(dataToAttachOnUrl).then(function(resp){
         if(resp.success){
-          GlobalLoader.hide();
+          globalLoader.hide();
           alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
-          GlobalLoader.hide();
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
-        GlobalLoader.hide();
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;
@@ -55,17 +55,17 @@
       var deffered = $q.defer();
       restFactory.orders.cancelOrder().then(function(resp){
         if(resp.success){
-          GlobalLoader.show();
+          globalLoader.show();
           alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
-          GlobalLoader.hide();
+          globalLoader.hide();
           alertFactory.error(null, resp.message);
           deffered.reject(resp);
         }
       }, function(err){
-        GlobalLoader.hide();
+        globalLoader.hide();
         deffered.reject(err);
       });
       return deffered.promise;

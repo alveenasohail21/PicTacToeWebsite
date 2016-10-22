@@ -2,9 +2,9 @@
 
     <form class="form-inline text-center" name="newsletterForm">
         <div class="form-group ">
-            <input type="email" class="form-control" ng-model="subscription" id="exampleInputEmail2" required>
+            <input type="email" class="form-control" ng-model="email" id="exampleInputEmail2" placeholder="Email" required>
         </div>
-        <button class="btn" data-toggle="modal" data-keyboard="true" ng-disabled="newsletterForm.$invalid" ng-click="subscribe(subscription)" type="submit" data-target="#newsletterSubscribeModal">SUBSCRIBE</button>
+        <button class="btn" ng-disabled="newsletterForm.$invalid" ng-click="subscribe(email)" type="submit">SUBSCRIBE</button>
     </form>
 
     <ng-include src="'src/layouts/modals/newsletter-subscribe.html'"></ng-include>

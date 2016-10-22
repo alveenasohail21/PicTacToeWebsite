@@ -72,6 +72,10 @@
         getOrders: getOrders,
         cancelOrder: cancelOrder
       },
+      subscribers: {
+        add: addSubscriber,
+        cancel: cancelSubscription
+      },
       oneUrl: oneUrl
     };
 
@@ -220,8 +224,17 @@
     function getSpecificAlbum(id) {
       return Restangular.one('albums').one(id).get();
     }
+
     function getSpecificProject(id) {
       return Restangular.one('project').one(id).get();
+    }
+
+    function addSubscriber(email){
+      return Restangular.one('subscribe').post(null, {email: email});
+    }
+
+    function cancelSubscription(subscriberId){
+      return Restangular.one('subscribe').one(subscriberId).remove();
     }
 
   }
