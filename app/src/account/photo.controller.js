@@ -15,8 +15,9 @@
 	/* @ngInject */
 	function PhotoCtrl(albumsFactory){
 		var vm = this;
+
 		vm.albums = albumsFactory._data.albums;
-		console.log(vm.albums);
+		
 	}
 
 }());

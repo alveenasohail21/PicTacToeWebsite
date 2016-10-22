@@ -13,7 +13,7 @@
         .factory('projectsFactory', projectsFactory);
 
     /* @ngInject */
-    function projectsFactory(restFactory, $q){
+    function projectsFactory(restFactory, $q, alertFactory){
 
         var _data = {
             projects: []
@@ -41,12 +41,12 @@
                     deffered.resolve(resp.data);
                 }
                 else{
-                    // TODO
                     globalLoader.hide();
                     alertFactory.error(null, resp.message);
                     deffered.reject(resp);
                 }
             }, function(err){
+                alertFactory.error(null, err.data.message);
                 globalLoader.hide();
                 deffered.reject(err);
             });
@@ -60,17 +60,19 @@
             var deffered = $q.defer();
             restFactory.project.deleteProjects(id).then(function(resp){
                 if(resp.success){
+                    console.log(findIndexById(id));
                     _data.projects.splice(findIndexById(id), 1);
                     globalLoader.hide();
+                    alertFactory.success(null, resp.message);
                     deffered.resolve(resp.data);
                 }
                 else{
-                    // TODO
                     alertFactory.error(null, resp.message);
                     globalLoader.hide();
                     deffered.reject(resp);
                 }
             }, function(err){
+                alertFactory.error(null, err.data.message);
                 globalLoader.hide();
                 deffered.reject(err);
             });
@@ -85,15 +87,17 @@
                 if(resp.success){
                     _data.projects.push(resp.data);
                     globalLoader.hide();
-                    deffered.resolve(resp.data);
+                    alertFactory.success(null, resp.message);
+                    deffered.resolve(resp);
                 }
                 else{
-                    // TODO
                     alertFactory.error(null, resp.message);
                     globalLoader.hide();
                     deffered.reject(resp);
                 }
             }, function(err){
+                console.log(err);
+                alertFactory.error(null, err.data.message);
                 globalLoader.hide();
                 deffered.reject(err);
             });
@@ -110,12 +114,12 @@
                     deffered.resolve(resp.data);
                 }
                 else{
-                    // TODO
                     globalLoader.hide();
                     alertFactory.error(null, resp.message);
                     deffered.reject(resp);
                 }
             }, function(err){
+                alertFactory.error(null, err.data.message);
                 globalLoader.hide();
                 deffered.reject(err);
             });
@@ -132,12 +136,13 @@
                     deffered.resolve(resp.data);
                 }
                 else{
-                    // TODO
+                    alertFactory.error(null, resp.message);
                     globalLoader.hide();
                     alertFactory.error(null, resp.message);
                     deffered.reject(resp);
                 }
             }, function(err){
+                alertFactory.error(null, err.data.message);
                 globalLoader.hide();
                 deffered.reject(err);
             });
@@ -145,10 +150,13 @@
         }
 
         function findIndexById(id){
-            //find a project by id -returns index.
-            $.each(_data.projects, function( index, value ) {
-                if(value.id==id) return index;
+            var foundIndex = null;
+            _data.projects.forEach(function(project, index){
+                if(project._id === id){
+                    foundIndex = index;
+                }
             });
+            return foundIndex;
         }
     }
 

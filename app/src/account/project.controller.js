@@ -23,11 +23,23 @@
 		/*method assignment*/
 		vm.createProject = createProject;
 
-		function createProject(project) {
+		function createProject(project, form) {
 			//create a project
-			projectsFactory.createProject(project);
-			vm.newProject={};
+			projectsFactory.createProject(project)
+				.then(function(resp){
+					if(resp.success){
+						// empty values
+						vm.newProject = {};
+						// reset form
+						form.$setPristine();
+						form.$setUntouched();
+						// close modal
+						$('newProject').modal('hide');
+					}
+				}, function(err){
+
+				})
 		}
-		/////////////////////
+
 	}
 }());

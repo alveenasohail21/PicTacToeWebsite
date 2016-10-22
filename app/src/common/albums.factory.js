@@ -146,13 +146,14 @@
 
     function findIndexById(id, dataObject){
       //find index by id
-      var returnIndex;
-      $.each(dataObject, function( index, value ) {
-        if(value._id==id) {
-          returnIndex=index;
+      var foundIndex = null;
+      dataObject.forEach(function(obj, index){
+        if(obj._id === id){
+          foundIndex = index;
         }
       });
-      return returnIndex;
+      return foundIndex;
+
     }
   }
 }());
