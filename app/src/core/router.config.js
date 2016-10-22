@@ -18,7 +18,6 @@
     var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames',
       'Prints', 'Account.Orders', 'TermAndConditions', 'Faq', 'Contactus', 'Aboutus', 'Help'];
 
-
     //on routing error
     $rootScope.$on('$stateNotFound',   function(event, unfoundState, fromState, fromParams){
       //do some logging and toasting

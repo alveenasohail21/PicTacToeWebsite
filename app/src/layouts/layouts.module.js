@@ -129,7 +129,7 @@
             )
             .state('Aboutus', {
                     url:'/aboutUs',
-                    title: 'About Us',
+                    title: 'Aboutt Us',
                     footer: true,
                     views: {
                         '@':{
