@@ -13,7 +13,7 @@
 		.controller('LayoutsCtrl', LayoutsCtrl);
 
 	/* @ngInject */
-	function LayoutsCtrl($rootScope, $location, $scope, $anchorScroll){
+	function LayoutsCtrl($rootScope, $location,  $anchorScroll){
 		var vm = this;
 		vm.scrollTo = function(id) {
 			$location.hash(id);
@@ -23,7 +23,8 @@
         eventChannel.fire('test');
         // fire angular test event
         $rootScope.$broadcast('test');
-
+		ImageLazyLoad.backgroundImage('hero-div');
+		ImageLazyLoad.backgroundImage('banner');
 	}
 
 }());

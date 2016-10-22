@@ -17,20 +17,20 @@
 
 
 // class details
-function DataTable(){
+function ImageLazyLoad(){
 
 }
 
 // prototype functions
-DataTable.prototype = {
+ImageLazyLoad.prototype = {
 
-    constructor: DataTable,
+    constructor: ImageLazyLoad,
 
-    init: function(element) {
+    backgroundImage: function(element) {
         $(document).ready(function() {
-            $(element).DataTable({
-                "bFilter": false,
-                "bLengthChange": false
+            console.log("working here");
+            $("div."+element).lazyload({
+                effect : "fadeIn"
             });
         });
     }
@@ -38,4 +38,4 @@ DataTable.prototype = {
 };
 
 // bind data table instance to window (for global usage)
-window.DataTable = new DataTable();
+window.ImageLazyLoad = new ImageLazyLoad();

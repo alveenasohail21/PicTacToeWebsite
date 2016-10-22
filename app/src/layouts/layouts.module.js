@@ -21,7 +21,8 @@
                     url:'/',
                     views: {
                         '@':{
-                            templateUrl:'src/layouts/home.html'
+                            templateUrl:'src/layouts/home.html',
+                            controller: 'LayoutsCtrl as vm'
                         }
                     }
                 }
