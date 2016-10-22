@@ -13,7 +13,7 @@
     .factory('ordersFactory', ordersFactory);
 
   /* @ngInject */
-  function ordersFactory(restFactory, alertFactory){
+  function ordersFactory(restFactory, alertFactory, $q){
     const DefaultQueryParams = {
       from: 0,
       size: 9
@@ -27,14 +27,14 @@
     ////////////////////
 
     function getOrders(queryParams){
-      GlobalLoader.show();
+      globalLoader.show();
       //get all orders
       var deffered = $q.defer();
-      var dataToAttachOnUrl = queryParams || DefaultQueryParams;
+      var dataToAttachOnUrl = (queryParams)?(queryParams):(DefaultQueryParams);
       restFactory.orders.getOrders(dataToAttachOnUrl).then(function(resp){
         if(resp.success){
           globalLoader.hide();
-          alertFactory.success(null, resp.message);
+          // alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{

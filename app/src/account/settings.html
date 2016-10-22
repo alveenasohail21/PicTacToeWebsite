@@ -45,8 +45,8 @@
         </div>
       </div>
       <div class="form-group col-md-6" ng-class="{ 'has-error': editInfoForm.address.$touched && editInfoForm.address.$invalid }">
-        <label ng-disabled="!vm.enableInfoEdit" for="address">Address</label>
-        <input type="text" name="address" placeholder="Address" ng-model="vm.userDetails.full_address" class="address form-control" id="address" required>
+        <label for="address">Address</label>
+        <input type="text" name="address" ng-disabled="!vm.enableInfoEdit" placeholder="Address" ng-model="vm.userDetails.full_address" class="address form-control" id="address" required>
         <div ng-messages="editInfoForm.address.$error" ng-if="editInfoForm.address.$touched" class="text-danger">
           <p ng-message="required" ng-if="editInfoForm.address.$error.required">Address is required </p>
         </div>
@@ -58,18 +58,18 @@
     </form>
     <div class="btn-social-connect">
       <span class="text-center">Connect your Account with:</span>
-      <button class="btn btn-fb ">
+      <button class="btn btn-fb " ng-disabled="true">
         <i class="fa fa-facebook" aria-hidden="true"></i>FACEBOOK
       </button>
-      <button class="btn btn-google ">
+      <button class="btn btn-google " ng-disabled="true">
         <i class="fa fa-google-plus" aria-hidden="true"></i></i>GOOGLE
       </button>
-      <button class="btn btn-flickr ">
+      <button class="btn btn-flickr " ng-disabled="true">
         <i class="fa fa-circle" aria-hidden="true" style="color: #0075e2;"></i>
         <i class="fa fa-circle" aria-hidden="true"></i>
         FLICKR
       </button>
-      <button class="btn btn-instagram ">
+      <button class="btn btn-instagram " ng-disabled="true">
         <i class="fa fa-instagram" aria-hidden="true"></i>INSTAGRAM
       </button>
     </div>

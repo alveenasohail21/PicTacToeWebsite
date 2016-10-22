@@ -41,11 +41,14 @@
       if($auth.isAuthenticated()){
         //if the user is authenticated.
         Restangular.setDefaultHeaders({'token': 'Bearer {'+$auth.getToken()+'}'});
+
         //Check if the data exists of user on rootScope
         if(!userFactory.getUserFromLocal()){
-          // if not present, get from token in localStorage through $auth factory
+          event.preventDefault();
+          // if not present
           userFactory.getUserDetails().then(function (response) {
             userFactory.createUserInLocal(response);
+            $state.go(toState.name);
           });
           // var user = $auth.getPayload();
         }

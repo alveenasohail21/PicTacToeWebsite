@@ -13,11 +13,15 @@
         .controller('OrdersCtrl', OrdersCtrl);
 
     /* @ngInject */
-    function OrdersCtrl(r_orders, ordersFactory){
+    function OrdersCtrl(r_orders, ordersFactory, $timeout){
         var vm = this;
         // vm.getOrders=getOrders;
-        vm.orders = r_orders;
+        vm.orders = r_orders.orders;
+
         console.log(vm.orders);
-        DataTable.init("#order-history");
+
+        $timeout(function(){
+            DataTable.init("#order-history");
+        });
     }
 }());
