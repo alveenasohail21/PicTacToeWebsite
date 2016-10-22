@@ -91,6 +91,16 @@
               background-color: rgb(255, 255, 255);
               height:45px;
             }
+            select{
+              width: 100%;
+              margin-bottom: 10px;
+              border-width: 1.035px;
+              border-color: #cccccc;
+              border-style: solid;
+              border-radius: 5px;
+              background-color: white;
+              height: 45px;
+            }
           }
 
           .button-login {
@@ -143,7 +153,6 @@
   &#loginModal {
 
   }
-
   &#signupModal{
     .modal-footer{
       padding-bottom: 0;
@@ -153,25 +162,42 @@
       }
     }
   }
-  &#newProject{
-    .modal-content{
+
+  &.general-modal {
+    .modal-content {
       padding: 47px 0;
-      .modal-body{
-        .form-group{
-          select{
-            width: 100%;
-            margin-bottom: 10px;
-            border-width: 1.035px;
-            border-color: #cccccc;
-            border-style: solid;
-            border-radius: 5px;
-            background-color: white;
-            height: 45px;
-          }
-        }
-      }
+    }
+    .btn-cancel{
+      width: auto;
+      background-color: white;
+      color: $btn-bkg-color;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 41px;
+      margin-top: 10px;
+      margin-left: -3px;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .btn-cancel:hover{
+      color: $btn-bkg-color;
+    }
+    .btn-confirm{
+      width: auto;
+      background-color: $btn-bkg-color;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 41px;
+      margin-top: 10px;
+      margin-left: -3px;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
   }
+
   @media (min-width: 768px) {
     .modal-dialog {
       width: 662px;
