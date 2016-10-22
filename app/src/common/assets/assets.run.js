@@ -14,8 +14,34 @@
             * All images and svgs to load
             * */
             var imagesAndSvgs = [
-                "images/logo_icon.png",
-                "svgs/gray-camera.svg"
+                "svg/buildings.svg",
+                "svg/car.svg",
+                "svg/car-logo.svg",
+                "svg/cart.svg",
+                "svg/gray-delete.svg",
+                "svg/help.svg",
+                "svg/logo-icon.svg",
+                "svg/logo-text.svg",
+                "svg/plus.svg",
+                "svg/ptt-loader.svg",
+                "svg/road.svg",
+                "svg/white-delete.svg",
+                "img/home-hero-top.jpg",
+                "img/home-hero-bottom-left.jpg",
+                "img/home-hero-bottom-center.jpg",
+                "img/home-hero-bottom-right.jpg",
+                "img/home-bottom-banner.jpg",
+                "img/category-img-1.png",
+                "img/category-img-2.png",
+                "img/category-img-3.png",
+                "img/category-img-4.png",
+                "img/hero-img-1.jpg",
+                "img/project-type.png",
+                "img/point.png",
+                "img/plus.png",
+                "img/user.jpg",
+                "img/user-pic.png",
+                "img/white-tick.png",
             ];
 
             /*
@@ -36,7 +62,7 @@
                     /*
                      *  Open these functions when you need to load assets and fonts on run time
                      * */
-                    // loadImagesAndSvgs();
+                    loadImagesAndSvgs();
                     loadFonts();
                     // stopDebug();
                 });

@@ -65,6 +65,9 @@
           // no change
           scope.coverPhoto = scope.project.photos[0].url;
         }
+        else {
+          scope.coverPhoto = DefaultUrl;
+        }
       }
 
       init();

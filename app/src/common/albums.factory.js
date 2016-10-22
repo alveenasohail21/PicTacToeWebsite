@@ -13,7 +13,7 @@
       .factory('albumsFactory', albumsFactory);
 
   /* @ngInject */
-  function albumsFactory(restFactory, $q){
+  function albumsFactory(restFactory, $q, alertFactory){
     var _data = {
       albums: []
     };
@@ -37,6 +37,7 @@
         if(resp.success){
           _data.albums.splice(findIndexById(id, _data.albums), 1);
           globalLoader.hide();
+          alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
@@ -47,6 +48,7 @@
         }
       }, function(err){
         globalLoader.hide();
+        alertFactory.error(null, err.data.message);
         deffered.reject(err);
       });
       return deffered.promise;
@@ -58,7 +60,9 @@
       var deffered = $q.defer();
       restFactory.album.getAlbumsList(withPhotos).then(function(resp){
         if(resp.success){
-          _data.albums = resp.data;
+          if(resp.data){
+            _data.albums = resp.data;
+          }
           globalLoader.hide();
           deffered.resolve(resp.data);
         }
@@ -84,6 +88,7 @@
         if(resp.success){
           globalLoader.hide();
           _data.albums[albumIndex].photos.splice(findIndexById(id, _data.albums[albumIndex].photos), 1);
+          alertFactory.success(null, resp.message);
           deffered.resolve(resp.data);
         }
         else{
@@ -94,6 +99,7 @@
         }
       }, function(err){
         globalLoader.hide();
+        alertFactory.error(null, err.data.message);
         deffered.reject(err);
       });
       return deffered.promise;

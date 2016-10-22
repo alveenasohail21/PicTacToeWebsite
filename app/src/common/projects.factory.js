@@ -36,7 +36,9 @@
             var deffered = $q.defer();
             restFactory.project.getProjects().then(function(resp){
                 if(resp.success){
-                    _data.projects = resp.data;
+                    if(resp.data){
+                        _data.projects = resp.data;
+                    }
                     globalLoader.hide();
                     deffered.resolve(resp.data);
                 }
@@ -60,7 +62,6 @@
             var deffered = $q.defer();
             restFactory.project.deleteProjects(id).then(function(resp){
                 if(resp.success){
-                    console.log(findIndexById(id));
                     _data.projects.splice(findIndexById(id), 1);
                     globalLoader.hide();
                     alertFactory.success(null, resp.message);
