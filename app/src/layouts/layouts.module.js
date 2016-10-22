@@ -104,6 +104,50 @@
                     }
                 }
             )
+            .state('Faq', {
+                    url:'/faq',
+                    title: 'FAQ',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/faq.html'
+                        }
+                    }
+                }
+            )
+            .state('Contactus', {
+                    url:'/contactUs',
+                    title: 'Contact Us',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/contactUs.html'
+                        }
+                    }
+                }
+            )
+            .state('Aboutus', {
+                    url:'/aboutUs',
+                    title: 'Aboutt Us',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/aboutUs.html'
+                        }
+                    }
+                }
+            )
+            .state('Help', {
+                    url:'/help',
+                    title: 'Help',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/pages/help.html'
+                        }
+                    }
+                }
+            )
 
             .state('Projectmanagement', {
                     url:'/projectManagement',
