@@ -39,7 +39,12 @@
             alertFactory.success(null, resp.data.message);
             $timeout(function(){
               window.globalLoader.hide();
-
+              if(eventChannel.has('login')){
+                eventChannel.fire('login');
+              }
+              else{
+                $('#loginModal').modal('hide');
+              }
               // $state.go('Layout');
             },1500);
           }
@@ -71,6 +76,12 @@
             alertFactory.success(null,resp.data.message);
             $timeout(function(){
               window.globalLoader.hide();
+              if(eventChannel.has('login')){
+                eventChannel.fire('login');
+              }
+              else{
+                $('#signupModal').modal('hide');
+              }
               // $state.go('Layout');
             },1500);
           }

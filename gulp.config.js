@@ -8,7 +8,7 @@ module.exports = function(){
   var cssFolder = clientApp + '/styles/css';
   var htmlFolder = clientApp + '';
   var fontsFolder = clientApp + '/fonts';
-  var imagesFolder = clientApp + '/images';
+  var imagesFolder = clientApp + '/img';
   var jsFolder = clientApp + '/src';
 
   /*

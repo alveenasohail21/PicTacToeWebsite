@@ -25,8 +25,8 @@
             console.log("Angular Event: logout");
             // remove data and token
             userFactory.removeUserFromLocal();
-            // reload due to photoFactory bhand
-            $rootScope.reload = true;
+            // remove categoryclick
+            $rootScope.categoryClick = null;
         });
 
         // social authenticate

@@ -58,6 +58,12 @@ EventChannel.prototype = {
                 }
             }
         }
+    },
+
+    has: function(name){
+
+        return (name in this.list);
+        
     }
 
 };

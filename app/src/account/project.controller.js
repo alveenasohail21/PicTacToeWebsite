@@ -13,7 +13,7 @@
 		.controller('ProjectCtrl', ProjectCtrl);
 
 	/* @ngInject */
-	function ProjectCtrl(projectsFactory){
+	function ProjectCtrl(projectsFactory, toolFactory){
 		var vm = this;
 
 		/*variable assignment*/
@@ -35,10 +35,20 @@
 						form.$setUntouched();
 						// close modal
 						$('newProject').modal('hide');
+						goToTool(resp.data);
+					}
+					else{
+						alertFactory.error(null, resp.message);
 					}
 				}, function(err){
-
+					alertFactory.error(null, err.data.message);
 				})
+		}
+
+		function goToTool(project){
+			if(project._id){
+				toolFactory.redirectToToolWithProject(project._id);
+			}
 		}
 
 	}

@@ -91,7 +91,7 @@ gulp.task('useref', function(){
 // imagemin
 gulp.task('images', function(){
   return gulp.src(config.images.folder + '/**/*')
-    .pipe(gulp.dest(config.serverApp + '/images'));
+    .pipe(gulp.dest(config.serverApp + '/img'));
 });
 // fonts
 gulp.task('fonts', function(){
