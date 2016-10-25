@@ -36,7 +36,7 @@
           font-family: Font_Open_Sans_Light;
           line-height: 2.6;
           font-size: 21px;
-
+          cursor: pointer;
         }
         .project-overlay{
           top: 100%;
@@ -110,7 +110,6 @@
               img,svg{
                 height: 20px;
               }
-
             }
           }
         }

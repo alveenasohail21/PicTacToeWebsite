@@ -19,7 +19,7 @@
                 <img ng-click="deleteProjects(project._id)" src="svg/gray-delete.svg" alt="">
             </div>
         </div>
-        <div class="project-name">
+        <div class="project-name" ng-click="projectSelected()">
             <p>{{project.name}}</p>
             <p>{{project.created_at}}</p>
         </div>

@@ -18,7 +18,7 @@
       .directive('projectDirective', projectDirective);
 
   /* @ngInject */
-  function projectDirective(projectsFactory){
+  function projectDirective(projectsFactory, toolFactory){
 
     const DefaultUrl="svg/logo-icon.svg";
     const DefaultDimension = "260x260";
@@ -40,6 +40,7 @@
       scope.defaultCover = DefaultUrl;
       scope.deleteProjects=deleteProjects;
       scope.updateProject=updateProject;
+      scope.projectSelected = projectSelected;
 
       function init(){
         setCoverPhoto();
@@ -67,6 +68,12 @@
         }
         else {
           scope.coverPhoto = DefaultUrl;
+        }
+      }
+      
+      function projectSelected(){
+        if(scope.project._id){
+          toolFactory.redirectToToolWithProject(scope.project._id);
         }
       }
 

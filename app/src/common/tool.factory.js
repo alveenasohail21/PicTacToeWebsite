@@ -13,10 +13,7 @@
     .factory('toolFactory', toolFactory);
 
   /* @ngInject */
-  function toolFactory($auth){
-
-    const DevLink = 'http://localhost:7030';
-    const ProdLink = 'http://pictaktoe.com/tool/#/upload';
+  function toolFactory(FRONT_END_TOOL_DEV_URL, FRONT_END_TOOL_PROD_URL, $auth){
 
     return {
       redirectToToolWithProject: redirectToToolWithProject
@@ -29,11 +26,11 @@
       var isLocalhost = (window.location.origin.indexOf('localhost') >= 0);
       if(isLocalhost){
         // create dev redirect link
-        redirectLink = DevLink + '?pid=' + pId + '&token=' + token;
+        redirectLink = FRONT_END_TOOL_DEV_URL + '/' + pId + '/' + token;
       }
       else{
         // else create prod redirect link
-        redirectLink = ProdLink + '?pid=' + pId;
+        redirectLink = FRONT_END_TOOL_PROD_URL + '/' + pId;
       }
       return redirectLink;
     }
