@@ -1,4 +1,4 @@
-<div class="project" ng-style="{'background-image':'url(' + coverPhoto + ')'}">
+<div class="project" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}">
     <!--<div class="project-cover-image" ng-class="{'no-cover': !coverPhoto}">-->
         <!--<img ng-src="{{coverPhoto || defaultCover}}" alt="">-->
     <!--</div>-->
