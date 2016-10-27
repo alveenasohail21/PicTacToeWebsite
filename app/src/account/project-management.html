@@ -4,14 +4,17 @@
     <div class="projects" ng-repeat="project in vm.projects">
       <!--new project-->
       <h3 class="text-center font-opensans-light  ">{{project.newDateFormat}}</h3>
-      <div ng-if="project.newDateFormat=='Today'" class="project new-project" data-toggle="modal" data-keyboard="true" data-target="#newProject">
-        <div class="project-name">New Projects</div>
-        <img src="img/plus.png"  alt="" >
-      </div>
-      <!--project-->
-      <project-directive  project="project">
+      <div class="project-wrapper">
+        <div ng-if="project.newDateFormat=='Today'" class="project new-project" data-toggle="modal" data-keyboard="true" data-target="#newProject">
+          <div class="project-name">New Projects</div>
+          <img src="img/plus.png"  alt="" >
+        </div>
+        <!--project-->
+        <project-directive  project="project">
 
-      </project-directive>
+        </project-directive>
+
+      </div>
     </div>
   </div>
 </div>

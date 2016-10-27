@@ -11,6 +11,9 @@
     .projects{
       margin: 50px 0 0;
       text-align: center;
+      .project-wrapper{
+        margin-top: 50px;
+      }
       .project{
         overflow: hidden;
         position: relative;
