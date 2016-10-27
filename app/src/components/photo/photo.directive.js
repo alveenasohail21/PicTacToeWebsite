@@ -21,7 +21,7 @@
     function photoDirective(albumsFactory){
 
         const DefaultUrl="svg/logo-icon.svg";
-        const DefaultDimension = "260x260";
+        const DefaultDimension = "800x800";
 
         return {
             link: link,

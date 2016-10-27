@@ -19,6 +19,15 @@
 
         function safeUrlConvert(url){
 
+          if(!url){
+            return;
+          }
+
+          // if default image
+          if(url.indexOf('svg/logo-icon.svg') >= 0){
+            return url;
+          }
+
           // if default image
           if(url.indexOf('svg/logo-icon.svg') >= 0){
             return url;
