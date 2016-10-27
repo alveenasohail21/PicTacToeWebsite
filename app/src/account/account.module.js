@@ -36,6 +36,21 @@
           }
         }
       })
+      .state('Account.Logout',{
+        //Gets hit when logged out from tool.
+        url:'/logout',
+        resolve: {
+          logout: function (authFactory, $state) {
+            authFactory.logout();
+          }
+        },
+        views: {
+          "@": {
+            templateUrl:'src/layouts/home.html',
+            controller: 'logoutCtrl as vm'
+          }
+        }
+      })
       .state('Account.PhotoManagement', {
         url:'/photo_management',
         title: 'Photo Management',
