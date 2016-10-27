@@ -1,9 +1,11 @@
 <div class="album-management ">
   <div class="album-main">
-    <h3 class="text-center font-opensans-light  ">October 2016</h3>
-    <!--albums-->
-    <div class="albums">
-      <album-directive ng-repeat="album in vm.albums" album="album"></album-directive>
+    <div ng-repeat="album in vm.albums">
+      <h3 class="text-center font-opensans-light">{{album.newDateFormat}}</h3>
+      <!--albums-->
+      <div class="albums">
+        <album-directive album="album"></album-directive>
+      </div>
     </div>
   </div>
 </div>
