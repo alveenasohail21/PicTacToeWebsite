@@ -62,9 +62,9 @@
                     /*
                      *  Open these functions when you need to load assets and fonts on run time
                      * */
-                    loadImagesAndSvgs();
                     loadFonts();
-                    // stopDebug();
+                    loadImagesAndSvgs();
+                    stopDebug();
                 });
             }
 

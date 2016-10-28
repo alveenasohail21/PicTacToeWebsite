@@ -1,6 +1,6 @@
-<div class="project" id="load-project" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}">
+<div class="project" id="load-project" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}" ng-class="{'no-cover': coverPhoto.indexOf('logo-icon.svg')>=0}">
     <!--<div class="project-cover-image" ng-class="{'no-cover': !coverPhoto}">-->
-        <!--<img ng-src="{{coverPhoto || defaultCover}}" alt="">-->
+    <!--<img ng-src="{{coverPhoto || defaultCover}}" alt="">-->
     <!--</div>-->
     <img src="svg/ptt-loader.svg" id="loader-photo" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
 
