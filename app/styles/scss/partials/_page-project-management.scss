@@ -42,6 +42,7 @@
           }
           &.no-cover{
             background-size: 40%;
+            background-position: 50% calc(50% - 22px);
           }
         }
         .project-name{

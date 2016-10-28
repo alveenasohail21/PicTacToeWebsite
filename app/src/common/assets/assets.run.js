@@ -64,7 +64,7 @@
                      * */
                     loadFonts();
                     loadImagesAndSvgs();
-                    // stopDebug();
+                    stopDebug();
                 });
             }
 
