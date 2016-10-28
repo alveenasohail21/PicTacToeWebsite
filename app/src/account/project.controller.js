@@ -46,12 +46,7 @@
 		for(var i=0; i<vm.projects.length;i++){
 			var date=new Date(vm.projects[i].created_at);
 			var key=month[date.getMonth()] +" "+date.getFullYear();
-			if(matchDate(date, currentDate)) {
-				vm.projectsArray[0].projects.push(vm.projects[i]);
-			}
-			else{
-				addKey(key, vm.projects[i]);
-			}
+			matchDate(date, currentDate) ? vm.projectsArray[0].projects.push(vm.projects[i]) : addKey(key, vm.projects[i]);
 		}
 		function addKey(key, projects) {
 			var newObject={

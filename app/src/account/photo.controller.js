@@ -46,12 +46,7 @@
 		for(var i=0;i<vm.albums.length;i++){
 			var date=new Date(vm.albums[i].created_at);
 			vm.albums[i].newDateFormat=week[date.getDay()]+" | "+month[date.getMonth()] +" "+date.getDate()+"th, "+date.getFullYear()+" | ";
-			console.log(vm.albums[i].photos.length);
-
 		}
-
-
-
 	}
 
 }());

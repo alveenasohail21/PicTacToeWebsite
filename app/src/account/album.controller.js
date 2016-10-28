@@ -16,8 +16,6 @@
 	function AlbumCtrl(albumsFactory){
 		var vm = this;
 		//variable assignment
-
-
 		var month = new Array();
 		month[0] = "January";
 		month[1] = "February";
@@ -34,40 +32,28 @@
 		vm.albums=albumsFactory._data.albums;
 		vm.albumsArray=new Array();
 
-
 		for(var i=0; i<vm.albums.length;i++){
 			var temp=new Date(vm.albums[i].created_at);
 			var key=month[temp.getMonth()] +" "+temp.getFullYear();
 			addKey(key, vm.albums[i]);
 		}
-		// console.log("here i am : ",vm.albumsArray);
-
 		function addKey(key, albums) {
 			var newObject={
 				date: key,
 				albums: [albums]
 			};
 			var index=findIndexById(key);
-			(index || index===0) ? vm.albumsArray[index].albums.push(albums) : vm.albumsArray.push(newObject);
+			(index || index===0) ? vm.albumsArray[index].albums.push(albums) : vm.albumsArray.unshift(newObject);
 		}
 		function findIndexById(key){
 			var foundIndex = null;
 			vm.albumsArray.forEach(function(album, index){
 				if(album.date === key){
-					console.log(key, album.date);
 					foundIndex = index;
 				}
 			});
 			return foundIndex;
 		}
-
-
-		vm.newDateFormat=new Array();
-		for(var i=0;i<vm.albums.length;i++){
-			var date=new Date(vm.albums[i].created_at);
-			vm.albums[i].newDateFormat=month[date.getMonth()] +" "+date.getFullYear();
-		}
-
 		//method assignment
 
 		/////////////////////
