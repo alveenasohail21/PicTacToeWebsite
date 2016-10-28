@@ -167,6 +167,7 @@
               deffered.reject(resp);
             }
           }, function(err){
+            alertFactory.error(null, 'Please login again');
             deffered.reject(err);
           });
       return deffered.promise;

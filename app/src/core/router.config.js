@@ -49,6 +49,9 @@
           userFactory.getUserDetails().then(function (response) {
             userFactory.createUserInLocal(response);
             $state.go(toState.name);
+          }, function(err){
+            $auth.removeToken();
+            $state.go('Landing');
           });
           // var user = $auth.getPayload();
         }
