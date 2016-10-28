@@ -21,7 +21,9 @@
 		vm.newProject={};
 		/*method assignment*/
 		vm.createProject = createProject;
-
+		vm.projectsArray=new Array();
+		vm.todayProjects=[];
+		var currentDate=new Date();
 		var month = new Array();
 		month[0] = "January";
 		month[1] = "February";
@@ -36,17 +38,43 @@
 		month[10] = "November";
 		month[11] = "December";
 
-		vm.newDateFormat=new Array();
-		for(var i=0;i<vm.projects.length;i++){
-			var currentDate=new Date();
+		var initialObject={
+			date: 'Today',
+			projects: []
+		};
+		vm.projectsArray[0]=initialObject;
+		for(var i=0; i<vm.projects.length;i++){
 			var date=new Date(vm.projects[i].created_at);
-			if(currentDate.getMonth()==date.getMonth() && currentDate.getDate()==date.getDate() && currentDate.getFullYear() == date.getFullYear()){
-				vm.projects[i].newDateFormat="Today"
+			var key=month[date.getMonth()] +" "+date.getFullYear();
+			if(matchDate(date, currentDate)) {
+				vm.projectsArray[0].projects.push(vm.projects[i]);
 			}
 			else{
-				vm.projects[i].newDateFormat=month[date.getMonth()] +" "+date.getFullYear();
+				addKey(key, vm.projects[i]);
 			}
-			console.log(vm.projects[i].newDateFormat);
+		}
+		function addKey(key, projects) {
+			var newObject={
+				date: key,
+				projects: [projects]
+			};
+			var index=findIndexById(key);
+			(index || index===0) ? vm.projectsArray[index].projects.push(projects) : vm.projectsArray.push(newObject);
+		}
+		function findIndexById(key){
+			var foundIndex = null;
+			vm.projectsArray.forEach(function(project, index){
+				if(project.date === key){
+					foundIndex = index;
+				}
+			});
+			return foundIndex;
+		}
+
+		function matchDate(date1, date2){
+			return (date1.getMonth()==date2.getMonth() &&
+			date1.getDate()==date2.getDate() &&
+			date1.getFullYear() == date2.getFullYear())
 		}
 
 		function createProject(project, form) {
