@@ -1,7 +1,8 @@
-<div class="photo">
-    <img src="svg/ptt-loader.svg" id="loader-photo" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
+<div class="photo" data-photoid="{{photo._id}}">
 
-    <img ng-src="{{ $root.safeUrlConvert(coverPhoto) }}" alt="">
+    <img src="svg/ptt-loader.svg" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
+    <img ng-src="{{ $root.safeUrlConvert(coverPhoto) }}"  id="{{photo._id}}"  alt="" ng-class="{'load-blur-effect': !hideLoader}">
+
     <!--<img ng-src="img/large.jpg" alt="">-->
     <img class="photo-delete" ng-click="deletePhoto(photo._id)" src="svg/white-delete.svg" alt="">
     <!--<img class="photo-tick" src="img/white-tick.png" alt="">-->

@@ -43,12 +43,12 @@
             function init(){
                 setCoverPhoto();
                 $timeout(function () {
-                    var img = new Image('#loader-photo');
+                    var img = new Image('#'+attrs.photoid);
                     img.onload =function hide() {
                         scope.hideLoader=true;
                     };
                     if (img.complete) img.onload();
-                }, 100);
+                }, 1000);
             }
 
             function deletePhoto(id){

@@ -31,10 +31,13 @@ img.directive-loader{
   height: auto !important;
   margin-left: -40px;
   margin-top: -40px;
+  z-index: 1;
   &.hide-loader{
     display: none;
   }
 }
+
+
 
 /*
 Key Frmaes

@@ -1,10 +1,12 @@
-<div class="project" id="load-project" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}" ng-class="{'no-cover': coverPhoto.indexOf('logo-icon.svg')>=0}">
+<div class="project" data-projectid="{{project._id}}"  >
     <!--<div class="project-cover-image" ng-class="{'no-cover': !coverPhoto}">-->
     <!--<img ng-src="{{coverPhoto || defaultCover}}" alt="">-->
     <!--</div>-->
+    <div id="{{project._id}}" class="bg-div" ng-class="{'load-blur-effect': !hideLoader}" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}"
+         ng-class="{'no-cover': coverPhoto.indexOf('logo-icon.svg')>=0}">
+    </div>
+
     <img src="svg/ptt-loader.svg" id="loader-photo" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
-
-
     <div class="project-name">{{project.name}}</div>
     <div class="project-overlay">
         <div class="project-details">

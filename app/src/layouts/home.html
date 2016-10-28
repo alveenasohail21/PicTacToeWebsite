@@ -152,6 +152,19 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(function(){
+        var maxHeight=0;
+        $('.love-ptt').each(function (index) {
+            if($(this).height() > maxHeight) {
+                maxHeight=$(this).height();
+            }
+        });
+//        console.log(maxHeight);
+        $('.love-ptt').css('min-height', maxHeight);
+
+    });
+</script>
 
 
 

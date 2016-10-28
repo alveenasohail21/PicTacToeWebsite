@@ -45,7 +45,7 @@
       function init() {
         setCoverPhoto();
         $timeout(function () {
-          var src = $('#load-album').css('background-image');
+          var src = $('#'+attrs.albumid).css('background-image');
           var url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
           var img = new Image();
           img.onload =function hide() {
@@ -53,9 +53,8 @@
           };
           img.src = url;
           if (img.complete) img.onload();
-        }, 100);
+        }, 1000);
       }
-
 
       function deleteAlbum(id){
         //delete album by id
