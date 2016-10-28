@@ -49,7 +49,9 @@
           var url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
           var img = new Image();
           img.onload =function hide() {
-            scope.hideLoader=true;
+            $timeout(function(){
+              scope.hideLoader=true;
+            })
           };
           img.src = url;
           if (img.complete) img.onload();

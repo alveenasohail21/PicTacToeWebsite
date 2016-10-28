@@ -25,6 +25,12 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0,0.18);
+        &.no-cover{
+          background-size: 40%;
+        }
         .project-name{
           position: absolute;
           bottom: 0;
@@ -40,6 +46,9 @@
           border-style: solid;
           border-width: 1px;
           border-color: rgba(0, 0, 0,0.18);
+          border-bottom: 0;
+          border-right: 0;
+          border-left: 0;
         }
         .project-overlay{
           top: 100%;

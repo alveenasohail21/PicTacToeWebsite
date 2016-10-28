@@ -30,7 +30,7 @@
       }
       else{
         // else create prod redirect link
-        redirectLink = FRONT_END_TOOL_PROD_URL + '/' + pId;
+        redirectLink = FRONT_END_TOOL_PROD_URL + '/?sku=' + pId;
       }
       return redirectLink;
     }
