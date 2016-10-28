@@ -14,11 +14,11 @@
   'use strict';
 
   angular
-    .module('app.components')
-    .directive('albumDirective', albumDirective);
+      .module('app.components')
+      .directive('albumDirective', albumDirective);
 
   /* @ngInject */
-  function albumDirective(albumsFactory){
+  function albumDirective(albumsFactory, $timeout){
 
     const DefaultUrl="svg/logo-icon.svg";
     const DefaultDimension = "800x800";
@@ -41,10 +41,21 @@
       scope.deletePhoto=deletePhoto;
       scope.getSpecificAlbum=getSpecificAlbum;
       scope.uploadPicture=uploadPicture;
-
+      scope.hideLoader=false;
       function init() {
         setCoverPhoto();
+        $timeout(function () {
+          var src = $('#load-album').css('background-image');
+          var url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
+          var img = new Image();
+          img.onload =function hide() {
+            scope.hideLoader=true;
+          };
+          img.src = url;
+          if (img.complete) img.onload();
+        }, 100);
       }
+
 
       function deleteAlbum(id){
         //delete album by id
@@ -70,6 +81,9 @@
         //set cover photo for the albums
         if('photos' in scope.album && scope.album.photos.length>0){
           scope.coverPhoto = scope.album.photos[0].url + '-' + DefaultDimension + '.' + scope.album.photos[0].extension;
+          // $timeout(function () {
+          //   ImageLazyLoad.loadBackgroundImage('album');
+          // })
         }
       }
       init();

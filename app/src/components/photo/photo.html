@@ -1,4 +1,6 @@
 <div class="photo">
+    <img src="svg/ptt-loader.svg" id="loader-photo" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
+
     <img ng-src="{{ $root.safeUrlConvert(coverPhoto) }}" alt="">
     <!--<img ng-src="img/large.jpg" alt="">-->
     <img class="photo-delete" ng-click="deletePhoto(photo._id)" src="svg/white-delete.svg" alt="">

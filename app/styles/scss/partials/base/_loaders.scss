@@ -22,6 +22,21 @@
   }
 }
 
+img.directive-loader{
+  position: absolute;
+  width: 200px;
+  top: 15%;
+  left: 15%;
+  animation: loader 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
+  &.hide-loader{
+    display: none;
+  }
+}
+
+
+
+
+
 //// collapse loader
 //.collapse-loader{
 //  position: absolute;

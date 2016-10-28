@@ -18,7 +18,7 @@
         .directive('photoDirective', photoDirective);
 
     /* @ngInject */
-    function photoDirective(albumsFactory){
+    function photoDirective(albumsFactory, $timeout){
 
         const DefaultUrl="svg/logo-icon.svg";
         const DefaultDimension = "800x800";
@@ -42,6 +42,13 @@
 
             function init(){
                 setCoverPhoto();
+                $timeout(function () {
+                    var img = new Image('#loader-photo');
+                    img.onload =function hide() {
+                        scope.hideLoader=true;
+                    };
+                    if (img.complete) img.onload();
+                }, 100);
             }
 
             function deletePhoto(id){

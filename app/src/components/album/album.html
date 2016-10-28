@@ -1,9 +1,10 @@
-<div class="album" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}">
+<div class="album" id="load-album" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}" data-original="{{$root.safeUrlConvert(coverPhoto)}}">
+    <img src="svg/ptt-loader.svg" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
+
     <div class="album-details">
         <p class="album-date">{{album.name}} {{album.created_at}}</p>
         <p class="album-number">{{album.photos.length}} photos</p>
 
         <img ng-click="deleteAlbum(album._id)" class="album-delete" src="svg/gray-delete.svg" alt="">
     </div>
-
 </div>

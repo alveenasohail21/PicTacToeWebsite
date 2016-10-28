@@ -18,7 +18,7 @@
       .directive('projectDirective', projectDirective);
 
   /* @ngInject */
-  function projectDirective(projectsFactory, toolFactory){
+  function projectDirective(projectsFactory, toolFactory, $timeout){
 
     const DefaultUrl="svg/logo-icon.svg";
     const DefaultDimension = "800x800";
@@ -44,6 +44,16 @@
 
       function init(){
         setCoverPhoto();
+        $timeout(function () {
+          var src = $('#load-project').css('background-image');
+          var url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
+          var img = new Image();
+          img.onload =function hide() {
+            scope.hideLoader=true;
+          };
+          img.src = url;
+          if (img.complete) img.onload();
+        }, 100);
       }
 
 

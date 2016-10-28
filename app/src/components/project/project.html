@@ -1,7 +1,10 @@
-<div class="project" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}">
+<div class="project" id="load-project" ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}">
     <!--<div class="project-cover-image" ng-class="{'no-cover': !coverPhoto}">-->
         <!--<img ng-src="{{coverPhoto || defaultCover}}" alt="">-->
     <!--</div>-->
+    <img src="svg/ptt-loader.svg" id="loader-photo" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
+
+
     <div class="project-name">{{project.name}}</div>
     <div class="project-overlay">
         <div class="project-details">
