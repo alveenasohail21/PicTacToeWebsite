@@ -35,7 +35,7 @@
 
           // else
 
-          var isLocalhost = window.location.origin.indexOf('localhost');
+          var isLocalhost = (window.location.origin.indexOf('localhost')>=0);
 
           // Development on Localhost (media serving through node.js)
           if(isLocalhost){
