@@ -46,8 +46,15 @@
 		for(var i=0; i<vm.projects.length;i++){
 			var date=new Date(vm.projects[i].created_at);
 			var key=month[date.getMonth()] +" "+date.getFullYear();
-			matchDate(date, currentDate) ? vm.projectsArray[0].projects.push(vm.projects[i]) : addKey(key, vm.projects[i]);
+			// console.log("Date: ", date);
+			var formattedDate=convertToCurrentTimeZone(date);
+			matchDate(formattedDate, currentDate) ? vm.projectsArray[0].projects.push(vm.projects[i]) : addKey(key, vm.projects[i]);
 		}
+
+		var test=new Date("2016-10-28 12:28:18");
+		console.log(convertToCurrentTimeZone(test));
+
+
 		function addKey(key, projects) {
 			var newObject={
 				date: key,
@@ -66,7 +73,15 @@
 			return foundIndex;
 		}
 
+		function convertToCurrentTimeZone(date){
+			var formattedDate=new Date(date);
+			var timezoneOffset=date.getTimezoneOffset();
+			formattedDate.setMinutes(date.getUTCMinutes()-timezoneOffset);
+			return formattedDate;
+		}
+
 		function matchDate(date1, date2){
+			console.log(date1, date2);
 			return (date1.getMonth()==date2.getMonth() &&
 			date1.getDate()==date2.getDate() &&
 			date1.getFullYear() == date2.getFullYear())
