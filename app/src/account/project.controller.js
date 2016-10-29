@@ -46,14 +46,9 @@
 		for(var i=0; i<vm.projects.length;i++){
 			var date=new Date(vm.projects[i].created_at);
 			var key=month[date.getMonth()] +" "+date.getFullYear();
-			// console.log("Date: ", date);
 			var formattedDate=convertToCurrentTimeZone(date);
 			matchDate(formattedDate, currentDate) ? vm.projectsArray[0].projects.push(vm.projects[i]) : addKey(key, vm.projects[i]);
 		}
-
-		var test=new Date("2016-10-28 12:28:18");
-		console.log(convertToCurrentTimeZone(test));
-
 
 		function addKey(key, projects) {
 			var newObject={
