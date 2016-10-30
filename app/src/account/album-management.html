@@ -3,6 +3,12 @@
     <div ng-repeat="a in vm.albumsArray">
       <h3 class="text-center font-opensans-light">{{a.date}}</h3>
       <!--albums-->
+
+      <span class="albums" ng-repeat="album in vm.albums" ng-if="vm.showAlbum(a.date, album)">
+          <album-directive  album="album"></album-directive>
+      </span>
+
+
       <span class="albums" ng-repeat="album in a.albums">
         <album-directive album="album"></album-directive>
       </span>

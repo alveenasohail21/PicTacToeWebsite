@@ -18,11 +18,11 @@
 
 		/*variable assignment*/
 		vm.projects = projectsFactory._data.projects;
-		vm.newProject={};
+		vm.newProject={};// modal
 		/*method assignment*/
 		vm.createProject = createProject;
+		vm.showProject = showProject;
 		vm.projectsArray=new Array();
-		vm.todayProjects=[];
 		var currentDate=new Date();
 		var month = new Array();
 		month[0] = "January";
@@ -40,28 +40,29 @@
 
 		var initialObject={
 			date: 'Today',
-			projects: []
+			created_at: new Date()
 		};
 		vm.projectsArray[0]=initialObject;
 		for(var i=0; i<vm.projects.length;i++){
 			var date=new Date(vm.projects[i].created_at);
 			var key=month[date.getMonth()] +" "+date.getFullYear();
 			var formattedDate=convertToCurrentTimeZone(date);
-			matchDate(formattedDate, currentDate) ? vm.projectsArray[0].projects.push(vm.projects[i]) : addKey(key, vm.projects[i]);
+			if(!matchDate(formattedDate, currentDate))  addKey(key);
 		}
-
-		function addKey(key, projects) {
+		function addKey(key) {
 			var newObject={
-				date: key,
-				projects: [projects]
+				date: key
 			};
 			var index=findIndexById(key);
-			(index || index===0) ? vm.projectsArray[index].projects.push(projects) : vm.projectsArray.push(newObject);
+			if (!index || !index===0) {
+				vm.projectsArray.push(newObject);
+			}
 		}
+
 		function findIndexById(key){
 			var foundIndex = null;
-			vm.projectsArray.forEach(function(project, index){
-				if(project.date === key){
+			vm.projectsArray.forEach(function(element, index){
+				if(element.date === key){
 					foundIndex = index;
 				}
 			});
@@ -76,12 +77,23 @@
 		}
 
 		function matchDate(date1, date2){
-			console.log(date1, date2);
+			// console.log(date1, date2);
 			return (date1.getMonth()==date2.getMonth() &&
 			date1.getDate()==date2.getDate() &&
 			date1.getFullYear() == date2.getFullYear())
 		}
+		function showProject(projectKey, project){
+			var date=new Date(project.created_at);
+			var formattedDate=convertToCurrentTimeZone(date);
 
+			var key= matchDate(formattedDate, currentDate) ? 'Today' : month[date.getMonth()] +" "+date.getFullYear();
+			// var key= month[date.getMonth()] +" "+date.getFullYear();
+			if(key===projectKey) return true;
+			return false;
+		}
+
+
+		/////////////////////////////////////////////////
 		function createProject(project, form) {
 			//create a project
 			projectsFactory.createProject(project)
