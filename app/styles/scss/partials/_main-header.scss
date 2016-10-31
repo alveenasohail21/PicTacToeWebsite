@@ -166,9 +166,58 @@
               margin-top: 25px;
               padding-left: 7px;
               width:34px;
-              img,svg{
+              img{
                 height:15px;
+                cursor: pointer;
               }
+              &.dropdown{
+                .dropdown-menu{
+                  border-radius: 10px;
+                  padding:0;
+                  margin:0;
+
+                  .project-info{
+                    padding: 10px 20px;
+                    background-color: rgb(244, 247, 250);
+                    box-shadow: 0px 2px 0px 0px rgba(231, 236, 241, 0.7);
+                    width: 100%;
+                    margin: 0;
+                  }
+                  .project-items{
+
+                    img{
+                      height:100%;
+                    }
+                    button{
+                      background-color: $theme-light-blue;
+                      color: white;
+                    }
+
+                    font-size: 14px;
+
+                  }
+
+                  li{
+                    border-top:1px solid rgba(231, 236, 241, 0.7);
+                    //box-shadow: 0px 2px 0px 0px rgba(231, 236, 241, 0.7);
+                    padding:10px 20px;
+                    display: block;
+                    width:400px;
+                    font-family: Font_Open_Sans_Regular;
+                    line-height: 2;
+                    text-align: center;
+                    margin: 0 8px;
+                    cursor: pointer;
+                    transition: all ease 0.8s;
+                    &:hover{
+                      background-color: #f3f6f8;
+                    }
+                  }
+                }
+              }
+              //img,svg{
+              //  height:15px;
+              //}
             }
             &.width-768{
               display: none;
