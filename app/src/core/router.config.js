@@ -37,6 +37,7 @@
     //on routing start
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       window.globalLoader.show(); //show loader state change
+      $('.modal').modal('hide');
       // Check if User is Auth
       if($auth.isAuthenticated()){
         //if the user is authenticated.

@@ -10,7 +10,12 @@
 
 	angular
 		.module('app.account')
-		.controller('PhotoCtrl', PhotoCtrl);
+		.controller('PhotoCtrl', PhotoCtrl)
+		.filter('reverse', function() {
+		return function(items) {
+			return items.slice().reverse();
+		};
+	});
 
 	/* @ngInject */
 	function PhotoCtrl(albumsFactory){
@@ -41,6 +46,7 @@
 		week[6] = "Saturday";
 
 		vm.albums=albumsFactory._data.albums;
+		console.log(vm.albums);
 
 		vm.newDateFormat=new Array();
 		for(var i=0;i<vm.albums.length;i++){
