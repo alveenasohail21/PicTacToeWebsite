@@ -76,6 +76,9 @@
         add: addSubscriber,
         cancel: cancelSubscription
       },
+      cart: {
+        getCartItems: getCartItems
+      },
       oneUrl: oneUrl
     };
 
@@ -173,6 +176,9 @@
 
     function getAlbumsList(withPhotos) {
       return Restangular.one('albums').get(null, {photos: withPhotos});
+    }
+    function getCartItems() {
+      // return Restangular.one('projects').get(null, {photos: withPhotos});
     }
 
     function getProjects() {
