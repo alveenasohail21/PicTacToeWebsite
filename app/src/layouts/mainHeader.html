@@ -74,9 +74,14 @@
                     <li class="help-custom" ui-sref="Help">
                         <img src="/svg/help.svg" alt="">
                     </li>
-                    <li ng-if="$root.user" class="cart">
-                        <img src="/svg/cart.svg" alt="">
+
+
+                    <li ng-if="user" class="dropdown cart ">
+
+                        <ng-include src="'src/layouts/modals/cart-modal.html'"></ng-include>
+
                     </li>
+
 
                     <!-- For width < 768 -->
                     <li class="width-768" ng-if="$root.user" ui-sref="Account.Projects">
