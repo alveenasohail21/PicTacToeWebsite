@@ -4,7 +4,7 @@
     <div class="projects" ng-repeat="p in vm.projectsArray">
       <!--new project-->
 
-      <h3 class="text-center font-opensans-light">{{p.date}}</h3>
+      <h3 class="text-center font-opensans-light" ng-if="vm.showOrdered(p.date)">{{p.date}}</h3>
       <div class="project-wrapper">
         <div class="project new-project" ng-if="p.date==='Today'" data-toggle="modal" data-keyboard="true" data-target="#newProject">
           <div class="project-name">New Projects</div>

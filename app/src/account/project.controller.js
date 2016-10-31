@@ -22,7 +22,10 @@
 		/*method assignment*/
 		vm.createProject = createProject;
 		vm.showProject = showProject;
+		vm.showOrdered = showOrdered;
 		vm.projectsArray=new Array();
+		vm.orderedIfAny=false;
+
 		var currentDate=new Date();
 		var month = new Array();
 		month[0] = "January";
@@ -37,16 +40,17 @@
 		month[9] = "October";
 		month[10] = "November";
 		month[11] = "December";
-
-		var initialObject={
-			date: 'Today',
-			created_at: new Date()
+		vm.projectsArray[0]={
+			date: 'Today'
 		};
-		vm.projectsArray[0]=initialObject;
+		vm.projectsArray[1]={
+			date: 'Ordered'
+		};
 		for(var i=0; i<vm.projects.length;i++){
 			var date=new Date(vm.projects[i].created_at);
 			var key=month[date.getMonth()] +" "+date.getFullYear();
 			var formattedDate=convertToCurrentTimeZone(date);
+			if(vm.projects[i].ordered) vm.orderedIfAny=true;
 			if(!matchDate(formattedDate, currentDate))  addKey(key);
 		}
 		function addKey(key) {
@@ -85,13 +89,21 @@
 		function showProject(projectKey, project){
 			var date=new Date(project.created_at);
 			var formattedDate=convertToCurrentTimeZone(date);
-
-			var key= matchDate(formattedDate, currentDate) ? 'Today' : month[date.getMonth()] +" "+date.getFullYear();
-			// var key= month[date.getMonth()] +" "+date.getFullYear();
-			if(key===projectKey) return true;
-			return false;
+			if(project.status === 'Ordered'){
+				key='Ordered';
+			}else{
+				var key= matchDate(formattedDate, currentDate) ? 'Today' : month[date.getMonth()] +" "+date.getFullYear();
+			}
+			return key === projectKey;
 		}
+		function showOrdered(projectKey){
+			if(projectKey=='Ordered'){
+				if(vm.orderedIfAny==true) return true;
+				else return false;
+			}
+			return true;
 
+		}
 
 		/////////////////////////////////////////////////
 		function createProject(project, form) {
