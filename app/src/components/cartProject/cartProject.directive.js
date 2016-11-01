@@ -33,6 +33,15 @@
         /////////////////////
 
         function link(scope, elem, attrs){
+            scope.placeOrder=placeOrder;
+            function placeOrder() {
+                $rootScope.order = {
+                    'projectId': scope.project._id,
+                    'items': scope.project.items
+                };
+                eventChannel.fire('placeOrder');
+            }
+
 
             function convertUrl() {
                 var url=scope.project.items[0].url;

@@ -179,6 +179,7 @@
       restFactory.users.getUserShippingDetails()
           .then(function(resp){
             if(resp.success){
+              // console.log(resp.data);
               // console.log("shipping: ", resp);
               deffered.resolve(resp.data);
             }

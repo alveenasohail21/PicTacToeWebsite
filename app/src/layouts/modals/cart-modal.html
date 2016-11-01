@@ -5,7 +5,7 @@
 <ul class="dropdown-menu">
 
     <li class="triangle"></li>
-    <li class="project-info text-left bold"><span class="theme-pink">2 Projects</span> available in your cart</li>
+    <li class="project-info text-left bold"><span class="theme-pink">{{$root.cartProjects.length}} Projects</span> available in your cart</li>
     <li class="project-items" ng-repeat="project in $root.cartProjects">
         <cart-project-directive project="project"></cart-project-directive>
         <!--<div class="row">-->
