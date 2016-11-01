@@ -62,15 +62,17 @@
       return deffered.promise;
     }
 
-    function cancelOrder(){
+    function cancelOrder(orderId){
       //get cancel an order
+      globalLoader.show();
 
       var deffered = $q.defer();
-      restFactory.orders.cancelOrder().then(function(resp){
+      restFactory.orders.cancelOrder(orderId).then(function(resp){
         if(resp.success){
-          globalLoader.show();
+          globalLoader.hide();
           alertFactory.success(null, resp.message);
-          deffered.resolve(resp.data);
+          console.log(resp);
+          deffered.resolve(resp);
         }
         else{
           globalLoader.hide();

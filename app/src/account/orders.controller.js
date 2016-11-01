@@ -36,22 +36,32 @@
         function cancelOrder(){
 
             if(vm.orderToCancel){
-                ordersFactory.cancelOrder(vm.orderToCancel.id)
-                    .then(function(resp){
-                        if(resp.success){
-                            $rootScope.messageModal = {
-                                heading: 'Order has been cancelled',
-                                rightBtnText: 'Done',
-                                showLeftBtn: false
-                            };
-
-                            $('#messageModal').modal({
-                                keyboard: true
-                            })
-
-                        }
-                    })
             }
+            ordersFactory.cancelOrder(vm.orderToCancel.id).then(function(resp){
+                    console.log(resp);
+                    if(resp.success){
+                        $rootScope.messageModal = {
+                            heading: 'Order has been cancelled',
+                            rightBtnText: 'Done',
+                            showLeftBtn: false
+                        };
+                        vm.orders[findIndexById(vm.orderToCancel.id, vm.orders)].status="Cancelled";
+                        // vm.orders.splice(findIndexById(vm.orderToCancel.id, vm.orders), 1);
+                        $('#messageModal').modal({
+                            keyboard: true
+                        })
+
+                    }
+                })
+        }
+        function findIndexById(id, dataArray){
+            var foundIndex = null;
+            dataArray.forEach(function(element, index){
+                if(element.id === id){
+                    foundIndex = index;
+                }
+            });
+            return foundIndex;
         }
 
     }

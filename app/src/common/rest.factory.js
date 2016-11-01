@@ -208,7 +208,7 @@
       return Users.one('orders').get(queryParams);
     }
     function cancelOrder(id) {
-      return Users.one('orders').one(id).remove();
+      return Users.one('orders').one(id.toString()).remove();
     }
 
     function getTermsAndConditions() {
