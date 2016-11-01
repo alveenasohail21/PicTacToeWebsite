@@ -26,7 +26,9 @@
           'status-inprocess': order.status=='In Process'}">
         {{order.status}}
       </td>
-      <td>{{order.delivery_date_from}} - {{order.delivery_date_to}}</td>
+      <td><span ng-if="order.status !== 'Pending'">{{order.delivery_date_from}} - {{order.delivery_date_to}}</span>
+        <span ng-if="order.status === 'Pending'">NA</span>
+      </td>
       <td>
         <a ng-if="order.status == 'Pending'" class="cancel-order" ng-click="vm.openConfirmCancelModal(order)">Cancel</a>
       </td>

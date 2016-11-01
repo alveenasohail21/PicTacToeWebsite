@@ -26,7 +26,11 @@
     };
 
     ////////////////////
-
+    function changeDateFormat(rawDate){
+      var date=new Date(rawDate);
+      var formattedDate=date.getDate()+"-"+date.getDate()+"-"+date.getFullYear();
+      return formattedDate;
+    }
     function getOrders(queryParams){
       globalLoader.show();
       //get all orders
@@ -36,6 +40,14 @@
         if(resp.success){
           globalLoader.hide();
           // alertFactory.success(null, resp.message);
+
+          for(var i in resp.data.orders){
+            resp.data.orders[i].order_date=changeDateFormat(resp.data.orders[i].order_date);
+            resp.data.orders[i].delivery_date_from=changeDateFormat(resp.data.orders[i].delivery_date_from);
+            resp.data.orders[i].delivery_date_to=changeDateFormat(resp.data.orders[i].delivery_date_to);
+            resp.data.orders[i].created_at=changeDateFormat(resp.data.orders[i].created_at);
+          }
+          console.log(resp.data);
           deffered.resolve(resp.data);
         }
         else{
