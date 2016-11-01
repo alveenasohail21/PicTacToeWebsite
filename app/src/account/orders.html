@@ -6,7 +6,7 @@
   <table id="order-history" class="display responsive nowrap" cellspacing="0" width="100%">
     <thead>
     <tr>
-      <th><h3>Order</h3></th>
+      <th><h3>Order Id</h3></th>
       <th><h3>Order Date</h3></th>
       <th><h3>Grand Total</h3></th>
       <th><h3>Status</h3></th>
@@ -15,120 +15,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing1</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-pending">Pending</td>
-      <td>testing</td>
-      <td>
-        <a data-toggle="modal" class="cancel-order" data-keyboard="true" data-target="#confirmCancelOrderModal">Cancel</a>
-        <!--<a data-toggle="modal" class="cancel-order" data-keyboard="true" data-target="#newProject">Cancel</a>-->
+    <tr ng-repeat="order in vm.orders">
+      <td>{{order.id}}</td>
+      <td>{{order.created_at}}</td>
+      <td>{{order.grand_total}}</td>
+      <td class="status-cancelled"
+          ng-class="{'status-pending': order.status=='Pending',
+          'status-cancelled': order.status=='Cancelled',
+          'status-shipped': order.status=='Shipped',
+          'status-inprocess': order.status=='In Process'}">
+        {{order.status}}
       </td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-shipped">Shipped</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>1232</td>
-      <td>Feb 25,2016 09:33:188 AM</td>
-      <td>$0.00</td>
-      <td class="status-cancelled">Cancelled</td>
-      <td>testing</td>
-      <td></td>
+      <td>{{order.delivery_date_from}} - {{order.delivery_date_to}}</td>
+      <td>
+        <a ng-if="order.status == 'Pending'" data-toggle="modal" class="cancel-order" data-keyboard="true" data-target="#confirmCancelOrderModal">Cancel</a>
+      </td>
     </tr>
     </tbody>
   </table>

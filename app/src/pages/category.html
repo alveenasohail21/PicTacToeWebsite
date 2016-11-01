@@ -5,7 +5,7 @@
         <h2 class="font-opensans-bold">{{$root.pageTitle}}</h2>
         <p class="desc">Bring your photos to life with PRINTS</p>
         <button class="btn btn-default font-myriad-bold" ng-click="vm.getStartedClick($root.pageTitle)" ng-if="$root.pageTitle=='PRINTS'">GET STARTED</button>
-        <button class="btn btn-default font-myriad-bold" ng-if="$root.pageTitle!='PRINTS'">COMING SOON</button>
+        <button class="btn btn-default font-myriad-bold" ng-if="$root.pageTitle!='PRINTS'" ng-disabled="true">COMING SOON</button>
     </div>
 
     <!-- Sections -->
