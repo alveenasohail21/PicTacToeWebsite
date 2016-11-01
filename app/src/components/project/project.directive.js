@@ -76,7 +76,7 @@
         }
         else if('products' in scope.project && scope.project.products.length>0){
           // no change
-          scope.coverPhoto = scope.project.photos[0].url;
+          scope.coverPhoto = scope.project.products[0].url;
         }
         else {
           scope.coverPhoto = DefaultUrl;

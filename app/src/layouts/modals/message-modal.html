@@ -11,8 +11,8 @@
             </div>
 
             <div class="modal-body">
-                <button type="button" class="btn btn-cancel font-myriad-bold" data-dismiss="modal" ng-if="$root.messageModal.showLeftBtn">{{$root.messageModal.leftBtnText}}</button>
-                <button type="button" class="btn btn-confirm font-myriad-bold" data-dismiss="modal">{{$root.messageModal.rightBtnText}}</button>
+                <button type="button" class="btn btn-cancel font-myriad-bold" data-dismiss="modal" ng-if="$root.messageModal.showLeftBtn" ng-click="$root.messageModal.leftBtnClick()">{{$root.messageModal.leftBtnText}}</button>
+                <button type="button" class="btn btn-confirm font-myriad-bold" data-dismiss="modal" ng-click="$root.messageModal.rightBtnClick()">{{$root.messageModal.rightBtnText}}</button>
             </div>
 
 

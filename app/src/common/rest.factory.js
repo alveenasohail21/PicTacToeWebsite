@@ -70,7 +70,8 @@
       },
       orders:{
         getOrders: getOrders,
-        cancelOrder: cancelOrder
+        cancelOrder: cancelOrder,
+        placeOrder: placeOrder
       },
       subscribers: {
         add: addSubscriber,
@@ -207,8 +208,13 @@
     function getOrders(queryParams) {
       return Users.one('orders').get(queryParams);
     }
+
     function cancelOrder(id) {
       return Users.one('orders').one(id.toString()).remove();
+    }
+
+    function placeOrder(data){
+      return Users.one('orders').post(null, data);
     }
 
     function getTermsAndConditions() {
