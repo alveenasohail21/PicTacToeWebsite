@@ -60,9 +60,9 @@
                         <span>&nbsp;/</span>
                         <a data-toggle="modal" data-keyboard="true" data-target="#signupModal">Join</a>
                     </li>
-                    <li ng-if="user" class="dropdown user-pic">
-                        <img src="/img/user-pic.png" alt="" class="dropdown-toggle" data-toggle="dropdown">
-                        <ul class="dropdown-menu">
+                    <li ng-if="user" class="dropdown user-pic" >
+                        <img src="/img/user-pic.png" alt="" class="dropdown-toggle" data-toggle="dropdown" >
+                        <ul class="dropdown-menu" >
                             <li ui-sref="Account.Projects">
                                 My Account
                             </li>
@@ -76,7 +76,7 @@
                     </li>
 
 
-                    <li ng-if="user" class="dropdown cart">
+                    <li ng-if="user" class="dropdown cart" id="cartDropdown">
                         <ng-include class="cart-include" src="'src/layouts/modals/cart-modal.html'"></ng-include>
                     </li>
 
@@ -97,3 +97,4 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div>
+
