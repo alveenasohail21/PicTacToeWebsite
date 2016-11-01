@@ -13,7 +13,7 @@
   }
 
   /* @ngInject */
-  function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state){
+  function routingEvents($rootScope, $auth, Restangular, userFactory, alertFactory, $state, cartFactory){
 
     var publicStates = ['Landing', 'Photobooks', 'Canvas', 'Magnets', 'Frames',
       'Prints', 'Account.Orders', 'TermAndConditions', 'Faq', 'Contactus', 'Aboutus', 'Help'];
@@ -49,7 +49,22 @@
           // if not present
           userFactory.getUserDetails().then(function (response) {
             userFactory.createUserInLocal(response);
-            $state.go(toState.name);
+            // check if cartProjects exists
+            if(!$rootScope.cartProjects){
+              // if not get cartProjects
+              cartFactory.getCartProjects()
+                  .then(function (resp){
+                    if(resp.success){
+                      console.log(resp.data);
+                      $rootScope.cartProjects = (resp.data)?resp.data:[];
+                      $state.go(toState.name);
+                    }
+                  })
+
+            }
+            else{
+              $state.go(toState.name);
+            }
           }, function(err){
             $auth.removeToken();
             $state.go('Landing');

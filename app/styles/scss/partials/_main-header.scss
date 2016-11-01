@@ -166,28 +166,29 @@
               margin-top: 25px;
               padding-left: 7px;
               width:34px;
-              img{
-                height:15px;
-                cursor: pointer;
+              .cart-include{
+                img{
+                  height:15px;
+                  cursor: pointer;
+                }
               }
               &.dropdown{
 
                 .dropdown-menu{
+                  overflow-y: scroll;
+                  overflow-x: hidden;
+                  width: 372px;
+                  height: 304.5px;
                   border-radius: 10px;
                   padding:0;
                   margin:0;
                   top: 45px;
                   right:-30px;
                   box-shadow: 0 0 10px 2px lightgrey;
-                  li:nth-child(3){
-                    .project-details{
-                      margin-top: -24px;
-                    }
-                  }
                   .triangle{
                     width: 85px;
                     height: 85px;
-                    position: relative;
+                    position: absolute;
                     overflow: hidden;
                     right: -35px;
                     float: right;
@@ -202,7 +203,7 @@
                     background: #f4f7f9;
                     transform: rotate(45deg); /* Prefixes... */
                     top: 75px;
-                    left: 2px;
+                    left: 15px;
                     box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
                   }
                   .triangle:hover{
@@ -219,15 +220,27 @@
                     margin: 0;
                     border-top-left-radius: 10px;
                     border-top-right-radius: 10px;
+                    font-family: 'Font_Open_Sans_Bold';
                   }
 
                   .project-items{
-                    img{
-                      height:100%;
+                    .project-image{
+                      float: left;
+                      height:72px;
+                      width:72px;
+                      cursor: pointer;
+                      background-repeat: no-repeat;
+                      background-size: cover ;
+                      background-position: center;
+                      margin: 0 20px;
+                    }
+                    .project-details{
+                      margin-top: -8px;
                     }
                     button{
                       background-color: $theme-light-blue;
                       color: white;
+                      padding:5px 20px;
                     }
                     border-bottom-left-radius: 10px;
                     border-bottom-right-radius: 10px;
@@ -238,18 +251,25 @@
 
                   li{
                     border-top:1px solid rgba(231, 236, 241, 0.7);
-                    padding:10px 20px;
+                    padding:22px 50px;
                     display: block;
-                    width:400px;
+                    width:100%;
                     font-family: Font_Open_Sans_Regular;
-                    line-height: 2;
+                    line-height: 1.8;
                     text-align: center;
                     margin: 0 8px;
                     cursor: pointer;
                     transition: all ease 0.8s;
+                    float: left;
                     &:hover{
                       background-color: #f3f6f8;
                     }
+                    p{
+                      margin: 0;
+                    }
+                  }
+                  li:hover{
+                    background: none;
                   }
                 }
               }

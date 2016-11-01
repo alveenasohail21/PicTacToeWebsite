@@ -77,7 +77,8 @@
         cancel: cancelSubscription
       },
       cart: {
-        getCartItems: getCartItems
+        getCartProjects: getCartProjects,
+        getPricing: getPricing
       },
       oneUrl: oneUrl
     };
@@ -177,8 +178,11 @@
     function getAlbumsList(withPhotos) {
       return Restangular.one('albums').get(null, {photos: withPhotos});
     }
-    function getCartItems() {
-      // return Restangular.one('projects').get(null, {photos: withPhotos});
+    function getCartProjects() {
+      return Users.one('cart').one('projects').get();
+    }
+    function getPricing() {
+      return Users.one('cart').one('pricing').get();
     }
 
     function getProjects() {
