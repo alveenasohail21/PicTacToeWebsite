@@ -28,7 +28,7 @@
       </td>
       <td>{{order.delivery_date_from}} - {{order.delivery_date_to}}</td>
       <td>
-        <a ng-if="order.status == 'Pending'" data-toggle="modal" class="cancel-order" data-keyboard="true" data-target="#confirmCancelOrderModal">Cancel</a>
+        <a ng-if="order.status == 'Pending'" class="cancel-order" ng-click="vm.openConfirmCancelModal(order)">Cancel</a>
       </td>
     </tr>
     </tbody>
@@ -36,8 +36,5 @@
 
 </div>
 
-<script>
+<ng-include src="'src/layouts/modals/confirm-cancel-order.html'"></ng-include>
 
-
-
-</script>
