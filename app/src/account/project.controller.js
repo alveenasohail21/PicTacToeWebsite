@@ -50,9 +50,15 @@
 			var date=new Date(vm.projects[i].created_at);
 			var key=month[date.getMonth()] +" "+date.getFullYear();
 			var formattedDate=convertToCurrentTimeZone(date);
-			if(vm.projects[i].ordered) vm.orderedIfAny=true;
-			if(!matchDate(formattedDate, currentDate))  addKey(key);
+			if(vm.projects[i].status==='Ordered') {
+				console.log(vm.projects[i].status);
+				vm.orderedIfAny=true;
+			}
+			else{
+				if(!matchDate(formattedDate, currentDate))  addKey(key);
+			}
 		}
+		console.log(vm.projectsArray);
 		function addKey(key) {
 			var newObject={
 				date: key

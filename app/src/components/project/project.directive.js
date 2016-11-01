@@ -18,7 +18,7 @@
       .directive('projectDirective', projectDirective);
 
   /* @ngInject */
-  function projectDirective(projectsFactory, toolFactory, $timeout){
+  function projectDirective(projectsFactory, toolFactory, $timeout, alertFactory){
 
     const DefaultUrl="svg/logo-icon.svg";
     const DefaultDimension = "800x800";
@@ -84,8 +84,15 @@
       }
       
       function projectSelected(){
-        if(scope.project._id){
-          toolFactory.redirectToToolWithProject(scope.project._id);
+
+        if(scope.project.status==='Ordered'){
+          alertFactory.error(null, 'This project is already ordered and cannot be modified');
+
+        }
+        else{
+          if(scope.project._id){
+            toolFactory.redirectToToolWithProject(scope.project._id);
+          }
         }
       }
 
