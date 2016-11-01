@@ -1,5 +1,5 @@
 <div class="album" data-albumid="{{album._id}}">
-    <div id="{{album._id}}" class="bg-div" ng-class="{'load-blur-effect': !hideLoader}"  ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}"></div>
+    <div id="{{album._id}}" class="bg-div" ng-class="{'load-blur-effect': !hideLoader, 'no-cover': coverPhoto.indexOf('logo-icon.svg')>=0}"  ng-style="{'background-image':'url(' + $root.safeUrlConvert(coverPhoto) + ')'}"></div>
     <img src="svg/ptt-loader.svg" class="directive-loader"  ng-class="{'hide-loader': hideLoader}">
     <div class="album-details">
         <p class="album-date">{{album.name}} {{album.created_at}}</p>

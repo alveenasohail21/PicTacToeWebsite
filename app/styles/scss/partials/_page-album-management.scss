@@ -37,6 +37,11 @@
           &.load-blur-effect{
             -webkit-filter: blur(5px);
           }
+          &.no-cover{
+            background-color: rgba(0, 0, 0, 0.1);
+            background-size: 40%;
+            background-position: 50% calc(50% - 22px);
+          }
         }
         .album-details{
           position: absolute;
