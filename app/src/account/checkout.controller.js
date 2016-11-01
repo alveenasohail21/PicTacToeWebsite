@@ -9,7 +9,7 @@
   'use strict';
 
   angular.module('app.account')
-    .controller('checkoutCtrl', checkoutCtrl);
+      .controller('checkoutCtrl', checkoutCtrl);
 
   /* @ngInject */
   function checkoutCtrl($rootScope, ordersFactory, userFactory){
@@ -20,16 +20,31 @@
 
     vm.isShippingDetailPresent = false;
     vm.editShippingDetails = false;
+    vm.list = [];
+    vm.listItems = {};
+    vm.total = {
+      quantity: 0,
+      price: 0
+    };
 
     vm.placeOrder = placeOrder;
     vm.editDetails = editDetails;
     vm.confirmShipping = confirmShipping;
+    // vm.calcTotalPrice = calcTotalPrice;
 
     /* Define Functions */
 
     function init(){
       eventChannel.on('placeOrder', function(){
 
+        vm.isShippingDetailPresent = false;
+        vm.editShippingDetails = false;
+        vm.list = [];
+        vm.listItems = {};
+        vm.total = {
+          quantity: 0,
+          price: 0
+        };
         getUserShippingDetails();
 
       })
@@ -39,12 +54,43 @@
       $('#confirmOrderModal').modal({
         keyboard: true
       });
+      prepareList();
+      calculateTotalPrice();
+    }
+
+    function prepareList(){
+      console.log($rootScope.order.items);
+      for(var i=0; i<$rootScope.order.items.length; i++){
+        if(vm.list.indexOf($rootScope.order.items[i].canvasSizeDetails.dimensions.title.inches)<0){
+          var title = $rootScope.order.items[i].canvasSizeDetails.dimensions.title.inches;
+          vm.list.push(title);
+          vm.listItems[title] = {
+            title: title,
+            quantity: $rootScope.order.items[i].quantity,
+            unit_price: $rootScope.order.items[i].unit_price,
+            total_price: $rootScope.order.items[i].total_price
+          };
+        }
+        else{
+          var title = $rootScope.order.items[i].canvasSizeDetails.dimensions.title.inches;
+          vm.listItems[title].quantity += $rootScope.order.items[i].quantity;
+          vm.listItems[title].total_price += $rootScope.order.items[i].total_price;
+        }
+      }
+    }
+
+    function calculateTotalPrice(){
+      for (var dimension in vm.listItems) {
+        if (vm.listItems.hasOwnProperty(dimension)) {
+          vm.total.price += vm.listItems[dimension].total_price;
+          vm.total.quantity += vm.listItems[dimension].quantity;
+        }
+      }
     }
 
     function getUserShippingDetails(){
       globalLoader.show();
       userFactory.getUserShippingDetails().then(function (response) {
-        console.log(response);
         if(response){
           vm.isShippingDetailPresent = true;
           vm.shippingDetails = response;
@@ -59,12 +105,12 @@
 
     function confirmShipping(){
       userFactory.putUserShippingDetails(vm.shippingDetails)
-        .then(function (resp) {
-          if(resp){
-            vm.isShippingDetailPresent = true;
-            vm.editShippingDetails = false;
-          }
-      });
+          .then(function (resp) {
+            if(resp){
+              vm.isShippingDetailPresent = true;
+              vm.editShippingDetails = false;
+            }
+          });
     }
 
     function editDetails(){
@@ -72,13 +118,13 @@
     }
 
     function placeOrder(){
-      ordersFactory.placeOrder($rootScope.sku, vm.items)
-        .then(function(resp){
-          // TODO: show success in modal
-          if(resp.success){
-            // websiteFactory.goToOrderHistory(resp.data.order_id);
-          }
-        })
+      ordersFactory.placeOrder($rootScope.order.projectId, $rootScope.order.items)
+          .then(function(resp){
+            // TODO: show success in modal
+            if(resp.success){
+              // websiteFactory.goToOrderHistory(resp.data.order_id);
+            }
+          })
     }
 
     init();
