@@ -84,6 +84,9 @@
           //   ImageLazyLoad.loadBackgroundImage('album');
           // })
         }
+        else {
+          scope.coverPhoto = DefaultUrl;
+        }
       }
       init();
     }

@@ -28,11 +28,6 @@
             return url;
           }
 
-          // if default image
-          if(url.indexOf('svg/logo-icon.svg') >= 0){
-            return url;
-          }
-
           // else
 
           var isLocalhost = (window.location.origin.indexOf('localhost')>=0);

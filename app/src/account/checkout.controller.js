@@ -12,7 +12,7 @@
       .controller('checkoutCtrl', checkoutCtrl);
 
   /* @ngInject */
-  function checkoutCtrl($rootScope, ordersFactory, userFactory){
+  function checkoutCtrl($rootScope, ordersFactory, userFactory, $state){
 
     var vm = this;
 
@@ -36,7 +36,7 @@
 
     function init(){
       eventChannel.on('placeOrder', function(){
-
+        console.log('event fired');
         vm.isShippingDetailPresent = false;
         vm.editShippingDetails = false;
         vm.list = [];
@@ -91,14 +91,21 @@
     function getUserShippingDetails(){
       globalLoader.show();
       userFactory.getUserShippingDetails().then(function (response) {
+        console.log(response);
         if(response){
+          console.log('inside if');
           vm.isShippingDetailPresent = true;
           vm.shippingDetails = response;
           globalLoader.hide();
           openConfirmOrderModal();
         }
         else{
+          console.log('inside else');
           vm.isShippingDetailPresent = false;
+          vm.shippingDetails = {};
+          globalLoader.hide();
+          editDetails();
+          openConfirmOrderModal();
         }
       });
     }
@@ -128,12 +135,13 @@
                 rightBtnText: 'Done',
                 showLeftBtn: false,
                 rightBtnClick: function(){
-                  
+                  $state.go('Account.Orders', {oid: resp.data.order_id});
                 }
               };
               $('#confirmOrderModal').modal('hide');
-              $('#messageModal').modal({
-                keyboard: true
+              $('#messageModal').modal();
+              $('#messageModal').on('hidden.bs.modal', function () {
+                $state.go('Account.Orders', {oid: resp.data.order_id});
               })
             }
           })
