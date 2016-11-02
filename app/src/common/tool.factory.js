@@ -13,7 +13,7 @@
     .factory('toolFactory', toolFactory);
 
   /* @ngInject */
-  function toolFactory(FRONT_END_TOOL_DEV_URL, FRONT_END_TOOL_PROD_URL, $auth){
+  function toolFactory(FRONT_END_TOOL_DEV_URL, FRONT_END_TOOL_PROD_URL, $localStorage){
 
     return {
       redirectToToolWithProject: redirectToToolWithProject
@@ -36,7 +36,7 @@
     }
 
     function redirectToToolWithProject(pId){
-      var redirectLink = prepareRedirectLink(pId, $auth.getToken());
+      var redirectLink = prepareRedirectLink(pId, $localStorage.token);
       // console.log(redirectLink);
       window.location = redirectLink;
     }
