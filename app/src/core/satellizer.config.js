@@ -38,7 +38,7 @@
       redirectUri: window.location.origin + '/',
       requiredUrlParams: ['scope'],
       optionalUrlParams: ['display'],
-      scope: ['profile', 'email'],
+      scope: ['profile', 'email', 'https://picasaweb.google.com/data/feed','https://www.googleapis.com/auth/drive.photos.readonly'],
       scopePrefix: 'openid',
       scopeDelimiter: ' ',
       display: 'popup',
