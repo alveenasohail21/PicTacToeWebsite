@@ -41,6 +41,7 @@
                     'projectId': scope.project._id,
                     'items': scope.project.items
                 };
+                console.log($rootScope.order);
                 eventChannel.fire('placeOrder');
             }
 
