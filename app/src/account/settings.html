@@ -98,19 +98,28 @@
 
     <div class="btn-social-connect">
       <span class="text-center">Connect your Account with:</span>
-      <button class="btn btn-fb " ng-disabled="true">
-        <i class="fa fa-facebook" aria-hidden="true"></i>FACEBOOK
+      <button class="btn btn-fb " ng-click="vm.socialLink('facebook')">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        FACEBOOK
+        <i ng-if="vm.checkLink('facebook')" class="fa fa-check" aria-hidden="true"></i>
+
       </button>
-      <button class="btn btn-google " ng-disabled="true">
+      <button class="btn btn-google" ng-click="vm.socialLink('google')">
         <i class="fa fa-google-plus" aria-hidden="true"></i></i>GOOGLE
+        <i ng-if="vm.checkLink('google')" class="fa fa-check" aria-hidden="true"></i>
+
       </button>
-      <button class="btn btn-flickr " ng-disabled="true">
+      <button class="btn btn-flickr " ng-click="vm.socialLink('flickr')">
         <i class="fa fa-circle" aria-hidden="true" style="color: #0075e2;"></i>
         <i class="fa fa-circle" aria-hidden="true"></i>
+        <i ng-if="vm.checkLink('flickr')" class="fa fa-check" aria-hidden="true"></i>
+
         FLICKR
       </button>
-      <button class="btn btn-instagram " ng-disabled="true">
+      <button class="btn btn-instagram " ng-click="vm.socialLink('instagram')">
         <i class="fa fa-instagram" aria-hidden="true"></i>INSTAGRAM
+        <i ng-if="vm.checkLink('instagram')" class="fa fa-check" aria-hidden="true"></i>
+
       </button>
     </div>
   </div>

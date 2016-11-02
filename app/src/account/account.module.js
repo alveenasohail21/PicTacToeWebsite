@@ -113,6 +113,11 @@
               templateUrl:'src/account/settings.html',
               controller: 'SettingsCtrl as vm'
             }
+          },
+          resolve:{
+            activeSocial: function (userFactory) {
+              return userFactory.activeSocialProfilesFromServer();
+            }
           }
         })
   }

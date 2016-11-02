@@ -9,11 +9,11 @@
   'use strict';
 
   angular
-    .module('app.account')
-    .controller('SettingsCtrl', SettingsCtrl);
+      .module('app.account')
+      .controller('SettingsCtrl', SettingsCtrl);
 
 
-  function SettingsCtrl(userFactory){
+  function SettingsCtrl(userFactory, authFactory, activeSocial){
     var vm = this;
 
     //Assign variables
@@ -36,6 +36,9 @@
     vm.enableChangePassword=enableChangePassword;
     vm.savePassword=savePassword;
     vm.cancelPassword=cancelPassword;
+    vm.socialLink=socialLink;
+    vm.checkLink=checkLink;
+    console.log(activeSocial);
 
     function init() {
       getUserDetails();
@@ -127,6 +130,22 @@
       form.$setUntouched();
     }
 
+    function socialLink(provider) {
+      if(checkLink(provider)){
+        authFactory.socialDisconnect(provider).then(function (response) {
+          console.log(response);
+        })
+      }
+      else{
+        authFactory.socialAuthenticate(provider).then(function (response) {
+          console.log(response);
+        })
+      }
+    }
+    
+    function checkLink(provider) {
+      return activeSocial.indexOf(provider) !== -1;
+    }
     init();
 
   }
