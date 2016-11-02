@@ -1,6 +1,6 @@
-<img src="/svg/cart.svg" alt="" class="dropdown-toggle" ng-click="$root.triggerGetProjects()" data-toggle="dropdown">
 
-<ul class="dropdown-menu" >
+
+<!--<ul class="dropdown-menu" >-->
     <div class="cart-loader-div" ng-class="{'hide-loader': $root.hideCartLoader}">
         <img src="svg/ptt-loader.svg" class="directive-loader" >
     </div>
@@ -9,6 +9,6 @@
     <li  class="project-items" ng-repeat="project in $root.cartProjects">
         <cart-project-directive ng-if="$root.cartProjects.length>0" project="project"></cart-project-directive>
     </li>
-</ul>
+<!--</ul>-->
 
 

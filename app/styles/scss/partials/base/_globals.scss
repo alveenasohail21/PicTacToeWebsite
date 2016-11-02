@@ -132,6 +132,38 @@ html,body{
   background-color: #f4f7f9;
 }
 
+button:hover, button:focus, button:active {
+  outline: none !important;
+}
+.ptt-btn-blue {
+  color: white;
+  font-weight: bold;
+  background-color: $btn-bkg-color;
+}
+.ptt-btn-blue:hover, .ptt-btn-blue:focus, .ptt-btn-blue:active {
+  color: rgba(255, 255, 255, 0.8);
+}
+.ptt-btn-white {
+  color: $btn-bkg-color;
+  font-weight: bold;
+  background-color: white;
+}
+.ptt-btn-white:hover, .ptt-btn-white:focus, .ptt-btn-white:active {
+  color: $body-bkg-color-2;
+}
+.ptt-uppercase {
+  text-transform: uppercase;
+}
+.ppt-lowercase {
+  text-transform: lowercase;
+}
+.ptt-caps {
+  text-transform: capitalize;
+}
+
+
+
+
 /*general margin*/
 
 .margin-general{

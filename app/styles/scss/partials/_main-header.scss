@@ -166,11 +166,9 @@
               margin-top: 25px;
               padding-left: 7px;
               width:34px;
-              .cart-include{
-                img{
-                  height:15px;
-                  cursor: pointer;
-                }
+              img.cart-include{
+                height:15px;
+                cursor: pointer;
               }
               &.dropdown{
 

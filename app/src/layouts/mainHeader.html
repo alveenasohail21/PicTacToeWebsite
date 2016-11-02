@@ -76,8 +76,10 @@
                     </li>
 
 
-                    <li ng-if="user" class="dropdown cart" id="cartDropdown">
-                        <ng-include class="cart-include" src="'src/layouts/modals/cart-modal.html'"></ng-include>
+                    <li ng-if="user" class="dropdown cart">
+                        <div class="dropdown"></div>
+                        <img src="/svg/cart.svg" alt="" class="cart-include dropdown-toggle" ng-click="$root.triggerGetProjects()" data-toggle="dropdown">
+                        <ul class="dropdown-menu" ng-include="'src/layouts/modals/cart-modal.html'"></ul>
                     </li>
 
 
