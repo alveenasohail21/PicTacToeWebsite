@@ -10,6 +10,7 @@
 
     angular
         .module('app.layouts', [])
+        .run(run)
         .config(configuration);
 
     /* @ngInject */
@@ -152,6 +153,19 @@
 
 
         ;
+    }
+    function run($rootScope, $auth, $state) {
+        $rootScope.navigateToPage=function(page){
+            var isAuthenticated= $auth.isAuthenticated();
+            if(isAuthenticated){
+                $state.go(page);
+            }
+            else{
+                $('#loginModal').modal({
+                    keyboard: true
+                });
+            }
+        };
     }
 
 }());

@@ -24,10 +24,9 @@
         </div>
         <div class="col-md-2 col-sm-6 col-xs-6 content-footer">
             <h3>My Acount</h3>
-            <p class="cursor-pointer">My Account</p>
-            <p class="cursor-pointer" ui-sref="Account.Orders">Orders</p>
-            <p class="cursor-pointer" ui-sref="Account.Settings">Addresses</p>
-            <p class="cursor-pointer">Shipping Cart</p>
+            <p class="cursor-pointer" ng-click="$root.navigateToPage('Account.Projects')">My Projects</p>
+            <p class="cursor-pointer" ng-click="$root.navigateToPage('Account.Orders')">Orders</p>
+            <p class="cursor-pointer" ng-click="$root.navigateToPage('Account.Settings')">Settings</p>
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12 content-footer">
             <h3>Connect with other</h3>
