@@ -20,6 +20,7 @@
       logout: logout,
       forgotEmailSend: forgotEmailSend,
       resetPassword: resetPassword,
+      checkToken: checkToken,
       socialDisconnect: socialDisconnect,
       socialLoader: socialLoader,
       loadLoader: loadLoader
@@ -198,22 +199,40 @@
     }
     function resetPassword(password, retypedPassword){
       var deffered = $q.defer();
-      if(email){
-        restFactory.auth.resetPassword(password, retypedPassword)
-            .then(function (resp){
-              if(resp.success){
-                alertFactory.success(null,resp.message);
-                deffered.resolve(resp);
-              }
-              else{
-                alertFactory.error(null,resp.message);
-                deffered.reject(resp);
-              }
-            }, function(err){
-              alertFactory.error(null,err.data.message);
-              deffered.reject(err);
-            })
-      }
+      restFactory.auth.resetPassword(password, retypedPassword)
+          .then(function (resp){
+            if(resp.success){
+              alertFactory.success(null,resp.message);
+              deffered.resolve(resp);
+            }
+            else{
+              alertFactory.error(null,resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            alertFactory.error(null,err.data.message);
+            deffered.reject(err);
+          });
+      return deffered.promise;
+    }
+
+    function checkToken(token){
+      var deffered = $q.defer();
+
+      restFactory.auth.checkToken(token)
+          .then(function (resp){
+            if(resp.success){
+              alertFactory.success(null,resp.message);
+              deffered.resolve(resp);
+            }
+            else{
+              alertFactory.error(null,resp.message);
+              deffered.reject(resp);
+            }
+          }, function(err){
+            alertFactory.error(null,err.data.message);
+            deffered.reject(err);
+          });
       return deffered.promise;
     }
 

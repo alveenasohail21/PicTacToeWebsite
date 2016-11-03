@@ -21,13 +21,14 @@
         .state('Account', {
           url: '/account',
           abstract: true,
-          // resolve:{
-          //   userHeader: function ($rootScope) {
-          //     $rootScope.userHeader=true;
-          //     console.log($rootScope.userHeader);
-          //
-          //   }
-          // }
+          resolve:{
+            // checkToken: function (authFactory, $localStorage) {
+            //   var token=$localStorage['token'];
+            //   authFactory.checkToken(token).then(function (response) {
+            //     console.log(response)
+            //   })
+            // }
+          }
         })
 
         .state('Account.Projects',{
