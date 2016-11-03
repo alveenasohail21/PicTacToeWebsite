@@ -68,17 +68,17 @@
         // in my case I had to call $apply to refresh the page, you may also need this.
         $scope.$apply();
       });
-      $state.go("ResetPassword", {token: "token"});
+      // $state.go("ResetPassword", {token: "token"});
 
-      // if(email){
-      //   authFactory.forgotEmailSend(email)
-      //     .then(function(resp){
-      //       if(resp.success){
-      //         vm.forget.email = '';
-      //         $('#pwdModal').modal('hide');
-      //       }
-      //     })
-      // }
+      if(email){
+        authFactory.forgotEmailSend(email)
+          .then(function(resp){
+            if(resp.success){
+              vm.forget.email = '';
+              $('#pwdModal').modal('hide');
+            }
+          })
+      }
     }
 
     // $(document).keyup(function(e) {
