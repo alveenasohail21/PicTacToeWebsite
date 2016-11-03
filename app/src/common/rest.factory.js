@@ -110,12 +110,12 @@
       return Auth.one('password').one('forget').post(null, {email: email});
     }
 
-    function resetPassword(password, retypedPassword){
-      // return Auth.one('password').one('forget').post(null, {email: email});
+    function resetPassword(id, password, retypedPassword){
+      return Auth.one('password').one('reset').one(id).post(null, {new_password: password, confirm_password: retypedPassword});
     }
 
-    function checkToken(token){
-      // return Auth.one('password').one('forget').post(null, {email: email});
+    function checkToken(id){
+      return Auth.one('password').one('reset').one(id).get();
     }
 
     function createUser(){

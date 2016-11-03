@@ -26,7 +26,7 @@
                             templateUrl:'src/layouts/home.html',
                             controller: 'LayoutsCtrl as vm'
                         }
-                    }
+                    },
                 }
             )
             /*
@@ -130,7 +130,7 @@
             )
             .state('Aboutus', {
                     url:'/aboutUs',
-                    title: 'Aboutt Us',
+                    title: 'About Us',
                     footer: true,
                     views: {
                         '@':{
@@ -149,6 +149,30 @@
                         }
                     }
                 }
+            )
+            .state('Reset', {
+                    url:'/reset/:id',
+                    title: 'Reset Password',
+                    footer: true,
+                    views: {
+                        '@':{
+                            templateUrl:'src/layouts/home.html'
+                        }
+                    },
+                    resolve:{
+                        checkToken: function (authFactory, $stateParams, $state, $rootScope) {
+                            authFactory.checkToken($stateParams.id).then(function (response) {
+                                if(response.code==200){
+                                    $rootScope.token=$stateParams.id;
+                                    $('#resetModal').modal('show');
+                                }
+                                else{
+                                    $state.go('Landing');
+                                }
+                            })
+                        }
+                    }
+            }
             )
 
 

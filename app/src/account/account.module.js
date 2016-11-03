@@ -21,14 +21,7 @@
         .state('Account', {
           url: '/account',
           abstract: true,
-          resolve:{
-            // checkToken: function (authFactory, $localStorage) {
-            //   var token=$localStorage['token'];
-            //   authFactory.checkToken(token).then(function (response) {
-            //     console.log(response)
-            //   })
-            // }
-          }
+
         })
 
         .state('Account.Projects',{
