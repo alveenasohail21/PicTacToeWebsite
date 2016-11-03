@@ -31,6 +31,7 @@
         signup: signup,
         getAuthenticatedUser: getAuthenticatedUser,
         forgotEmailSend: forgotEmailSend,
+        resetPassword: resetPassword,
         getUserDetails: getUserDetails,
         putUserDetails: putUserDetails,
         socialDisconnect: socialDisconnect
@@ -106,6 +107,9 @@
 
     function forgotEmailSend(email){
       return Auth.one('password').one('forget').post(null, {email: email});
+    }
+    function resetPassword(password, retypedPassword){
+      // return Auth.one('password').one('forget').post(null, {email: email});
     }
 
     function createUser(){

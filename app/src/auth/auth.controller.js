@@ -25,6 +25,7 @@
     vm.signup = signup;
     vm.socialAuthenticate = socialAuthenticate;
     vm.forgotEmailSend = forgotEmailSend;
+    vm.resetPassword = resetPassword;
     vm.logout = logout;
 
     function init(){
@@ -61,16 +62,15 @@
     function forgotEmailSend(email){
 
       $('#pwdModal').on('hidden.bs.modal', function(e){
-        $scope.forgotForm.$setPristine();
-        $scope.forgotForm.$setUntouched();
+        $scope.pwdForm.$setPristine();
+        $scope.pwdForm.$setUntouched();
         // in my case I had to call $apply to refresh the page, you may also need this.
         $scope.$apply();
       });
       // $state.go("ResetPassword", {token: "token"});
 
       if(email){
-        authFactory.forgotEmailSend(email)
-          .then(function(resp){
+        authFactory.forgotEmailSend(email).then(function(resp){
             if(resp.success){
               vm.forget.email = '';
               $('#pwdModal').modal('hide');
@@ -79,12 +79,15 @@
       }
     }
 
-    // $(document).keyup(function(e) {
-    //   if (e.keyCode === 27){
-    //     $("#loginModal").modal().hide();
-    //     $("#signupModal").modal().hide();
-    //   }
-    // });
+    function resetPassword(newPassword, retypedPassword){
+      authFactory.resetPassword(newPassword, retypedPassword).then(function(resp){
+        if(resp.success){
+          vm.forget.email = '';
+          $('#pwdModal').modal('hide');
+        }
+      });
+    }
+
 
     init();
 
