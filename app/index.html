@@ -36,7 +36,7 @@
 
 
 <!-- User Header -->
-<ng-include src="'src/layouts/userHeader.html'" ng-if="$root.user"></ng-include>
+<ng-include ng-if="$root.showUserHeader" src="'src/layouts/userHeader.html'" ng-if="$root.user"></ng-include>
 
 <!-- Global Loader -->
 <div class="global-loader" style="z-index: 99999999; display: none;">

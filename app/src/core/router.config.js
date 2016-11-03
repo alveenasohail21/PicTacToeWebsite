@@ -32,6 +32,7 @@
       $rootScope.pageTitle = toState.title || 'Pictaktoe';
       $rootScope.currentState = toState.name;
       $rootScope.footer = toState.footer || false;
+      $rootScope.showUserHeader = $rootScope.currentState.match("Account") !== null;
     });
 
     //on routing start

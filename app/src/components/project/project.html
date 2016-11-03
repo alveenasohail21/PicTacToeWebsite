@@ -19,7 +19,7 @@
                 <p>modified</p>
                 <p>{{project.updated_at}}</p>
             </div>
-            <div class="project-delete">
+            <div class="project-delete" ng-if="project.status!=='Ordered'">
                 <img ng-click="deleteProjects(project._id)" src="svg/gray-delete.svg" alt="">
             </div>
         </div>

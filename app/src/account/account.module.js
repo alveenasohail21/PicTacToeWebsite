@@ -20,7 +20,14 @@
     $stateProvider
         .state('Account', {
           url: '/account',
-          abstract: true
+          abstract: true,
+          // resolve:{
+          //   userHeader: function ($rootScope) {
+          //     $rootScope.userHeader=true;
+          //     console.log($rootScope.userHeader);
+          //
+          //   }
+          // }
         })
 
         .state('Account.Projects',{
