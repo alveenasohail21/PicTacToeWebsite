@@ -4,7 +4,7 @@
     <div class="cart-loader-div" ng-class="{'hide-loader': $root.hideCartLoader}">
         <img src="svg/ptt-loader.svg" class="directive-loader" >
     </div>
-    <li class="triangle"></li>
+<li class="triangle"></li>
     <li class="project-info text-left bold"><span class="theme-pink">{{$root.cartProjects.length}} Projects</span> available in your cart</li>
     <li  class="project-items" ng-repeat="project in $root.cartProjects">
         <cart-project-directive ng-if="$root.cartProjects.length>0" project="project"></cart-project-directive>

@@ -18,7 +18,7 @@
       .directive('projectDirective', projectDirective);
 
   /* @ngInject */
-  function projectDirective(projectsFactory, toolFactory, $timeout, alertFactory){
+  function projectDirective(projectsFactory, toolFactory, $timeout, alertFactory, $rootScope){
 
     const DefaultUrl="svg/logo-icon.svg";
     const DefaultDimension = "800x800";
@@ -61,7 +61,11 @@
 
       function deleteProjects(id) {
         //delete a project
+        if(scope.project.photos){
+          $rootScope.cartProjectsLength--;
+        }
         projectsFactory.deleteProjects(id);
+
       }
 
       function updateProject(id) {

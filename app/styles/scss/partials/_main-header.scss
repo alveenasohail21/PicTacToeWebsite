@@ -171,6 +171,26 @@
                 height: 27px;
                 cursor: pointer;
               }
+              .badge-custom-header{
+                position: absolute;
+                top: -3px;
+                right: -6px;
+                z-index: 1000;
+                border-radius: 100%;
+                /* padding: 13px 18px; */
+                font-size: 9px;
+                text-align: center;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                padding-top: 3px;
+                background-color: #dd94b1;
+                font-family: Font_Open_Sans_Bold;
+                border-width: 1px;
+                border-color: white;
+                border-style: solid;
+              }
+
               &.dropdown{
 
                 .dropdown-menu{

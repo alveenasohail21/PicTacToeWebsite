@@ -33,6 +33,11 @@
       $rootScope.currentState = toState.name;
       $rootScope.footer = toState.footer || false;
       $rootScope.showUserHeader = $rootScope.currentState.match("Account") !== null;
+
+      cartFactory.getCartProjects().then(function (response) {
+        $rootScope.cartProjectsLength=response.data.length;
+      });
+
     });
 
     //on routing start

@@ -31,11 +31,9 @@
 
       // remove the event if hides
         $('#loginModal').on('hidden.bs.modal', function(){
-          console.log('off');
           eventChannel.off('login');
         });
         $('#signupModal').on('hidden.bs.modal', function(){
-          console.log('off');
           eventChannel.off('login');
         });
 

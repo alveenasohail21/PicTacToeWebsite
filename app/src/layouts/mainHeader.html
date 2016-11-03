@@ -79,6 +79,7 @@
                     <li ng-if="user" class="dropdown cart" >
 
                         <img src="/svg/cart.svg" alt="" class="cart-include dropdown-toggle" data-toggle="dropdown" ng-click="$root.triggerGetProjects()" >
+                        <span class="badge badge-custom-header">{{$root.cartProjectsLength}}</span>
                         <ul class="dropdown-menu" ng-include="'src/layouts/modals/cart-modal.html'"></ul>
                     </li>
 
