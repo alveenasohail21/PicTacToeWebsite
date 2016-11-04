@@ -160,13 +160,14 @@
                         }
                     },
                     resolve:{
-                        checkToken: function (authFactory, $stateParams, $state, $rootScope) {
+                        checkToken: function (authFactory, $stateParams, $state, $rootScope, alertFactory) {
                             authFactory.checkToken($stateParams.id).then(function (response) {
-                                if(response.code==200){
+                                if(response.success==true){
                                     $rootScope.token=$stateParams.id;
                                     $('#resetModal').modal('show');
                                 }
                                 else{
+
                                     $state.go('Landing');
                                 }
                             })

@@ -34,7 +34,6 @@
                     if(resp.data.success){
                         // remove the token saved by $auth, as its throwing 'Uncaught Syntax error'
                         $auth.removeToken();
-                        console.log(resp.data);
                         $localStorage.token = resp.data.token;
                         Restangular.setDefaultHeaders({'token': 'Bearer {'+ $localStorage.token +'}'});
                         userFactory.createUserInLocal(resp.data.data);
@@ -211,11 +210,13 @@
                         alertFactory.error(null,resp.message);
                         deffered.reject(resp);
                         $rootScope.token=null;
+                        $state.go('Landing');
                     }
                 }, function(err){
                     alertFactory.error(null,err.data.message);
                     deffered.reject(err);
                     $rootScope.token=null;
+                    $state.go('Landing');
                 });
             return deffered.promise;
         }
