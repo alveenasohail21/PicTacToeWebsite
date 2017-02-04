@@ -13,7 +13,7 @@
 		.controller('ProjectCtrl', ProjectCtrl);
 
 	/* @ngInject */
-	function ProjectCtrl(projectsFactory, toolFactory){
+	function ProjectCtrl(projectsFactory, toolFactory, alertFactory){
 		var vm = this;
 
 		/*variable assignment*/
